@@ -5,10 +5,6 @@
 
 class Beer
 {
-public:
-
-    Beer();
-
 private:
 
     QString name;
@@ -16,6 +12,11 @@ private:
     float IBU;
     float density;
     float color;
+
+public:
+
+    Beer();
+
 
 
 };

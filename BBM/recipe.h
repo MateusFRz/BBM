@@ -8,15 +8,16 @@ class Recipe
 {
 const static int maxIngredient = 5;
 
-public:
-
-    Recipe();
-
 private:
 
     QString name;
     float preperationTime;
     Ingredient ingredient[maxIngredient];
+
+public:
+
+    Recipe();
+
 
 };
 
