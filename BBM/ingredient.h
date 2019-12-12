@@ -17,22 +17,10 @@ public:
     Ingredient(QString ingredientName, Type ingredientType);
     Ingredient(QString ingredientName, QString stringType);
 
-    void setName(QString ingredientName){
-        name = ingredientName;
-    }
-
-    QString getName() {
-        return name;
-    }
-
-    void setType(Type ingredientType){
-        type = ingredientType;
-    }
-
-    void setTypeQString(QString stringType) {
-        type = convertQStringToType(stringType);
-
-    }
+    void setName(QString ingredientName);
+    QString getName();
+    void setType(Type ingredientType);
+    void setTypeQString(QString stringType);
 
 
 };

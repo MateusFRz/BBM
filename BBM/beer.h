@@ -18,47 +18,16 @@ public:
     Beer();
     Beer(QString beerName, float beerAlcoholLevels, float beerIBU, float beerDensity, float beerColor);
 
-    void setName(QString ingredientName){
-        name = ingredientName;
-    }
-
-    QString getName() {
-        return name;
-    }
-
-    void setAlcoholLevels(float beerAlcoholLevels) {
-        alcoholLevels = beerAlcoholLevels;
-    }
-
-    float getAlcoholLevels() {
-        return alcoholLevels;
-    }
-
-    void setIBU(float beerIBU) {
-        IBU = beerIBU;
-    }
-
-    float getIBU() {
-        return IBU;
-    }
-
-    void setDensity(float beerDensity) {
-        density = beerDensity;
-    }
-
-    float getDensity() {
-        return density;
-    }
-
-    void setColor(float beerColor) {
-        color = beerColor;
-    }
-
-    float getColor() {
-        return color;
-    }
-
-
+    void setName(QString ingredientName);
+    QString getName();
+    void setAlcoholLevels(float beerAlcoholLevels);
+    float getAlcoholLevels();
+    void setIBU(float beerIBU);
+    float getIBU();
+    void setDensity(float beerDensity);
+    float getDensity();
+    void setColor(float beerColor);
+    float getColor();
 
 };
 

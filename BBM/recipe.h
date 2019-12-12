@@ -20,30 +20,12 @@ public:
     Recipe();
     Recipe(QString recipeName, float recipePreparationTime, vector<Ingredient> recipeListIngredient);
 
-    void setName(QString ingredientName){
-        name = ingredientName;
-    }
-
-    QString getName() {
-        return name;
-    }
-
-    void setPreparationTime (float recipePreparationTime) {
-        preperationTime = recipePreparationTime;
-    }
-
-    float getPreparationTime () {
-        return preperationTime;
-    }
-
-    void setListIngredient (vector<Ingredient> recipeListIngredient) {
-        listIngredient = recipeListIngredient;
-    }
-
-    vector<Ingredient> getListIngredient () {
-        return listIngredient;
-    }
-
+    void setName(QString ingredientName);
+    QString getName();
+    void setPreparationTime (float recipePreparationTime);
+    float getPreparationTime ();
+    void setListIngredient (vector<Ingredient> recipeListIngredient);
+    vector<Ingredient> getListIngredient ();
 
 };
 
