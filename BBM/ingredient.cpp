@@ -7,23 +7,5 @@ Ingredient::Ingredient(QString ingredientName, Type ingredientType) : name(ingre
 }
 
 Ingredient::Ingredient(QString ingredientName, QString stringType) : name(ingredientName){
-   // setTypeQString(stringType);
+   setTypeQString(stringType);
 }
-/*
-void setName(QString ingredientName){
-    name = ingredientName;
-}
-
-QString getName() {
-    return name;
-}
-
-void setType(Type ingredientType){
-    type = ingredientType;
-}
-
-void setTypeQString(QString stringType) {
-    type = convertQStringToType(stringType);
-
-}
-*/

@@ -3,20 +3,46 @@
 
 #include <QObject>
 #include "ingredient.h"
+#include "vector"
+using namespace std;
 
 class Recipe
 {
-const static int maxIngredient = 5;
 
 private:
 
     QString name;
     float preperationTime;
-    Ingredient ingredient[maxIngredient];
+    vector<Ingredient> listIngredient;
 
 public:
 
     Recipe();
+    Recipe(QString recipeName, float recipePreparationTime, vector<Ingredient> recipeListIngredient);
+
+    void setName(QString ingredientName){
+        name = ingredientName;
+    }
+
+    QString getName() {
+        return name;
+    }
+
+    void setPreparationTime (float recipePreparationTime) {
+        preperationTime = recipePreparationTime;
+    }
+
+    float getPreparationTime () {
+        return preperationTime;
+    }
+
+    void setListIngredient (vector<Ingredient> recipeListIngredient) {
+        listIngredient = recipeListIngredient;
+    }
+
+    vector<Ingredient> getListIngredient () {
+        return listIngredient;
+    }
 
 
 };

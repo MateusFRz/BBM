@@ -17,9 +17,11 @@ SOURCES += \
         beer.cpp \
         ingredient.cpp \
         main.cpp \
-        recipe.cpp
+        recipe.cpp \
 
-RESOURCES += qml.qrc
+
+RESOURCES += qml.qrc \
+    qml.qrc
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
 QML_IMPORT_PATH =
@@ -36,4 +38,7 @@ HEADERS += \
     Type.h \
     beer.h \
     ingredient.h \
-    recipe.h
+    recipe.h \
+
+DISTFILES += \
+    main.qml
