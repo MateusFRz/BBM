@@ -9,5 +9,4 @@ enum class Type {
     BLE,
 };
 
-
 #endif // TYPE_H

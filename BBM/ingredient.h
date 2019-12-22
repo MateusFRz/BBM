@@ -6,23 +6,24 @@
 
 class Ingredient
 {
-public:
-
-    Ingredient();
-    Ingredient(QString ingredientName, Type ingredientType);
-    QString setName(QString name);
-    Type setType(Type type);
-
-
 private:
 
     QString name;
     Type type;
+
+public:
+
+    Ingredient();
+    Ingredient(QString ingredientName, Type ingredientType);
+    Ingredient(QString ingredientName, QString stringType);
+
+    void setName(QString ingredientName);
+    QString getName();
+    void setType(Type ingredientType);
+    void setTypeQString(QString stringType);
+
+
 };
-/*
-void setName(QString newName){
-     this-> = newName;
-}
-*/
+
 
 #endif // INGREDIENT_H

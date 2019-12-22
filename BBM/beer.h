@@ -5,10 +5,6 @@
 
 class Beer
 {
-public:
-
-    Beer();
-
 private:
 
     QString name;
@@ -17,6 +13,21 @@ private:
     float density;
     float color;
 
+public:
+
+    Beer();
+    Beer(QString beerName, float beerAlcoholLevels, float beerIBU, float beerDensity, float beerColor);
+
+    void setName(QString ingredientName);
+    QString getName();
+    void setAlcoholLevels(float beerAlcoholLevels);
+    float getAlcoholLevels();
+    void setIBU(float beerIBU);
+    float getIBU();
+    void setDensity(float beerDensity);
+    float getDensity();
+    void setColor(float beerColor);
+    float getColor();
 
 };
 
