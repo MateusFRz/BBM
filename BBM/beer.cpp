@@ -1,9 +1,6 @@
 #include "beer.h"
 
-Beer::Beer() : name("unamed"){
-}
-
-Beer::Beer(QString beerName, float beerAlcoholLevels, float beerIBU, float beerDensity, float beerColor) : name(beerName), alcoholLevels(beerAlcoholLevels), IBU(beerIBU), density(beerDensity), color(beerColor){
+Beer::Beer(QString beerName, int beerAlcoholLevels, int beerIBU, int beerDensity, int beerColor) : name(beerName), alcoholLevels(beerAlcoholLevels), IBU(beerIBU), density(beerDensity), color(beerColor){
 }
 
 void Beer::setName(QString ingredientName){
@@ -14,34 +11,34 @@ QString Beer::getName() {
     return name;
 }
 
-void Beer::setAlcoholLevels(float beerAlcoholLevels) {
+void Beer::setAlcoholLevels(int beerAlcoholLevels) {
     alcoholLevels = beerAlcoholLevels;
 }
 
-float Beer::getAlcoholLevels() {
+int Beer::getAlcoholLevels() {
     return alcoholLevels;
 }
 
-void Beer::setIBU(float beerIBU) {
+void Beer::setIBU(int beerIBU) {
     IBU = beerIBU;
 }
 
-float Beer::getIBU() {
+int Beer::getIBU() {
     return IBU;
 }
 
-void Beer::setDensity(float beerDensity) {
+void Beer::setDensity(int beerDensity) {
     density = beerDensity;
 }
 
-float Beer::getDensity() {
+int Beer::getDensity() {
     return density;
 }
 
-void Beer::setColor(float beerColor) {
+void Beer::setColor(int beerColor) {
     color = beerColor;
 }
 
-float Beer::getColor() {
+int Beer::getColor() {
     return color;
 }

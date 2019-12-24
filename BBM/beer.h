@@ -3,31 +3,32 @@
 
 #include <QObject>
 
-class Beer
+class Beer : public QObject
 {
+    Q_OBJECT
+
 private:
 
     QString name;
-    float alcoholLevels;
-    float IBU;
-    float density;
-    float color;
+    int alcoholLevels;
+    int IBU;
+    int density;
+    int color;
 
 public:
 
-    Beer();
-    Beer(QString beerName, float beerAlcoholLevels, float beerIBU, float beerDensity, float beerColor);
+    Beer(QString beerName, int beerAlcoholLevels, int beerIBU, int beerDensity, int beerColor);
 
     void setName(QString ingredientName);
     QString getName();
-    void setAlcoholLevels(float beerAlcoholLevels);
-    float getAlcoholLevels();
-    void setIBU(float beerIBU);
-    float getIBU();
-    void setDensity(float beerDensity);
-    float getDensity();
-    void setColor(float beerColor);
-    float getColor();
+    void setAlcoholLevels(int beerAlcoholLevels);
+    int getAlcoholLevels();
+    void setIBU(int beerIBU);
+    int getIBU();
+    void setDensity(int beerDensity);
+    int getDensity();
+    void setColor(int beerColor);
+    int getColor();
 
 };
 

@@ -6,7 +6,7 @@
 enum class Type {
     NOTHING,
     HOUBLON,
-    BLE,
+    BLE
 };
 
 #endif // TYPE_H
