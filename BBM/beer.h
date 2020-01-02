@@ -2,6 +2,7 @@
 #define BEER_H
 
 #include <QObject>
+#include "beertype.h"
 
 class Beer : public QObject
 {
@@ -14,6 +15,7 @@ private:
     int IBU;
     int density;
     int color;
+    BeerType type;
 
 public:
 
@@ -29,6 +31,9 @@ public:
     int getDensity();
     void setColor(int beerColor);
     int getColor();
+    void setBeerType(BeerType beerBeerType);
+    void setBeerTypeQString(QString stringBeerType);
+    BeerType getBeerType();
 
 };
 

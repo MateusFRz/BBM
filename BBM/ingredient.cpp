@@ -29,3 +29,7 @@ void Ingredient::setTypeQString(QString stringType) {
     else type = Type::NOTHING;
 
 }
+
+Type Ingredient::getType(){
+    return type;
+}

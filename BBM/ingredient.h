@@ -21,6 +21,7 @@ public:
     QString getName();
     void setType(Type ingredientType);
     void setTypeQString(QString stringType);
+    Type getType();
 
 
 };

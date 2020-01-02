@@ -18,6 +18,8 @@ SOURCES += \
         ingredient.cpp \
         main.cpp \
         recipe.cpp \
+    bar.cpp \
+    game.cpp
 
 
 RESOURCES += qml.qrc \
@@ -39,6 +41,9 @@ HEADERS += \
     beer.h \
     ingredient.h \
     recipe.h \
+    bar.h \
+    game.h \
+    beertype.h
 
 DISTFILES += \
     main.qml
