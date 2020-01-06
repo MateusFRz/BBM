@@ -37,13 +37,13 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
-    Type.h \
     beer.h \
     ingredient.h \
     recipe.h \
     bar.h \
     game.h \
-    beertype.h
+    beertype.h \
+    type.h
 
 DISTFILES += \
     main.qml

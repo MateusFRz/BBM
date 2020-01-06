@@ -2,7 +2,7 @@
 #define INGREDIENT_H
 
 #include <QObject>
-#include "Type.h"
+#include "type.h"
 
 class Ingredient
 {
