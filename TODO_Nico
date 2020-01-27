@@ -1,0 +1,11 @@
+- Catalogue 
+	-Brasserie 
+	-Biere de base
+
+- Boucle de temps dans le bar
+
+- Coder l'algo de création de bière
+	- Classe createBeer
+	- Classes en amont 
+
+- Main qui créer un bar avec un nom, un emplacement (enum),  
