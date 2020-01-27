@@ -16,10 +16,11 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     game/game.cpp \
         main.cpp \
-    model/bar.cpp \
-    model/beer.cpp \
-    model/ingredient.cpp \
-    model/recipe.cpp \
+    metier/bar.cpp \
+    metier/beer.cpp \
+    metier/ingredient.cpp \
+    metier/order.cpp \
+    metier/recipe.cpp \
 
 
 RESOURCES += \
@@ -38,12 +39,13 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 HEADERS += \
     game/header/game.h \
-    model/header/bar.h \
-    model/header/beer.h \
-    model/header/beertype.h \
-    model/header/ingredient.h \
-    model/header/recipe.h \
-    model/header/type.h \
+    metier/header/bar.h \
+    metier/header/beer.h \
+    metier/header/beertype.h \
+    metier/header/ingredient.h \
+    metier/header/order.h \
+    metier/header/recipe.h \
+    metier/header/type.h \
 
 DISTFILES += \
     qml/main.qml
