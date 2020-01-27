@@ -1,4 +1,4 @@
-#include "ingredient.h"
+#include "header/ingredient.h"
 
 Ingredient::Ingredient() : name("unamed"), type(Type::NOTHING){
 }

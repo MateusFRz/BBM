@@ -1,6 +1,6 @@
 //#include <QGuiApplication>
 //#include <QQmlApplicationEngine>
-#include "game.h"
+#include "game/header/game.h"
 
 int main(int argc, char *argv[])
 {

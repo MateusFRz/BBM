@@ -1,4 +1,4 @@
-#include "bar.h"
+#include "header/bar.h"
 
 Bar::Bar(QString barName, int barWallet) : name(barName), wallet(barWallet)
 {

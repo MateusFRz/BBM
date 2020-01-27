@@ -14,16 +14,16 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-        beer.cpp \
-        ingredient.cpp \
+    game/game.cpp \
         main.cpp \
-        recipe.cpp \
-    bar.cpp \
-    game.cpp
+    model/bar.cpp \
+    model/beer.cpp \
+    model/ingredient.cpp \
+    model/recipe.cpp \
 
 
-RESOURCES += qml.qrc \
-    qml.qrc
+RESOURCES += \
+    qml/qml.qrc
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
 QML_IMPORT_PATH =
@@ -37,13 +37,13 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
-    beer.h \
-    ingredient.h \
-    recipe.h \
-    bar.h \
-    game.h \
-    beertype.h \
-    type.h
+    game/header/game.h \
+    model/header/bar.h \
+    model/header/beer.h \
+    model/header/beertype.h \
+    model/header/ingredient.h \
+    model/header/recipe.h \
+    model/header/type.h \
 
 DISTFILES += \
-    main.qml
+    qml/main.qml

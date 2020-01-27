@@ -1,4 +1,4 @@
-#include "beer.h"
+#include "header/beer.h"
 
 Beer::Beer(QString beerName, int beerAlcoholLevels, int beerIBU, int beerDensity, int beerColor) : name(beerName), alcoholLevels(beerAlcoholLevels), IBU(beerIBU), density(beerDensity), color(beerColor){
 }
