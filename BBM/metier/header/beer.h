@@ -2,7 +2,8 @@
 #define BEER_H
 
 #include <QObject>
-#include "beertype.h"
+#include "enumeration/beertype.h"
+#include "enumeration/enumtool.cpp"
 
 class Beer : public QObject
 {

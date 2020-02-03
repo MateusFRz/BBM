@@ -8,4 +8,7 @@
 	- Classe createBeer
 	- Classes en amont 
 
-- Main qui créer un bar avec un nom, un emplacement (enum),  
+- Main qui créer un bar avec un nom, un emplacement (enum), 
+
+
+- enum a transformer PLUS TARD en QString ou QPROPERTY

@@ -47,12 +47,9 @@ void Beer::setBeerType(BeerType beerBeerType){
     type = beerBeerType;
 }
 
-void Beer:: setBeerTypeQString(QString stringBeerType) {
+void Beer::setBeerTypeQString(QString stringBeerType) {
 
-    if (stringBeerType=="BLONDE") type = BeerType::BLONDE;
-    else if (stringBeerType=="BRUNE") type = BeerType::BRUNE;
-    else if (stringBeerType=="ROUSSELOL") type = BeerType::ROUSSELOL;
-    else type = BeerType::NOTHING;
+    type = QStringToBeerType(stringBeerType);
 }
 
 BeerType Beer::getBeerType(){

@@ -2,26 +2,27 @@
 #define INGREDIENT_H
 
 #include <QObject>
-#include "type.h"
+#include "enumeration/ingredienttype.h"
+#include "enumeration/enumtool.cpp"
 
 class Ingredient
 {
 private:
 
     QString name;
-    Type type;
+    IngredientType type;
 
 public:
 
     Ingredient();
-    Ingredient(QString ingredientName, Type ingredientType);
+    Ingredient(QString ingredientName, IngredientType ingredientType);
     Ingredient(QString ingredientName, QString stringType);
 
     void setName(QString ingredientName);
     QString getName();
-    void setType(Type ingredientType);
+    void setType(IngredientType ingredientType);
     void setTypeQString(QString stringType);
-    Type getType();
+    IngredientType getType();
 
 
 };

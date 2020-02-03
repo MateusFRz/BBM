@@ -1,23 +1,59 @@
 #include "header/bar.h"
 
-Bar::Bar(QString barName, int barWallet) : name(barName), wallet(barWallet)
+Bar::Bar(QString barName, int barWallet) : m_barName(barName), m_wallet(barWallet)
 {
 
 }
 
-void Bar::setName(QString barName){
-    name = barName;
+
+int Bar::popularity() const
+{
+    return m_popularity;
 }
 
-QString Bar::getName() {
-    return name;
+QString Bar::name() const
+{
+    return m_barName;
 }
 
-void Bar::setWallet(int barWallet) {
-    wallet = barWallet;
+int Bar::wallet() const
+{
+    return  m_wallet;
 }
 
-int Bar::getWallet() {
-    return wallet;
+void Bar::setPopularity(int popularity)
+{
+    if (m_popularity == popularity)
+        return;
+
+    m_popularity = popularity;
+    emit popularityChanged(m_popularity);
 }
 
+void Bar::setName(QString name)
+{
+    if (m_barName == name)
+        return;
+
+    m_barName = name;
+    emit nameChanged(m_barName);
+}
+
+void Bar::setWallet(int wallet)
+{
+    if (m_wallet == wallet)
+        return;
+
+    m_wallet = wallet;
+    emit walletChanged(m_wallet);
+}
+
+void Bar::setAdress(BarAddress barAddress)
+{
+    address = barAddress;
+}
+
+void Bar::setAddressQString(QString stringAddress)
+{
+    address = QStringToBarAddress(stringAddress);
+}

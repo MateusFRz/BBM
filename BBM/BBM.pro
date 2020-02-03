@@ -13,6 +13,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
+QMAKE_CXXFLAGS += -Wno-unused-function
+
 SOURCES += \
     game/game.cpp \
         main.cpp \
@@ -21,12 +23,13 @@ SOURCES += \
     metier/ingredient.cpp \
     metier/order.cpp \
     metier/recipe.cpp \
+    metier/header/enumeration/enumtool.cpp
 
 
 RESOURCES += \
     qml/qml.qrc
 
-# Additional import path used to resolve QML modules in Qt Creator's code model
+# Additional import path used to resolve QML modules in Qt Creators code model
 QML_IMPORT_PATH =
 
 # Additional import path used to resolve QML modules just for Qt Quick Designer
@@ -41,11 +44,12 @@ HEADERS += \
     game/header/game.h \
     metier/header/bar.h \
     metier/header/beer.h \
-    metier/header/beertype.h \
     metier/header/ingredient.h \
     metier/header/order.h \
     metier/header/recipe.h \
-    metier/header/type.h \
+    metier/header/enumeration/beertype.h \
+    metier/header/enumeration/baraddress.h \
+    metier/header/enumeration/ingredienttype.h
 
 DISTFILES += \
     qml/main.qml

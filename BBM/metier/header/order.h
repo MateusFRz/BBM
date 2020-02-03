@@ -7,7 +7,9 @@ class Order : public QObject
 {
     Q_OBJECT
 public:
-    explicit Order(QObject *parent = nullptr);
+    explicit Order();
+    
+    
 
 signals:
 
