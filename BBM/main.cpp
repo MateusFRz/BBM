@@ -1,11 +1,17 @@
 //#include <QGuiApplication>
 //#include <QQmlApplicationEngine>
 #include "game/header/game.h"
+#include <iostream>
+#include <QRandomGenerator>
 
 int main(int argc, char *argv[])
 {
+
+    //std::cout << QRandomGenerator(0, 10).generate() << std::endl;
+
     Game game;
     game.init(argc, argv);
+
 
     return 0;
 

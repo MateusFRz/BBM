@@ -1,4 +1,7 @@
 #include "header/game.h"
+#include "game/header/keyboardevent.h"
+
+#include <QQmlContext>
 
 Game::Game()
 {
@@ -17,6 +20,7 @@ void Game::init(int argc, char *argv[])
 
 int Game::lauchApp(int argc, char *argv[])
 {
+
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
     QGuiApplication app(argc, argv);
@@ -29,6 +33,10 @@ int Game::lauchApp(int argc, char *argv[])
             QCoreApplication::exit(-1);
     }, Qt::QueuedConnection);
     engine.load(url);
+
+   QQmlContext *context = new QQmlContext(engine.rootContext());
+   KeyboardEvent *event = new KeyboardEvent;
+   context->setContextProperty("keyEventTYP", event);
 
     return app.exec();
 }

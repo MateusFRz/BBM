@@ -1,4 +1,5 @@
-QT += quick
+QT += quick \
+    widgets
 
 CONFIG += c++11
 
@@ -14,12 +15,14 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    game/event/keyboardevent.cpp \
     game/game.cpp \
         main.cpp \
     metier/bar.cpp \
     metier/beer.cpp \
     metier/ingredient.cpp \
     metier/order.cpp \
+    metier/ordergenerator.cpp \
     metier/recipe.cpp \
 
 
@@ -39,11 +42,13 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 HEADERS += \
     game/header/game.h \
+    game/header/keyboardevent.h \
     metier/header/bar.h \
     metier/header/beer.h \
     metier/header/beertype.h \
     metier/header/ingredient.h \
     metier/header/order.h \
+    metier/header/ordergenerator.h \
     metier/header/recipe.h \
     metier/header/type.h \
 
