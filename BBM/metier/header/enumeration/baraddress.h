@@ -4,10 +4,10 @@
 #include <QObject>
 
 enum class BarAddress {
+    NOTHING,
     CENTREVILLE,
     QUARTIER,
-    PLACE,
-    NOTHING
+    PLACE
 };
 
 #endif // BARADDRESS_H
