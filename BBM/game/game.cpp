@@ -12,6 +12,12 @@ Game::~Game()
 
 }
 
+Game::Game(QString gameName, QString barAddress) : m_name(gameName)
+{
+    gameBar.setName(gameName);
+    gameBar.setAddressQString(barAddress);
+}
+
 void Game::init(int argc, char *argv[])
 {
     test();

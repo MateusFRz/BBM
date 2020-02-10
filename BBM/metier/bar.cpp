@@ -8,6 +8,11 @@ Bar::Bar(QString barName, QString barAddress) : m_barName(barName), m_wallet(0),
 
 }
 
+Bar::Bar()
+{
+
+}
+
 int Bar::popularity() const
 {
     return m_popularity;

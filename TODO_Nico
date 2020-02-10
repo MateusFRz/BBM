@@ -12,3 +12,5 @@
 - Attendre le notebook :
 		- enum a transformer PLUS TARD en QString ou QPROPERTY
 		- Voir avec alban -> faire toutes les Q_PROPERTY utiles
+
+- Finir GameModel

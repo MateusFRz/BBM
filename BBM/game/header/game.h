@@ -4,6 +4,8 @@
 #include <QObject>
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
+#include "metier/header/bar.h"
+#include "metier/header/brewery.h"
 
 class Game : public QObject
 {
@@ -12,6 +14,7 @@ class Game : public QObject
 public:
     Game();
     ~Game();
+    Game(QString gameName, QString barAddress);
 
     void init(int argc, char *argv[]);
 
@@ -31,8 +34,11 @@ public slots:
 void setName(QString name);
 
 private:
-bool isRunning;
-QString m_name;
+
+    bool isRunning;
+    QString m_name;
+    Bar gameBar;
+    Brewery gameBrewery;
 };
 
 #endif // GAME_H
