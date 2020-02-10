@@ -1,4 +1,4 @@
-- Catalogue 
+- Catalogue(Alban) 
 	-Brasserie 
 	-Biere de base
 
@@ -6,9 +6,9 @@
 
 - Coder l'algo de création de bière
 	- Classe createBeer
-	- Classes en amont 
-
-- Main qui créer un bar avec un nom, un emplacement (enum), 
+	- Classes en amont  
 
 
-- enum a transformer PLUS TARD en QString ou QPROPERTY
+- Attendre le notebook :
+		- enum a transformer PLUS TARD en QString ou QPROPERTY
+		- Voir avec alban -> faire toutes les Q_PROPERTY utiles

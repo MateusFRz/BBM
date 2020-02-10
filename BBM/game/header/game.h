@@ -8,22 +8,31 @@
 class Game : public QObject
 {
     Q_OBJECT
+    Q_PROPERTY(QString name READ name WRITE setName NOTIFY nameChanged)
 public:
     Game();
     ~Game();
 
     void init(int argc, char *argv[]);
 
-    int lauchApp(int argc, char *argv[]);
+    int launchViewApp(int argc, char *argv[]);
+
+    void test();
 
 
+    QString name() const;
 
 signals:
 
+    void nameChanged(QString name);
+
 public slots:
 
+void setName(QString name);
+
 private:
-    bool isRunning;
+bool isRunning;
+QString m_name;
 };
 
 #endif // GAME_H

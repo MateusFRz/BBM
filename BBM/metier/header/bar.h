@@ -12,12 +12,13 @@ class Bar : public QObject
     Q_PROPERTY(int wallet READ wallet WRITE setWallet NOTIFY walletChanged)
     Q_PROPERTY(int popularity READ popularity WRITE setPopularity NOTIFY popularityChanged)
 public:
-    explicit Bar(QString barName, int barWallet);
+    explicit Bar(QString barName, QString barAddress);
 
     int popularity() const;
     QString name() const;
     int wallet() const;
     BarAddress address;
+    QString getAddress();
 
 
 signals:

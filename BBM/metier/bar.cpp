@@ -1,10 +1,12 @@
 #include "header/bar.h"
 
-Bar::Bar(QString barName, int barWallet) : m_barName(barName), m_wallet(barWallet)
+
+
+Bar::Bar(QString barName, QString barAddress) : m_barName(barName), m_wallet(0), m_popularity(0)
 {
+    setAddressQString(barAddress);
 
 }
-
 
 int Bar::popularity() const
 {
@@ -19,6 +21,11 @@ QString Bar::name() const
 int Bar::wallet() const
 {
     return  m_wallet;
+}
+
+QString Bar::getAddress()
+{
+    return barAddressToQString(address);
 }
 
 void Bar::setPopularity(int popularity)
