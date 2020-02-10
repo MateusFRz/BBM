@@ -21,7 +21,7 @@ QVariant BiereModel::data(const QModelIndex &index, int role) const{
         return QVariant();
 
     Biere * biere = m_bieres[index.row()];;
-    qDebug() << "__"  << index.row();
+    qDebug() << "__"  << index.row() << "  role => " << role;
 
     switch (role) {
     case NameRole:
@@ -32,7 +32,10 @@ QVariant BiereModel::data(const QModelIndex &index, int role) const{
         return biere->vol();
     case DensiteRole:
         return biere->densite();
+    case Qt::DisplayRole:
+        return QVariant::fromValue(biere);
     }
+    throw "bug";
     return QVariant();
 
 
@@ -104,3 +107,4 @@ QHash<int, QByteArray> BiereModel::roleNames() const
     return roles;
 
 }
+

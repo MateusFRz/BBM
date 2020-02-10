@@ -13,16 +13,16 @@ ApplicationWindow {
     title: qsTr("NoteBook")
 
     Item {
-            id: size
-            property var ht: parent.height/5
-            property var ht2: 25
-            property var wd: parent.width/4
-            property var wd2: 100
-            property var labelWd: 25
-            property var txtInLgt: 20
-            property var master: 100
+        id: size
+        property var ht: parent.height/5
+        property var ht2: 25
+        property var wd: parent.width/4
+        property var wd2: 100
+        property var labelWd: 25
+        property var txtInLgt: 20
+        property var master: 100
 
-        }
+    }
     Item{
         id:str
         property string name: "<b> Name: </b>"
@@ -36,11 +36,13 @@ ApplicationWindow {
 
     Item{
         id: mydata
-        property var name:"b" //myModel.get(list.currentIndex).name
-        property var type: "b" //myModel.get(list.currentIndex).type
-        property var densite:"b" //myModel.get(list.currentIndex).dens
-        property var volume: "8" //myModel.get(list.currentIndex).vol /10
-        property var volumeInt: "80" //myModel.get(list.currentIndex).vol
+        property  var beer: modelBeer.data(list.currentIndex)
+        property var name: qsTr("%1").arg(modelBeer.data(list.currentIndex,0))//myModel.get(list.currentIndex).name
+        //property var type: qsTr("%1").arg(modelBeer.data(list.currentIndex,1)) //myModel.get(list.currentIndex).type
+        property var type: modelBeer.data(list.currentIndex,1)
+        property var densite: ""//myModel.get(list.currentIndex).dens
+        property var volume: "" //myModel.get(list.currentIndex).vol /10
+        property var volumeInt: "" //myModel.get(list.currentIndex).vol
     }
 
     Rectangle{
@@ -71,23 +73,24 @@ ApplicationWindow {
 
                 delegate: ItemDelegate {
                     Text {
-                       text: name
+                        text: name
 
                     }
 
+
                     MouseArea {
-                                    anchors.fill: parent
-                                    onClicked: list.currentIndex = index
-                                }
+                        anchors.fill: parent
+                        onClicked: list.currentIndex = index
+                    }
 
                 }
                 clip: true
                 focus: true
 
+            }
+
+
         }
-
-
-    }
         Button{
             anchors.right: parent.right; anchors.bottom: parent.bottom;
             id: bpAdd
@@ -99,35 +102,35 @@ ApplicationWindow {
             }
         }
 
-    TabBar{
-        id: mybar
-        height: 42
-        anchors.leftMargin: 0
-        anchors.topMargin: 0
-        anchors.rightMargin: -540
-        anchors.top: parent.top
-        anchors.left: master.right
-        anchors.right: parent.right
+        TabBar{
+            id: mybar
+            height: 42
+            anchors.leftMargin: 0
+            anchors.topMargin: 0
+            anchors.rightMargin: -540
+            anchors.top: parent.top
+            anchors.left: master.right
+            anchors.right: parent.right
 
 
-        TabButton {
-            text: qsTr("Home")
+            TabButton {
+                text: qsTr("Home")
+            }
+
+            TabButton {
+                text: qsTr("Editor")
+            }
         }
 
-        TabButton {
-            text: qsTr("Editor")
-        }
-    }
+        StackLayout {
+            currentIndex: mybar.currentIndex
+            anchors.left: master.right
+            anchors.right: parent.right
+            anchors.top: mybar.bottom
+            anchors.bottom: parent.bottom
 
-    StackLayout {
-        currentIndex: mybar.currentIndex
-        anchors.left: master.right
-        anchors.right: parent.right
-        anchors.top: mybar.bottom
-        anchors.bottom: parent.bottom
-
-        Item {
-            id: homeTab
+            Item {
+                id: homeTab
 
                 Grid{
 
@@ -145,86 +148,93 @@ ApplicationWindow {
                     antialiasing: true
 
 
-                            RowLayout{
-                                height: size.ht
-                                width: size.wd
-                                Label{
-                                    width: size.labelWd
-                                    id: labelName
-                                    objectName: "labelName"
-                                    text: str.name
-                                }
+                    RowLayout{
+                        height: size.ht
+                        width: size.wd
+                        Label{
+                            width: size.labelWd
+                            id: labelName
+                            objectName: "labelName"
+                            text: str.name
+                        }
 
-                                Text {
-                                    id: name
-                                    objectName: "name"
-                                    text:mydata.name
-                                }
+                        Text {
+                            id: name
+                            objectName: "name"
+                            //text:mydata.name
+                            text: mydata.beer.name
+                            Component.onCompleted: {
+                                console.log("=====> ")
+                                console.log(list.currentIndex)
+                                console.log(mydatssa.beer)
+                                console.log( modelBeer.data(0).name )
                             }
+                        }
+                    }
 
-                            RowLayout{
+                    RowLayout{
 
-                                height: size.ht
-                                width: size.wd
+                        height: size.ht
+                        width: size.wd
 
-                                Label{
-                                    width: size.labelWd
-                                    id: labelVol
-                                    objectName: "labelVol"
-                                    text: str.vol
-                                }
+                        Label{
+                            width: size.labelWd
+                            id: labelVol
+                            objectName: "labelVol"
+                            text: str.vol
+                        }
 
-                                Text {
-                                    id: vol
-                                    objectName: "vol"
-                                    text: mydata.volume
+                        Text {
+                            id: vol
+                            objectName: "vol"
+                            text: mydata.volume
 
-                                }
+                        }
 
-                            }
+                    }
 
-                            RowLayout{
+                    RowLayout{
 
-                                height: size.ht
-                                width: size.wd
+                        height: size.ht
+                        width: size.wd
 
-                                Label{
-                                    width: size.labelWd
-                                    id: labelType
-                                    objectName: "labelType"
-                                    text: str.type
-                                }
+                        Label{
+                            width: size.labelWd
+                            id: labelType
+                            objectName: "labelType"
+                            text: str.type
+                        }
 
-                                Text {
-                                    id: type
-                                    objectName: "type"
-                                    text:mydata.type
-                                }
-                            }
+                        Text {
+                            id: type
+                            objectName: "type"
+                            text:mydata.type
+                        }
+                    }
 
-                            RowLayout{
+                    RowLayout{
 
-                                height: size.ht
-                                width: size.wd
+                        height: size.ht
+                        width: size.wd
 
-                                Label{
-                                    width: size.labelWd
-                                    id: labelDensite
-                                    objectName: "labelDensite"
-                                    text: str.dens
-                                }
+                        Label{
+                            width: size.labelWd
+                            id: labelDensite
+                            objectName: "labelDensite"
+                            text: str.dens
+                        }
 
-                                Text {
-                                    id: densite
-                                    objectName: "densite"
-                                    text:mydata.densite
-                                }
-                            }
+                        Text {
+                            id: densite
+                            objectName: "densite"
+                            text:mydata.densite
+                        }
+                    }
                 }
-        }
+            }
 
-        Item {
-            id: editorTab
+            Item {
+                id: editorTab
 
                 Grid{
 
@@ -245,94 +255,94 @@ ApplicationWindow {
                     id: grid
                     antialiasing: true
 
-                        RowLayout{
+                    RowLayout{
 
-                            height: size.ht
-                            width: size.wd
+                        height: size.ht
+                        width: size.wd
 
-                            Text {
-                                width: size.labelWd
-                                id: labelNameD
-                                objectName: "labelName"
-                                text: str.name
-                            }
-
-                            Rectangle{
-                                border.color: "black"
-                                color: "transparent"
-                                height: size.ht2
-                                width: size.wd2
-
-                                TextInput{
-                                    id: nameD
-                                    anchors.centerIn: parent
-                                    objectName: "name"
-                                    text: mydata.name
-                                    maximumLength: size.txtInLgt
-                                }
-                            }
+                        Text {
+                            width: size.labelWd
+                            id: labelNameD
+                            objectName: "labelName"
+                            text: str.name
                         }
 
-                        RowLayout{
+                        Rectangle{
+                            border.color: "black"
+                            color: "transparent"
+                            height: size.ht2
+                            width: size.wd2
 
-                            height: size.ht
-                            width: size.wd
-
-                            Text {
-                                width: size.labelWd
-                                id: labelVolD
-                                objectName: "labelVol"
-                                text: str.vol
-                            }
-
-                            Rectangle{
-                                border.color: "black"
-                                color: "transparent"
-                                height: size.ht2
-                                width: size.wd2
-
-                                TextInput{
-
-                                    id: volD
-                                    objectName: "vol"
-                                    anchors.centerIn: parent
-                                    text: mydata.volume
-                                    onTextChanged: {
-                                        if(text != data.volume) console.debug("textInput:",text);
-                                    }
-
-                                }
+                            TextInput{
+                                id: nameD
+                                anchors.centerIn: parent
+                                objectName: "name"
+                                text: mydata.name
+                                maximumLength: size.txtInLgt
                             }
                         }
+                    }
 
-                        RowLayout{
+                    RowLayout{
 
-                            height: size.ht
-                            width: size.wd
+                        height: size.ht
+                        width: size.wd
 
-                            Text {
-                                width: size.labelWd
-                                id: labelTypeD
-                                objectName: "labelType"
-                                text: str.type
-                            }
+                        Text {
+                            width: size.labelWd
+                            id: labelVolD
+                            objectName: "labelVol"
+                            text: str.vol
+                        }
 
-                            Rectangle{
-                                border.color: "black"
-                                color: "transparent"
-                                height: size.ht2
-                                width: size.wd2
+                        Rectangle{
+                            border.color: "black"
+                            color: "transparent"
+                            height: size.ht2
+                            width: size.wd2
 
-                                TextInput{
-                                    id: typeD
-                                    objectName: "type"
-                                    anchors.centerIn: parent
-                                    text:mydata.type
-                                    maximumLength: size.txtInLgt
+                            TextInput{
 
+                                id: volD
+                                objectName: "vol"
+                                anchors.centerIn: parent
+                                text: mydata.volume
+                                onTextChanged: {
+                                    if(text != data.volume) console.debug("textInput:",text);
                                 }
+
                             }
                         }
+                    }
+
+                    RowLayout{
+
+                        height: size.ht
+                        width: size.wd
+
+                        Text {
+                            width: size.labelWd
+                            id: labelTypeD
+                            objectName: "labelType"
+                            text: str.type
+                        }
+
+                        Rectangle{
+                            border.color: "black"
+                            color: "transparent"
+                            height: size.ht2
+                            width: size.wd2
+
+                            TextInput{
+                                id: typeD
+                                objectName: "type"
+                                anchors.centerIn: parent
+                                text:mydata.type
+                                maximumLength: size.txtInLgt
+
+                            }
+                        }
+                    }
 
                     Slider {
                         id: slideVol
@@ -343,34 +353,34 @@ ApplicationWindow {
                         onValueChanged: {if(value != data.volumeInt) console.debug("slider:",value/10);}
                     }
 
-                        RowLayout{
+                    RowLayout{
 
-                            height: size.ht
-                            width: size.wd
+                        height: size.ht
+                        width: size.wd
 
-                            Text {
-                                width: size.labelWd
-                                id: labelDensiteD
-                                objectName: "labelDensite"
-                                text: str.dens
-                            }
+                        Text {
+                            width: size.labelWd
+                            id: labelDensiteD
+                            objectName: "labelDensite"
+                            text: str.dens
+                        }
 
-                            Rectangle{
-                                border.color: "black"
-                                color: "transparent"
-                                height: size.ht2
-                                width: size.wd2
+                        Rectangle{
+                            border.color: "black"
+                            color: "transparent"
+                            height: size.ht2
+                            width: size.wd2
 
-                                TextInput{
-                                    id: densiteD
-                                    objectName: "densite"
-                                    anchors.centerIn: parent
-                                    text: mydata.densite
-                                    maximumLength: size.txtInLgt
+                            TextInput{
+                                id: densiteD
+                                objectName: "densite"
+                                anchors.centerIn: parent
+                                text: mydata.densite
+                                maximumLength: size.txtInLgt
 
-                                }
                             }
                         }
+                    }
                 }
 
                 RowLayout{
@@ -378,29 +388,30 @@ ApplicationWindow {
                     anchors{
                         bottom: parent.bottom
                         right: parent.right
+                        rightMargin: -540
                     }
 
-                        Button {
+                    Button {
 
-                            id: bpSup
-                            objectName: "bpSup"
-                            text: str.sup
+                        id: bpSup
+                        objectName: "bpSup"
+                        text: str.sup
 
-                            onClicked: {
+                        onClicked: {
                             console.debug("Supprimer")
-                            }
-                         }
+                        }
+                    }
 
-                        Button {
+                    Button {
 
-                                id: bpVal
-                                objectName: "bpVal"
-                                text: str.val
+                        id: bpVal
+                        objectName: "bpVal"
+                        text: str.val
 
-                                onClicked: {
-                                console.debug("Valider")
-                                }
-                            }
+                        onClicked: {
+                            console.debug("Valider")
+                        }
+                    }
                 }
 
             }
