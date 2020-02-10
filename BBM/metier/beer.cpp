@@ -1,57 +1,92 @@
 #include "header/beer.h"
 
-Beer::Beer(QString beerName, int beerAlcoholLevels, int beerIBU, int beerDensity, int beerColor) : name(beerName), alcoholLevels(beerAlcoholLevels), IBU(beerIBU), density(beerDensity), color(beerColor){
+Beer::Beer(QString beerName, int beerAlcoholLevels, int beerIBU, int beerDensity, QString beerColor, QString beerType/*, Recipe beerRecipe*/) : m_name(beerName), m_alcoholeLevels(beerAlcoholLevels), m_IBU(beerIBU), m_density(beerDensity), m_color(beerColor), m_type(beerType) //, m_recipe(beerRecipe)
+{
+
 }
 
-void Beer::setName(QString ingredientName){
-    name = ingredientName;
+QString Beer::name() const
+{
+    return m_name;
 }
 
-QString Beer::getName() {
-    return name;
+int Beer::alcoholeLevels() const
+{
+    return m_alcoholeLevels;
 }
 
-void Beer::setAlcoholLevels(int beerAlcoholLevels) {
-    alcoholLevels = beerAlcoholLevels;
+int Beer::IBU() const
+{
+    return m_IBU;
 }
 
-int Beer::getAlcoholLevels() {
-    return alcoholLevels;
+int Beer::density() const
+{
+    return m_density;
 }
 
-void Beer::setIBU(int beerIBU) {
-    IBU = beerIBU;
+QString Beer::color() const
+{
+    return m_color;
 }
 
-int Beer::getIBU() {
-    return IBU;
+QString Beer::type() const
+{
+    return m_type;
 }
 
-void Beer::setDensity(int beerDensity) {
-    density = beerDensity;
+void Beer::setName(QString name)
+{
+    if (m_name == name)
+        return;
+
+    m_name = name;
+
+    emit nameChanged(m_name);
 }
 
-int Beer::getDensity() {
-    return density;
+void Beer::setAlcoholeLevels(int alcoholeLevels)
+{
+    if (m_alcoholeLevels == alcoholeLevels)
+        return;
+
+    m_alcoholeLevels = alcoholeLevels;
+    emit alcoholeLevelsChanged(m_alcoholeLevels);
 }
 
-void Beer::setColor(int beerColor) {
-    color = beerColor;
+void Beer::setIBU(int IBU)
+{
+    if (m_IBU == IBU)
+        return;
+
+    m_IBU = IBU;
+    emit IBUChanged(m_IBU);
 }
 
-int Beer::getColor() {
-    return color;
+void Beer::setDensity(int density)
+{
+    if (m_density == density)
+        return;
+
+    m_density = density;
+    emit densityChanged(m_density);
 }
 
-void Beer::setBeerType(BeerType beerBeerType){
-    type = beerBeerType;
+void Beer::setColor(QString color)
+{
+    if (m_color == color)
+        return;
+
+    m_color = color;
+    emit colorChanged(m_color);
 }
 
-void Beer::setBeerTypeQString(QString stringBeerType) {
+void Beer::setType(QString type)
+{
+    if (m_type == type)
+        return;
 
-    type = QStringToBeerType(stringBeerType);
+    m_type = type;
+    emit typeChanged(m_type);
 }
 
-BeerType Beer::getBeerType(){
-    return type;
-}

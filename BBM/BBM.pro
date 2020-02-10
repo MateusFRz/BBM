@@ -23,7 +23,6 @@ SOURCES += \
     metier/ingredient.cpp \
     metier/order.cpp \
     metier/recipe.cpp \
-    metier/header/enumeration/enumtool.cpp \
     model/gamemodel.cpp \
     metier/brewery.cpp
 
@@ -49,9 +48,6 @@ HEADERS += \
     metier/header/ingredient.h \
     metier/header/order.h \
     metier/header/recipe.h \
-    metier/header/enumeration/beertype.h \
-    metier/header/enumeration/baraddress.h \
-    metier/header/enumeration/ingredienttype.h \
     model/header/gamemodel.h \
     metier/header/brewery.h
 

@@ -2,29 +2,35 @@
 #define INGREDIENT_H
 
 #include <QObject>
-#include "enumeration/ingredienttype.h"
-#include "enumeration/enumtool.cpp"
 
-class Ingredient
+class Ingredient : public QObject
 {
+    Q_OBJECT
+
+    Q_PROPERTY(QString name READ name WRITE setName NOTIFY nameChanged)
+    Q_PROPERTY(QString type READ type WRITE setType NOTIFY typeChanged)
+
 private:
 
-    QString name;
-    IngredientType type;
+    QString m_name;
+    QString m_type;
 
 public:
 
-    Ingredient();
-    Ingredient(QString ingredientName, IngredientType ingredientType);
-    Ingredient(QString ingredientName, QString stringType);
+    Ingredient(QString ingredientName, QString ingredientType);
 
-    void setName(QString ingredientName);
-    QString getName();
-    void setType(IngredientType ingredientType);
-    void setTypeQString(QString stringType);
-    IngredientType getType();
+    QString name() const;
+    QString type() const;
 
+public slots:
 
+    void setName(QString name);
+    void setType(QString type);
+
+signals:
+
+    void nameChanged(QString name);
+    void typeChanged(QString type);
 };
 
 

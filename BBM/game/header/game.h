@@ -20,7 +20,7 @@ public:
 
     int launchViewApp(int argc, char *argv[]);
 
-    void test();
+    //void test();
 
 
     QString name() const;

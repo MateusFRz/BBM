@@ -1,31 +1,40 @@
 #include "header/recipe.h"
 
-Recipe::Recipe() : name("unamed"){
+
+Recipe::Recipe()
+{
+
 }
 
-Recipe::Recipe(QString recipeName, float recipePreparationTime, vector<Ingredient> recipeListIngredient) : name(recipeName), preperationTime(recipePreparationTime), listIngredient(recipeListIngredient){
+Recipe::Recipe(int recipeBeerID, int recipePreparationTime) : m_beerID(recipeBeerID), m_preparationTime(recipePreparationTime)
+{
+
 }
 
-void Recipe::setName(QString ingredientName){
-    name = ingredientName;
+int Recipe::beerID() const
+{
+    return m_beerID;
 }
 
-QString Recipe::getName() {
-    return name;
+int Recipe::preparationTime() const
+{
+    return m_preparationTime;
 }
 
-void Recipe::setPreparationTime (float recipePreparationTime) {
-    preperationTime = recipePreparationTime;
+void Recipe::setBeerID(int beerID)
+{
+    if (m_beerID == beerID)
+        return;
+
+    m_beerID = beerID;
+    emit beerIDChanged(m_beerID);
 }
 
-float Recipe::getPreparationTime () {
-    return preperationTime;
-}
+void Recipe::setPreparationTime(int preparationTime)
+{
+    if (m_preparationTime == preparationTime)
+        return;
 
-void Recipe::setListIngredient (vector<Ingredient> recipeListIngredient) {
-    listIngredient = recipeListIngredient;
-}
-
-vector<Ingredient> Recipe::getListIngredient () {
-    return listIngredient;
+    m_preparationTime = preparationTime;
+    emit preparationTimeChanged(m_preparationTime);
 }

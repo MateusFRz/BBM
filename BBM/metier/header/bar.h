@@ -2,8 +2,6 @@
 #define BAR_H
 
 #include <QObject>
-#include "enumeration/baraddress.h"
-#include "enumeration/enumtool.cpp"
 
 class Bar : public QObject
 {
@@ -11,36 +9,38 @@ class Bar : public QObject
     Q_PROPERTY(QString name READ name WRITE setName NOTIFY nameChanged)
     Q_PROPERTY(int wallet READ wallet WRITE setWallet NOTIFY walletChanged)
     Q_PROPERTY(int popularity READ popularity WRITE setPopularity NOTIFY popularityChanged)
+    Q_PROPERTY(QString address READ address WRITE setAddress NOTIFY addressChanged)
+
 public:
-    explicit Bar(QString barName, QString barAddress);
+
     Bar();
+    Bar(QString barName, int barPopularity, int barWallet, QString barAddress);
 
-    int popularity() const;
     QString name() const;
+    int popularity() const;
     int wallet() const;
-    BarAddress address;
-    QString getAddress();
-
+    QString address() const;
 
 signals:
 
     void popularityChanged(int popularity);
     void nameChanged(QString name);
     void walletChanged(int wallet);
+    void addressChanged(QString address);
 
 public slots:
 
     void setPopularity(int popularity);
     void setName(QString name);
     void setWallet(int wallet);
-    void setAdress(BarAddress barAddress);
-    void setAddressQString(QString stringAddress);
+    void setAddress(QString address);
 
 private :
 
-    int m_popularity;
     QString m_barName;
+    int m_popularity;
     int m_wallet;
+    QString m_address;
 };
 
 #endif // BAR_H

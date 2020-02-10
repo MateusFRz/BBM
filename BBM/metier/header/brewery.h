@@ -7,7 +7,7 @@ class Brewery : public QObject
 {
     Q_OBJECT
 public:
-    explicit Brewery(QObject *parent = nullptr);
+    Brewery();
 
 signals:
 

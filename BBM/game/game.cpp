@@ -15,12 +15,12 @@ Game::~Game()
 Game::Game(QString gameName, QString barAddress) : m_name(gameName)
 {
     gameBar.setName(gameName);
-    gameBar.setAddressQString(barAddress);
+    gameBar.setAddress(barAddress);
 }
 
 void Game::init(int argc, char *argv[])
 {
-    test();
+   // test();
     launchViewApp(argc, argv);
 }
 
@@ -42,14 +42,14 @@ int Game::launchViewApp(int argc, char *argv[])
     return app.exec();
 }
 
-
+/*
 void Game::test() {
     Bar bar("TestBar", "CENTEVILLE");
     qDebug() << bar.name() << " : " << bar.getAddress() << ":" << bar.wallet();
     bar.setWallet(10);
     qDebug() << bar.name() << " : " << bar.getAddress() << ":" << bar.wallet();
 
-}
+}*/
 
 QString Game::name() const
 {

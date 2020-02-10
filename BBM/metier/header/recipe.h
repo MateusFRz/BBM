@@ -6,27 +6,35 @@
 #include "vector"
 using namespace std;
 
-class Recipe
+class Recipe : public QObject
 {
+    Q_OBJECT
+
+    Q_PROPERTY(int beerID READ beerID WRITE setBeerID NOTIFY beerIDChanged)
+    Q_PROPERTY(int preparationTime READ preparationTime WRITE setPreparationTime NOTIFY preparationTimeChanged)
 
 private:
 
-    QString name;
-    float preperationTime;
-    vector<Ingredient> listIngredient;
+    int m_beerID;
+    int m_preparationTime;
+    //vector<Ingredient> listIngredient;
 
 public:
 
     Recipe();
-    Recipe(QString recipeName, float recipePreparationTime, vector<Ingredient> recipeListIngredient);
+    Recipe(int recipeBeerID, int recipePreparationTime);
 
-    void setName(QString ingredientName);
-    QString getName();
-    void setPreparationTime (float recipePreparationTime);
-    float getPreparationTime ();
-    void setListIngredient (vector<Ingredient> recipeListIngredient);
-    vector<Ingredient> getListIngredient ();
+    int beerID() const;
+    int preparationTime() const;
 
+public slots:
+
+    void setBeerID(int beerID);
+    void setPreparationTime(int preparationTime);
+
+signals:
+    void beerIDChanged(int beerID);
+    void preparationTimeChanged(int preparationTime);
 };
 
 #endif // RECIPE_H

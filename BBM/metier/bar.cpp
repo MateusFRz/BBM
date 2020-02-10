@@ -2,21 +2,22 @@
 
 
 
-Bar::Bar(QString barName, QString barAddress) : m_barName(barName), m_wallet(0), m_popularity(0)
-{
-    setAddressQString(barAddress);
-
-}
-
 Bar::Bar()
 {
 
 }
 
+Bar::Bar(QString barName, int barPopularity, int barWallet, QString barAddress) : m_barName(barName), m_popularity(barPopularity), m_wallet(barWallet), m_address(barAddress)
+{
+
+}
+
+
 int Bar::popularity() const
 {
     return m_popularity;
 }
+
 
 QString Bar::name() const
 {
@@ -28,9 +29,9 @@ int Bar::wallet() const
     return  m_wallet;
 }
 
-QString Bar::getAddress()
+QString Bar::address() const
 {
-    return barAddressToQString(address);
+    return m_address;
 }
 
 void Bar::setPopularity(int popularity)
@@ -60,12 +61,12 @@ void Bar::setWallet(int wallet)
     emit walletChanged(m_wallet);
 }
 
-void Bar::setAdress(BarAddress barAddress)
+void Bar::setAddress(QString address)
 {
-    address = barAddress;
+    if (m_address == address)
+        return;
+
+    m_address = address;
+    emit addressChanged(m_address);
 }
 
-void Bar::setAddressQString(QString stringAddress)
-{
-    address = QStringToBarAddress(stringAddress);
-}
