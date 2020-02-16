@@ -24,7 +24,10 @@ SOURCES += \
     metier/order.cpp \
     metier/recipe.cpp \
     model/gamemodel.cpp \
-    metier/brewery.cpp
+    metier/brewery.cpp \
+    model/eventmanager.cpp \
+    event/event.cpp \
+    event/customer.cpp
 
 
 RESOURCES += \
@@ -49,7 +52,10 @@ HEADERS += \
     metier/header/order.h \
     metier/header/recipe.h \
     model/header/gamemodel.h \
-    metier/header/brewery.h
+    metier/header/brewery.h \
+    model/header/eventmanager.h \
+    event/header/event.h \
+    event/header/customer.h
 
 DISTFILES += \
     qml/main.qml
