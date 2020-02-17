@@ -1,8 +1,13 @@
 #include "header/beer.h"
 
-Beer::Beer(QString beerName, int beerAlcoholLevels, int beerIBU, int beerDensity, QString beerColor, QString beerType/*, Recipe beerRecipe*/) : m_name(beerName), m_alcoholeLevels(beerAlcoholLevels), m_IBU(beerIBU), m_density(beerDensity), m_color(beerColor), m_type(beerType) //, m_recipe(beerRecipe)
+Beer::Beer(QString beerName, int beerAlcoholLevels,
+           int beerIBU, int beerDensity, QString beerColor,
+           QString beerType, Recipe* recipe)
+    : m_name(beerName),
+      m_alcoholeLevels(beerAlcoholLevels),
+      m_IBU(beerIBU), m_density(beerDensity),
+      m_color(beerColor), m_type(beerType), m_recipe(recipe)
 {
-
 }
 
 QString Beer::name() const
@@ -33,6 +38,11 @@ QString Beer::color() const
 QString Beer::type() const
 {
     return m_type;
+}
+
+Recipe* Beer::recipe() const
+{
+    return m_recipe;
 }
 
 void Beer::setName(QString name)
@@ -89,4 +99,14 @@ void Beer::setType(QString type)
     m_type = type;
     emit typeChanged(m_type);
 }
+
+void Beer::setRecipe(Recipe* recipe)
+{
+    if (m_recipe == recipe)
+        return;
+
+    m_recipe = recipe;
+    emit recipeChanged(m_recipe);
+}
+
 

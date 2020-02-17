@@ -14,6 +14,7 @@ class Beer : public QObject
     Q_PROPERTY(int density READ density WRITE setDensity NOTIFY densityChanged)
     Q_PROPERTY(QString color READ color WRITE setColor NOTIFY colorChanged)
     Q_PROPERTY(QString type READ type WRITE setType NOTIFY typeChanged)
+    Q_PROPERTY(Recipe* recipe READ recipe WRITE setRecipe NOTIFY recipeChanged)
 
 private:
 
@@ -23,12 +24,11 @@ private:
     int m_density;
     QString m_color;
     QString m_type;
-    Recipe m_recipe;
-
+    Recipe* m_recipe;
 
 public:
 
-    Beer(QString beerName, int beerAlcoholLevels, int beerIBU, int beerDensity, QString beerColor, QString beerType /*, Recipe beerRecipe*/);
+    Beer(QString beerName, int beerAlcoholLevels, int beerIBU, int beerDensity, QString beerColor, QString beerType, Recipe* recipe);
 
     QString name() const;
     int alcoholeLevels() const;
@@ -36,7 +36,7 @@ public:
     int density() const;
     QString color() const;
     QString type() const;
-
+    Recipe* recipe() const;
 
 public slots:
 
@@ -46,6 +46,7 @@ public slots:
     void setDensity(int density);
     void setColor(QString color);
     void setType(QString type);
+    void setRecipe(Recipe* recipe);
 
 signals:
 
@@ -55,6 +56,7 @@ signals:
     void densityChanged(int density);
     void colorChanged(QString color);
     void typeChanged(QString type);
+    void recipeChanged(Recipe* recipe);
 };
 
 #endif // BEER_H

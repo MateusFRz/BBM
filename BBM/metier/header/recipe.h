@@ -17,12 +17,11 @@ private:
 
     int m_beerID;
     int m_preparationTime;
-    //vector<Ingredient> listIngredient;
+    vector<Ingredient *> listIngredient;
 
 public:
 
-    Recipe();
-    Recipe(int recipeBeerID, int recipePreparationTime);
+    explicit Recipe(int recipeBeerID, int recipePreparationTime);
 
     int beerID() const;
     int preparationTime() const;
@@ -31,6 +30,9 @@ public slots:
 
     void setBeerID(int beerID);
     void setPreparationTime(int preparationTime);
+    void addIngredient(Ingredient* ingredient);
+    void deleteIngredient(Ingredient* ingredient);
+
 
 signals:
     void beerIDChanged(int beerID);
