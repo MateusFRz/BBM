@@ -1,13 +1,14 @@
 #ifndef FIGHT_H
 #define FIGHT_H
 
-#include "timedevent.h"
+#include "event.h"
 
-class Fight : public TimedEvent
+class Fight : public Event
 {
 public:
     Fight(QString name, int time);
     void applyEvent(int time) override;
+    void reverse() override;
 };
 
 #endif // FIGHT_H

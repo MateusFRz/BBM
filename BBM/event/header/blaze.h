@@ -1,13 +1,14 @@
 #ifndef BLAZE_H
 #define BLAZE_H
 
-#include "timedevent.h"
+#include "event.h"
 
-class Blaze : public TimedEvent
+class Blaze : public Event
 {
 public:
     Blaze(QString name, int time);
     void applyEvent(int time) override;
+    void reverse() override;
 };
 
 #endif // BLAZE_H

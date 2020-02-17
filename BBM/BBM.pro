@@ -28,7 +28,6 @@ SOURCES += \
     model/eventmanager.cpp \
     event/event.cpp \
     event/customer.cpp \
-    event/timedevent.cpp \
     event/unveilling.cpp \
     event/reception.cpp \
     event/fight.cpp \
@@ -71,7 +70,6 @@ HEADERS += \
     model/header/eventmanager.h \
     event/header/event.h \
     event/header/customer.h \
-    event/header/timedevent.h \
     event/header/unveilling.h \
     event/header/reception.h \
     event/header/fight.h \
