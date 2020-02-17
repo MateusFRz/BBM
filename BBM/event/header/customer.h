@@ -2,13 +2,14 @@
 #define CUSTOMER_H
 
 #include <QObject>
-#include "event.h"
+#include "timedevent.h"
 
-class Customer : public QObject //a hériter de Event
+class Customer : public TimedEvent
 {
-    Q_OBJECT
+
 public:
-    explicit Customer(QObject *parent = nullptr);
+    explicit Customer(QString name, int time);
+    void applyEvent(int time) override;
 
 signals:
 

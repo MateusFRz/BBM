@@ -4,6 +4,7 @@
 
 int main(int argc, char *argv[])
 {
+    //TODO appeler gamemodel
     Game game;
     game.init(argc, argv);
 

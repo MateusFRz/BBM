@@ -1,6 +1,6 @@
 #include "event/header/event.h"
 
-Event::Event(QObject *parent) : QObject(parent)
+Event::Event(QString name): m_name(name)
 {
 
 }

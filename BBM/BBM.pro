@@ -27,7 +27,22 @@ SOURCES += \
     metier/brewery.cpp \
     model/eventmanager.cpp \
     event/event.cpp \
-    event/customer.cpp
+    event/customer.cpp \
+    event/timedevent.cpp \
+    event/unveilling.cpp \
+    event/reception.cpp \
+    event/fight.cpp \
+    event/blaze.cpp \
+    event/strike.cpp \
+    event/dayoffemployee.cpp \
+    event/competition.cpp \
+    event/inspectorate.cpp \
+    event/weather.cpp \
+    event/fine.cpp \
+    event/dismissial.cpp \
+    event/tax.cpp \
+    event/brokenequipement.cpp \
+    event/deliveryproblem.cpp
 
 
 RESOURCES += \
@@ -55,7 +70,22 @@ HEADERS += \
     metier/header/brewery.h \
     model/header/eventmanager.h \
     event/header/event.h \
-    event/header/customer.h
+    event/header/customer.h \
+    event/header/timedevent.h \
+    event/header/unveilling.h \
+    event/header/reception.h \
+    event/header/fight.h \
+    event/header/blaze.h \
+    event/header/strike.h \
+    event/header/dayoffemployee.h \
+    event/header/competition.h \
+    event/header/inspectorate.h \
+    event/header/weather.h \
+    event/header/fine.h \
+    event/header/dismissial.h \
+    event/header/tax.h \
+    event/header/brokenequipement.h \
+    event/header/deliveryproblem.h
 
 DISTFILES += \
     qml/main.qml

@@ -1,6 +1,11 @@
 #include "header/customer.h"
 
-Customer::Customer(QObject *parent) : QObject(parent)
+Customer::Customer(QString name, int time): TimedEvent(name, time)
+{
+
+}
+
+void Customer::applyEvent(int time)
 {
 
 }
