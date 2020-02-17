@@ -37,7 +37,7 @@ ApplicationWindow {
     Item{
         id: mydata
         property  var beer: modelBeer.data(list.currentIndex)
-        property var name: qsTr("%1").arg(modelBeer.data(list.currentIndex,0))//myModel.get(list.currentIndex).name
+        property var name: qsTr("%1").arg(modelBeer.data(list.currentIndex,257))//myModel.get(list.currentIndex).name
         //property var type: qsTr("%1").arg(modelBeer.data(list.currentIndex,1)) //myModel.get(list.currentIndex).type
         property var type: modelBeer.data(list.currentIndex,1)
         property var densite: ""//myModel.get(list.currentIndex).dens

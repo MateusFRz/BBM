@@ -10,7 +10,11 @@ void BiereModel::addBeer(Biere *biere){
     endInsertRows();
 }
 
-int BiereModel::rowCount(const QModelIndex &parent) const{
+Biere* BiereModel::getBeer(int row) {
+    return m_bieres[row];
+}
+
+int BiereModel::rowCount(const QModelIndex &) const{
     qDebug() << "Je demandende la taille "
              << m_bieres.count();
     return m_bieres.count();
@@ -52,12 +56,16 @@ bool BiereModel::setData(const QModelIndex &index, const QVariant &value, int ro
     switch (role) {
     case NameRole:
          beer->setValuNom(value.toString());
+        break;
     case TypeRole:
          beer->setType(value.toString());
+        break;
     case VolRole:
          beer->setVol(value.toInt());
+        break;
     case DensiteRole:
          beer->setDensite(value.toFloat());
+        break;
     }
 
     QVector<int> roles;

@@ -35,9 +35,9 @@ private:
 
 
     QString m_nom;
-    int m_densite;
-    float m_vol;
     QString m_type;
+    float m_vol;
+    int m_densite;
     Q_DISABLE_COPY(Biere)
 
 };

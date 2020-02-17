@@ -23,6 +23,7 @@ public:
 
 
 
+   Q_INVOKABLE Biere *getBeer(int row);
 protected:
    QHash<int, QByteArray> roleNames() const;
 private:

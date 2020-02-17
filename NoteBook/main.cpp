@@ -5,6 +5,7 @@
 #include <QQuickView>
 #include <QQmlContext>
 #include <QQmlComponent>
+#include <QQmlEngine>
 
 int main(int argc, char *argv[])
 {
@@ -18,6 +19,13 @@ int main(int argc, char *argv[])
     model->addBeer(new Biere("Heineken","pas vraimen de la bier",2.1,4));
 
     QQmlApplicationEngine engine;
+
+    qmlRegisterUncreatableType<Biere>(
+                "beerbar", 1, 0,
+                "Biere",
+                "Can't create a beef from QML"
+                );
+
     engine.rootContext()->setContextProperty("modelBeer",model);
     const QUrl url(QStringLiteral("qrc:/main.qml"));
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
