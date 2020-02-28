@@ -1,5 +1,5 @@
 #include "header/game.h"
-#include "game/header/keyboardevent.h"
+#include "APM/header/drink.h"
 
 #include <QQmlContext>
 
@@ -25,7 +25,15 @@ int Game::lauchApp(int argc, char *argv[])
 
     QGuiApplication app(argc, argv);
 
+
     QQmlApplicationEngine engine;
+
+    Drink *d = new Drink;
+
+    QQmlContext *context = engine.rootContext();
+    context->setContextProperty("drink", d);
+
+
     const QUrl url(QStringLiteral("qrc:/main.qml"));
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
                      &app, [url](QObject *obj, const QUrl &objUrl) {
@@ -34,9 +42,6 @@ int Game::lauchApp(int argc, char *argv[])
     }, Qt::QueuedConnection);
     engine.load(url);
 
-   QQmlContext *context = new QQmlContext(engine.rootContext());
-   KeyboardEvent *event = new KeyboardEvent;
-   context->setContextProperty("keyEventTYP", event);
 
     return app.exec();
 }

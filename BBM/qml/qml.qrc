@@ -1,5 +1,8 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
+        <file>ressources/robinet.png</file>
+        <file>Glass.qml</file>
+        <file>Tap.qml</file>
     </qresource>
 </RCC>

@@ -1,5 +1,4 @@
-QT += quick \
-    widgets
+QT += quick
 
 CONFIG += c++11
 
@@ -15,7 +14,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    game/event/keyboardevent.cpp \
+    APM/drink.cpp \
     game/game.cpp \
         main.cpp \
     metier/bar.cpp \
@@ -41,8 +40,8 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
+    APM/header/drink.h \
     game/header/game.h \
-    game/header/keyboardevent.h \
     metier/header/bar.h \
     metier/header/beer.h \
     metier/header/beertype.h \

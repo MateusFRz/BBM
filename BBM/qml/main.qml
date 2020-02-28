@@ -3,15 +3,46 @@ import QtQuick.Window 2.12
 
 Window {
     visible: true
-    width: 640
-    height: 480
-    title: qsTr("Hello World") 
+    width: 1024
+    height: 720
+    title: qsTr("Hello World")
 
-    Text {
-        focus: true
-        Keys.onPressed: keyEventTYP;/*{
-            console.log("===> ", event.key)
-            console.log("===> ", event)
-        }*/
+
+
+    Rectangle {
+        id: tap
+        anchors.top: parent.top
+        height: tap1.height
+        width: parent.width
+
+        Tap {
+            id: tap1
+            y:0
+            x:350
+        }
+        Tap {
+            id: tap2
+            y:0
+            x:500
+        }
+        Tap {
+            id: tap3
+            y:0
+            x:650
+        }
+    }
+
+    Rectangle {
+        id: workSpace
+        anchors.top: tap.bottom
+        anchors.bottom: parent.bottom
+        width: parent.width
+        color: "blue"
+
+        Glass {}
     }
 }
+
+
+
+

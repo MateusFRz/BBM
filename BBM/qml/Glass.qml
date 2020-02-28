@@ -1,5 +1,13 @@
 import QtQuick 2.0
 
-Item {
-
+Rectangle {
+    focus: true
+    rotation: drink.angle
+    Keys.onPressed: drink.moveDrink(event.key)
+    x: drink.positionX
+    y: drink.positionY
+    width: 100
+    height: 150
+    border.color: "black"
 }
+
