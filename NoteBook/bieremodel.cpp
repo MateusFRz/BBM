@@ -14,7 +14,8 @@ Biere* BiereModel::getBeer(int row) {
     return m_bieres[row];
 }
 
-int BiereModel::rowCount(const QModelIndex &) const{
+
+int BiereModel::rowCount(const QModelIndex &parent) const{
     qDebug() << "Je demandende la taille "
              << m_bieres.count();
     return m_bieres.count();
@@ -36,6 +37,7 @@ QVariant BiereModel::data(const QModelIndex &index, int role) const{
         return biere->vol();
     case DensiteRole:
         return biere->densite();
+    case BeerRole:
     case Qt::DisplayRole:
         return QVariant::fromValue(biere);
     }
@@ -55,16 +57,16 @@ bool BiereModel::setData(const QModelIndex &index, const QVariant &value, int ro
     Biere * beer = m_bieres[index.row()];
     switch (role) {
     case NameRole:
-         beer->setValuNom(value.toString());
+        beer->setValuNom(value.toString());
         break;
     case TypeRole:
-         beer->setType(value.toString());
+        beer->setType(value.toString());
         break;
     case VolRole:
-         beer->setVol(value.toInt());
+        beer->setVol(value.toInt());
         break;
     case DensiteRole:
-         beer->setDensite(value.toFloat());
+        beer->setDensite(value.toFloat());
         break;
     }
 
@@ -104,6 +106,12 @@ bool BiereModel::insertRows(int row, int count, const QModelIndex &parent)
 
 }
 
+void BiereModel::refresh()
+{
+
+}
+
+
 QHash<int, QByteArray> BiereModel::roleNames() const
 {
     QHash<int, QByteArray> roles;
@@ -111,7 +119,7 @@ QHash<int, QByteArray> BiereModel::roleNames() const
     roles[TypeRole] = "type";
     roles[VolRole] = "vol";
     roles[DensiteRole] = "densite";
-
+    roles[BeerRole] = "beer";
     return roles;
 
 }

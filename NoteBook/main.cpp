@@ -5,7 +5,6 @@
 #include <QQuickView>
 #include <QQmlContext>
 #include <QQmlComponent>
-#include <QQmlEngine>
 
 int main(int argc, char *argv[])
 {
@@ -15,8 +14,8 @@ int main(int argc, char *argv[])
     QGuiApplication app(argc, argv);
 
     BiereModel * model = new BiereModel();
-    model->addBeer(new Biere("duff","degeu",3.4,3));
-    model->addBeer(new Biere("Heineken","pas vraimen de la bier",2.1,4));
+    model->addBeer(new Biere("duff","degeu",34,3));
+    model->addBeer(new Biere("Heineken","pas vraimen de la bier",21,4));
 
     QQmlApplicationEngine engine;
 

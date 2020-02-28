@@ -12,22 +12,22 @@ public:
         NameRole = Qt::UserRole + 1,
         TypeRole,
         VolRole,
+        BeerRole,
         DensiteRole
     };
-   void addBeer(Biere *biere);
-   int rowCount(const QModelIndex & parent = QModelIndex()) const;
-   QVariant data(const QModelIndex & index, int role = Qt::DisplayRole) const;
-   bool setData(const QModelIndex &index, const QVariant &value, int role = Qt::DisplayRole);
-   Q_INVOKABLE bool removeRows(int row, int count, const QModelIndex &parent= QModelIndex());
-   Q_INVOKABLE bool insertRows(int row, int count, const QModelIndex & parent = QModelIndex());
+    void addBeer(Biere *biere);
+    int rowCount(const QModelIndex & parent = QModelIndex()) const;
+    QVariant data(const QModelIndex & index, int role = Qt::DisplayRole) const;
+    bool setData(const QModelIndex &index, const QVariant &value, int role = Qt::DisplayRole);
+    Q_INVOKABLE bool removeRows(int row, int count, const QModelIndex &parent= QModelIndex());
+    Q_INVOKABLE bool insertRows(int row, int count, const QModelIndex & parent = QModelIndex());
 
-
-
-   Q_INVOKABLE Biere *getBeer(int row);
+    Q_INVOKABLE void refresh();
+    Q_INVOKABLE Biere *getBeer(int row);
 protected:
-   QHash<int, QByteArray> roleNames() const;
+    QHash<int, QByteArray> roleNames() const;
 private:
-   QList<Biere*> m_bieres;
+    QList<Biere*> m_bieres;
 
 };
 

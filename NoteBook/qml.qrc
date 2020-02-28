@@ -1,6 +1,9 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
-        <file>qtquickcontrols2.conf</file>
+        <file>Master.qml</file>
+        <file>Detail_editor.qml</file>
+        <file>Detail_home.qml</file>
+        <file>Button_editor.qml</file>
     </qresource>
 </RCC>
