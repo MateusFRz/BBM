@@ -11,7 +11,7 @@ RowLayout{
 
         id: bpSup
         objectName: "bpSup"
-        text: "bpSup"
+        text: "Suprimer"
 
         onClicked: {
             console.debug("Supprimer")
@@ -22,7 +22,7 @@ RowLayout{
 
         id: bpVal
         objectName: "bpVal"
-        text: "bpVal"
+        text: "Valider"
 
         onClicked: {
             console.debug("Valider")

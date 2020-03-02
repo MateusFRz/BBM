@@ -20,7 +20,7 @@ ScrollView {
 
         delegate: ItemDelegate {
             Text {
-                text: name
+                text: " "+name
                  width: parent.width
 
             }

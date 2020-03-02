@@ -15,7 +15,6 @@ Window {
         anchors.fill: parent
         focus: true
         spacing: 5
-
         id:aleModel
         property var beer : null
 
@@ -27,18 +26,18 @@ Window {
             border.color: "black"
 
             Column{
-                spacing: 2
+                spacing: 5
                 width: parent.width
                 height: parent.height
 
-                Master{width: parent.width; height: parent.height - bpAdd.height
+                Master{width: parent.width; height: parent.height - bpAdd.height;
                 }
 
                 Button{
                     width: parent.width
                     id: bpAdd
                     objectName: "bpAdd"
-                    text: "bpAdd"
+                    text: "Ajouter"
 
                     onClicked: {
                         console.debug("Add Beer")

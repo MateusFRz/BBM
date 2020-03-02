@@ -2,9 +2,8 @@ import QtQuick 2.12
 import QtQuick.Controls 2.5
 import QtQuick.Layouts 1.3
 
-Grid{
+Column{
 
-    columns: 2
     spacing: columnSpacing
     antialiasing: true
 
@@ -14,14 +13,14 @@ Grid{
     property var rowSpacing: 5
     property var columnSpacing: 5
 
-    RowLayout{
+    Row{
         height: ht
         width: wd
         Label{
             width: wd
             id: labelName
             objectName: "labelName"
-            text: "labelName"
+            text: "<b>Nom</b>"
         }
 
         Text {
@@ -31,7 +30,7 @@ Grid{
         }
     }
 
-    RowLayout{
+    Row{
 
         height: ht
         width: wd
@@ -40,7 +39,7 @@ Grid{
             width: wd
             id: labelVol
             objectName: "labelVol"
-            text: "labelVol"
+            text: "<b>Vol %</b>"
         }
 
         Text {
@@ -52,7 +51,7 @@ Grid{
 
     }
 
-    RowLayout{
+    Row{
 
         height: ht
         width: wd
@@ -61,7 +60,7 @@ Grid{
             width: wd
             id: labelType
             objectName: "labelType"
-            text: "labelType"
+            text: "<b>Type</b>"
         }
 
         Text {
@@ -71,7 +70,7 @@ Grid{
         }
     }
 
-    RowLayout{
+    Row{
 
         height: ht
         width: wd
@@ -80,7 +79,7 @@ Grid{
             width: wd
             id: labelDensite
             objectName: "labelDensite"
-            text: "labelDensite"
+            text: "<b>Densite</b>"
         }
 
         Text {

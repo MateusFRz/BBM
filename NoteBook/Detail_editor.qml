@@ -30,7 +30,7 @@ Column{
                 width: wdLabel
                 id: labelNameD
                 objectName: "labelName"
-                text: "labelName"
+                text: "<b>Nom</b>"
             }
 
             Rectangle{
@@ -59,7 +59,7 @@ Column{
                 width: wdLabel
                 id: labelTypeD
                 objectName: "labelType"
-                text: "labelType"
+                text: "<b>Type</b>"
             }
 
             Rectangle{
@@ -92,7 +92,7 @@ Column{
                 width: wdLabel
                 id: labelVolD
                 objectName: "labelVol"
-                text: "labelVol"
+                text: "<b>Vol %</b>"
             }
 
             Rectangle{
@@ -133,7 +133,7 @@ Column{
                 width: wdLabel
                 id: labelDensiteD
                 objectName: "labelDensite"
-                text: "labelDensite"
+                text: "<b>Densite</b>"
             }
 
             Rectangle{
