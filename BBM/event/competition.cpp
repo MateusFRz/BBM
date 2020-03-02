@@ -10,7 +10,3 @@ void Competition::applyEvent(int time)
 
 }
 
-void Competition::reverse()
-{
-
-}

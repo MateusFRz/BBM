@@ -41,7 +41,10 @@ SOURCES += \
     event/dismissial.cpp \
     event/tax.cpp \
     event/brokenequipement.cpp \
-    event/deliveryproblem.cpp
+    event/deliveryproblem.cpp \
+    model/time.cpp \
+    event/nothing.cpp \
+    model/randomeventfactory.cpp
 
 
 RESOURCES += \
@@ -83,7 +86,10 @@ HEADERS += \
     event/header/dismissial.h \
     event/header/tax.h \
     event/header/brokenequipement.h \
-    event/header/deliveryproblem.h
+    event/header/deliveryproblem.h \
+    model/header/time.h \
+    event/header/nothing.h \
+    model/header/randomeventfactory.h
 
 DISTFILES += \
     qml/main.qml

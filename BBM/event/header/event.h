@@ -20,7 +20,7 @@ public:
     int runtime() const;
     void lauchEvent(int time);
     virtual void applyEvent(){}
-    virtual void applyEvent(int time){}
+    virtual void applyEvent(int /*time*/){}
     virtual void reverse(){}
 
 
