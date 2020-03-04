@@ -18,7 +18,7 @@ public:
 
     QString name() const;
     int runtime() const;
-    void lauchEvent(int time);
+    void lauchEvent();
     virtual void applyEvent(){}
     virtual void applyEvent(int /*time*/){}
     virtual void reverse(){}

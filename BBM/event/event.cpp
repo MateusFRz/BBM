@@ -20,10 +20,10 @@ int Event::runtime() const
     return m_runtime;
 }
 
-void Event::lauchEvent(int time)
+void Event::lauchEvent()
 {
     if (m_runtime == -1) applyEvent();
-    else applyEvent(time);
+    else applyEvent(m_runtime);
 }
 
 void Event::setName(QString name)
