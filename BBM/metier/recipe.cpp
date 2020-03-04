@@ -15,6 +15,11 @@ int Recipe::preparationTime() const
     return m_preparationTime;
 }
 
+vector<Ingredient *> Recipe::getListIngredient()
+{
+    return listIngredient;
+}
+
 void Recipe::setBeerID(int beerID)
 {
     if (m_beerID == beerID)

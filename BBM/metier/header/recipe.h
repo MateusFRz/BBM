@@ -25,6 +25,7 @@ public:
 
     int beerID() const;
     int preparationTime() const;
+    vector<Ingredient *> getListIngredient();
 
 public slots:
 
