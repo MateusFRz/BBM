@@ -34,7 +34,7 @@ int main(int argc, char *argv[])
     qmlRegisterUncreatableType<Beer>(
                 "beerbar", 1, 0,
                 "beer",
-                "Can't create a beef from QML"
+                "Can't create a beer from QML"
                 );
 
     engine.rootContext()->setContextProperty("modelBeer",model);
