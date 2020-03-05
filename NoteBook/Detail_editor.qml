@@ -95,6 +95,7 @@ Column{
                 objectName: "name"
                 text: aleModel.beer?aleModel.beer.IBU:"null"
                 maximumLength: txtInLgt
+                inputMask: "999"
             }
         }
 
@@ -146,10 +147,11 @@ Column{
                     id: volD
                     objectName: "vol"
                     anchors.centerIn: parent
-                    text: aleModel.beer?aleModel.beer.alcoholeLevels/10:"null"
+                    text: aleModel.beer?aleModel.beer.alcoholeLevels/10:"0"
+                    inputMask: "99.99"
 
                     onTextChanged: {
-                        if(text != aleModel.beer.vol) console.debug("textInput:",text);
+                        if(text != aleModel.beer?aleModel.beer.alcoholeLevels:"0") console.debug("textInput:",text);
                     }
 
                 }
@@ -160,8 +162,8 @@ Column{
                 from:0
                 to: 300
                 stepSize: 1
-                value: aleModel.beer?aleModel.beer.alcoholeLevels:"0"
-                onValueChanged: {if(value != aleModel.beer.alcoholeLevels) console.debug("slider:",value/10);}
+                value: aleModel.beer?aleModel.beer.alcoholeLevels:0
+                onValueChanged: {if(value != aleModel.beer?aleModel.beer.alcoholeLevels:0) console.debug("slider:",value/10);}
             }
         }
         Text {
@@ -182,7 +184,8 @@ Column{
                 objectName: "densite"
                 anchors.centerIn: parent
                 text: aleModel.beer?aleModel.beer.density:"null"
-                maximumLength: txtInLgt
+                maximumLength: txtInLgt                
+                inputMask: "9999"
 
             }
         }

@@ -14,7 +14,6 @@ class Recipe : public QObject
 
 private:
 
-    int m_beerID;
     int m_preparationTime;
     vector<Ingredient *> listIngredient;
 
@@ -23,6 +22,7 @@ public:
     explicit Recipe(int recipePreparationTime);
 
     int preparationTime() const;
+    vector<Ingredient *> getListIngredient();
 
 public slots:
 

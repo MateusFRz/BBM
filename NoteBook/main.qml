@@ -24,7 +24,8 @@ Window {
                 id:master
                 height: parent.height
                 clip: true
-                Master{width: parent.width; height: parent.height - bpAdd.height ; clip: true;
+                Master{
+                    height: parent.height - bpAdd.height ;
                 }
 
                 Button{
@@ -35,6 +36,11 @@ Window {
 
                     onClicked: {
                         console.debug("Add Beer")
+                        //  Beer(QString beerName, int beerAlcoholLevels, int beerIBU, int beerDensity, QString beerColor, QString beerType, Recipe* recipe);
+
+                        // aleModel.addBeer(new aleModel.Beer("name",0,0,1000,"color","type",new aleModel.Recipe(0)))
+                       // Qt.binding( function() { model.addBeer(new Beer("name",0,0,1000,"color","type",new aleModel.Recipe(0))) } )
+                        model.addBeer(new Beer("name",0,0,1000,"color","type",new aleModel.Recipe(0)))
                     }
                 }
             }

@@ -11,6 +11,10 @@ int Recipe::preparationTime() const
     return m_preparationTime;
 }
 
+vector<Ingredient *> Recipe::getListIngredient()
+{
+    return listIngredient;
+}
 
 void Recipe::setPreparationTime(int preparationTime)
 {

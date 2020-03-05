@@ -21,7 +21,7 @@ Row{
                 width: wd
                 id: labelName
                 objectName: "labelName"
-                text: "<b>Nom</b>"
+                text: "<b>Name</b>"
             }
 
             Text {
@@ -67,7 +67,7 @@ Row{
                 width: wd
                 id: labelDensite
                 objectName: "labelDensite"
-                text: "<b>Densite</b>"
+                text: "<b>Density</b>"
             }
 
             Text {
@@ -106,6 +106,56 @@ Row{
                 id: color
                 objectName: "color"
                 text:aleModel.beer?aleModel.beer.color:"null"
+            }
+        }
+
+        Row{
+            spacing: rowSpacing
+            height: ht
+            width: wd
+
+            Label{
+                width: wd
+                id: labelpreparation
+                objectName: "labelPreparation"
+                text: "<b>Prep time</b>"
+            }
+
+            Text {
+                id: preparation
+                objectName: "preparation"
+                text:aleModel.beer?aleModel.beer.recipe.preparationTime:"null"
+            }
+
+            Label{
+                width: wd
+                id: labelingredient
+                objectName: "labelIngredient"
+                text: "<b>Ingredient(s)</b>"
+            }
+            ScrollView {
+                width: parent.width
+                height: parent.height
+                ScrollBar.horizontal.policy: ScrollBar.AlwaysOn
+                ScrollBar.vertical.policy: ScrollBar.AlwaysOn
+                ScrollBar.horizontal.interactive: true
+                ScrollBar.vertical.interactive: true
+                clip: true
+                ListView{
+                    width: parent.width
+                    height: parent.height
+                    clip: true
+                    model: aleModel.beer?aleModel.beer.recipe.getListIngredient:"null"
+
+
+                    delegate: ItemDelegate {
+                        Text {
+                            id:item
+                            text: " test"
+                            width: parent.width
+                        }
+                    }
+                }
             }
         }
     }
