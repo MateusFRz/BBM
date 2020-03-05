@@ -18,19 +18,13 @@ Window {
         id:aleModel
         property var beer : null
 
-
-        Rectangle{
-            width: parent.width - detail.width
-            id:master
-            height: parent.height
-            border.color: "black"
-
             Column{
                 spacing: 5
-                width: parent.width
+                width: parent.width - detail.width
+                id:master
                 height: parent.height
-
-                Master{width: parent.width; height: parent.height - bpAdd.height;
+                clip: true
+                Master{width: parent.width; height: parent.height - bpAdd.height ; clip: true;
                 }
 
                 Button{
@@ -44,17 +38,13 @@ Window {
                     }
                 }
             }
-        }
 
-
-        Rectangle{
-            width: parent.width/(1.2)
-            height: parent.height
-            id:detail
 
             Column{
-                spacing: 2
-                anchors.fill:parent
+                spacing: 5
+                width: parent.width/(1.2)
+                height: parent.height
+                id:detail
 
                 TabBar{
                     id: mybar
@@ -78,11 +68,10 @@ Window {
 
                     Item {
                         id: homeTab
-
                         Detail_home{}
                     }
                     Item {
-                        id: editorTab                        
+                        id: editorTab
 
                         Column{
                             spacing: 2
@@ -97,7 +86,8 @@ Window {
                         }
                     }
                 }
+
             }
         }
-    }
+
 }

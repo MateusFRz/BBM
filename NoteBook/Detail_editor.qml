@@ -19,82 +19,71 @@ Column{
     property var rowSpacing: 2
     property var columnSpacing: 2
 
-    Column{
-        spacing: columnSpacing
-        Row{
-            spacing: rowSpacing
-            height: ht
-            width: wd
+    Row{
+        spacing: rowSpacing
+        height: ht
+        width: wd
 
-            Text {
-                width: wdLabel
-                id: labelNameD
-                objectName: "labelName"
-                text: "<b>Nom</b>"
-            }
+        Text {
+            width: wdLabel
+            id: labelNameD
+            objectName: "labelName"
+            text: "<b>Nom</b>"
+        }
 
-            Rectangle{
-                border.color: "black"
-                color: bkgd
-                height: htRect
-                width: wdRect
+        Rectangle{
+            border.color: "black"
+            color: bkgd
+            height: htRect
+            width: wdRect
 
-                TextInput{
-                    id: nameD
-                    anchors.centerIn: parent
-                    objectName: "name"
-                    text: aleModel.beer?aleModel.beer.nom:"null"
-                    maximumLength: txtInLgt
-                }
+            TextInput{
+                id: nameD
+                anchors.centerIn: parent
+                objectName: "name"
+                text: aleModel.beer?aleModel.beer.name:"null"
+                maximumLength: txtInLgt
             }
         }
 
 
-        Row{
-            spacing: rowSpacing
-            height: ht
-            width: wd
+        Text {
+            width: wdLabel
+            id: labelTypeD
+            objectName: "labelType"
+            text: "<b>Type</b>"
+        }
 
-            Text {
-                width: wdLabel
-                id: labelTypeD
-                objectName: "labelType"
-                text: "<b>Type</b>"
-            }
+        Rectangle{
+            border.color: "black"
+            color: bkgd
+            height: htRect
+            width: wdRect
 
-            Rectangle{
-                border.color: "black"
-                color: bkgd
-                height: htRect
-                width: wdRect
+            TextInput{
+                id: typeD
+                objectName: "type"
+                anchors.centerIn: parent
+                text:aleModel.beer?aleModel.beer.type:"null"
+                maximumLength: txtInLgt
 
-                TextInput{
-                    id: typeD
-                    objectName: "type"
-                    anchors.centerIn: parent
-                    text:aleModel.beer?aleModel.beer.type:"null"
-                    maximumLength: txtInLgt
-
-                }
             }
         }
     }
 
 
-    Column{
-        spacing: columnSpacing
-        Row{
-            spacing: parent.spacing
-            height: ht
-            width: wd
+    Row{
+        spacing: parent.spacing
+        height: ht
+        width: wd
 
-            Text {
-                width: wdLabel
-                id: labelVolD
-                objectName: "labelVol"
-                text: "<b>Vol %</b>"
-            }
-
+        Text {
+            width: wdLabel
+            id: labelVolD
+            objectName: "labelVol"
+            text: "<b>Vol %</b>"
+        }
+        Column{
             Rectangle{
                 border.color: "black"
                 color: bkgd
@@ -106,7 +95,7 @@ Column{
                     id: volD
                     objectName: "vol"
                     anchors.centerIn: parent
-                    text: aleModel.beer?aleModel.beer.vol/10:"null"
+                    text: aleModel.beer?aleModel.beer.alcoholeLevels/10:"null"
 
                     onTextChanged: {
                         if(text != aleModel.beer.vol) console.debug("textInput:",text);
@@ -114,44 +103,37 @@ Column{
 
                 }
             }
-        }
-        Slider {
-            id: slideVol
-            from:0
-            to: 300
-            stepSize: 1
-            value: aleModel.beer?aleModel.beer.vol:"0"
-            onValueChanged: {if(value != aleModel.beer.vol) console.debug("slider:",value/10);}
-        }
 
-        Row{
-            spacing: rowSpacing
-            height: ht
-            width: wd
-
-            Text {
-                width: wdLabel
-                id: labelDensiteD
-                objectName: "labelDensite"
-                text: "<b>Densite</b>"
+            Slider {
+                id: slideVol
+                from:0
+                to: 300
+                stepSize: 1
+                value: aleModel.beer?aleModel.beer.alcoholeLevels:"0"
+                onValueChanged: {if(value != aleModel.beer.alcoholeLevels) console.debug("slider:",value/10);}
             }
+        }
+        Text {
+            width: wdLabel
+            id: labelDensiteD
+            objectName: "labelDensite"
+            text: "<b>Densite</b>"
+        }
 
-            Rectangle{
-                border.color: "black"
-                color: bkgd
-                height: htRect
-                width: wdRect
+        Rectangle{
+            border.color: "black"
+            color: bkgd
+            height: htRect
+            width: wdRect
 
-                TextInput{
-                    id: densiteD
-                    objectName: "densite"
-                    anchors.centerIn: parent
-                    text: aleModel.beer?aleModel.beer.densite:"null"
-                    maximumLength: txtInLgt
+            TextInput{
+                id: densiteD
+                objectName: "densite"
+                anchors.centerIn: parent
+                text: aleModel.beer?aleModel.beer.density:"null"
+                maximumLength: txtInLgt
 
-                }
             }
         }
     }
-
 }

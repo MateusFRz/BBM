@@ -42,7 +42,7 @@ QVariant ModelBeer::data(const QModelIndex &index, int role) const{
     case ColorRole:
         return beer->color();
     case RecipeRole:
-        return QVariant::fromValue(*beer->recipe());
+        return QVariant::fromValue(beer->recipe());
     case BeerRole:
     case Qt::DisplayRole:
         return QVariant::fromValue(beer);
@@ -114,7 +114,7 @@ bool ModelBeer::insertRows(int row, int count, const QModelIndex &parent)
 {
     beginInsertRows(parent,row,row+count-1); // !!
     for (int nb = 0; nb < count; ++nb) {
-        m_beers.insert(row, new Beer("Biere vide",0,10,1600,"blanche","vide",new Recipe(0,0)));
+        m_beers.insert(row, new Beer("Biere vide",0,10,1600,"blanche","vide",new Recipe(0)));
     }
     endInsertRows(); // !! return true;
     return true;

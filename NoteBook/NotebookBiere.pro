@@ -15,8 +15,6 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         beer.cpp \
-        biere.cpp \
-        bieremodel.cpp \
         ingredient.cpp \
         main.cpp \
         modelBeer.cpp \
@@ -40,8 +38,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 HEADERS += \
     beer.h \
-    biere.h \
-    bieremodel.h \
     ingredient.h \
     modelBeer.h \
     recipe.h

@@ -10,7 +10,6 @@ class Recipe : public QObject
 {
     Q_OBJECT
 
-    Q_PROPERTY(int beerID READ beerID WRITE setBeerID NOTIFY beerIDChanged)
     Q_PROPERTY(int preparationTime READ preparationTime WRITE setPreparationTime NOTIFY preparationTimeChanged)
 
 private:
@@ -21,21 +20,18 @@ private:
 
 public:
 
-    explicit Recipe(int recipeBeerID, int recipePreparationTime);
+    explicit Recipe(int recipePreparationTime);
 
-    int beerID() const;
     int preparationTime() const;
 
 public slots:
 
-    void setBeerID(int beerID);
     void setPreparationTime(int preparationTime);
     void addIngredient(Ingredient* ingredient);
     void deleteIngredient(Ingredient* ingredient);
 
 
 signals:
-    void beerIDChanged(int beerID);
     void preparationTimeChanged(int preparationTime);
 };
 

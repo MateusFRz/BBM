@@ -1,28 +1,16 @@
 #include "recipe.h"
 
-Recipe::Recipe(int recipeBeerID, int recipePreparationTime) : m_beerID(recipeBeerID), m_preparationTime(recipePreparationTime)
+Recipe::Recipe(int recipePreparationTime) : m_preparationTime(recipePreparationTime)
 {
 
 }
 
-int Recipe::beerID() const
-{
-    return m_beerID;
-}
 
 int Recipe::preparationTime() const
 {
     return m_preparationTime;
 }
 
-void Recipe::setBeerID(int beerID)
-{
-    if (m_beerID == beerID)
-        return;
-
-    m_beerID = beerID;
-    emit beerIDChanged(m_beerID);
-}
 
 void Recipe::setPreparationTime(int preparationTime)
 {

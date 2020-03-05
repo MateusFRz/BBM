@@ -26,7 +26,7 @@ Column{
         Text {
             id: name
             objectName: "name"
-            text: aleModel.beer?aleModel.beer.nom:"null"
+            text: aleModel.beer?aleModel.beer.name:"null"
         }
     }
 
@@ -45,7 +45,7 @@ Column{
         Text {
             id: vol
             objectName: "vol"
-            text: aleModel.beer?aleModel.beer.vol/10:"null"
+            text: aleModel.beer?aleModel.beer.alcoholeLevels/10:"null"
 
         }
 
@@ -85,7 +85,7 @@ Column{
         Text {
             id: densite
             objectName: "densite"
-            text:aleModel.beer?aleModel.beer.densite:"null"
+            text:aleModel.beer?aleModel.beer.density:"null"
         }
     }
 }
