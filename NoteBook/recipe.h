@@ -3,7 +3,7 @@
 
 #include <QObject>
 #include "ingredient.h"
-#include "vector"
+#include <vector>
 using namespace std;
 
 class Recipe : public QObject

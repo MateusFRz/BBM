@@ -71,6 +71,57 @@ Column{
         }
     }
 
+    Row{
+        spacing: rowSpacing
+        height: ht
+        width: wd
+
+        Text {
+            width: wdLabel
+            id: labelIBU
+            objectName: "labelIBU"
+            text: "<b>IBU</b>"
+        }
+
+        Rectangle{
+            border.color: "black"
+            color: bkgd
+            height: htRect
+            width: wdRect
+
+            TextInput{
+                id: ibu
+                anchors.centerIn: parent
+                objectName: "name"
+                text: aleModel.beer?aleModel.beer.IBU:"null"
+                maximumLength: txtInLgt
+            }
+        }
+
+
+        Text {
+            width: wdLabel
+            id: labelColor
+            objectName: "labelColor"
+            text: "<b>Color</b>"
+        }
+
+        Rectangle{
+            border.color: "black"
+            color: bkgd
+            height: htRect
+            width: wdRect
+
+            TextInput{
+                id: color
+                objectName: "color"
+                anchors.centerIn: parent
+                text:aleModel.beer?aleModel.beer.color:"null"
+                maximumLength: txtInLgt
+
+            }
+        }
+    }
 
     Row{
         spacing: parent.spacing
