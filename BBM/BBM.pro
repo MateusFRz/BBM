@@ -44,7 +44,8 @@ SOURCES += \
     event/deliveryproblem.cpp \
     model/time.cpp \
     event/nothing.cpp \
-    model/randomeventfactory.cpp
+    model/randomeventfactory.cpp \
+    model/eventlauncher.cpp
 
 
 RESOURCES += \
@@ -89,7 +90,8 @@ HEADERS += \
     event/header/deliveryproblem.h \
     model/header/time.h \
     event/header/nothing.h \
-    model/header/randomeventfactory.h
+    model/header/randomeventfactory.h \
+    model/header/eventlauncher.h
 
 DISTFILES += \
     qml/main.qml

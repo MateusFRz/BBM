@@ -2,7 +2,7 @@
 #define EVENTMANAGER_H
 
 #include <QObject>
-#include <event/header/event.h>
+#include "eventlauncher.h"
 #include "randomeventfactory.h"
 using namespace std;
 
@@ -10,8 +10,10 @@ class EventManager : public QObject
 {
     Q_OBJECT
 
+
 private:
-    array<Event*, 50> listEvent;
+    static const int NBEVENT = 50;
+    array<EventLauncher*, NBEVENT> listEvent;
     enum event  {
         NOTHING,
         BLAZE,
@@ -31,10 +33,12 @@ private:
 
 
 public:
-    explicit EventManager(QObject *parent = nullptr);
+    EventManager();
     void launchEvent(int hour, int minute);
-    void fillList();
+    EventLauncher* getRandomEvent();
     void clearList();
+    void fillList();
+    void sortList();
 
 signals:
 

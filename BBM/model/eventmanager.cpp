@@ -1,16 +1,24 @@
 #include "header/eventmanager.h"
 
-EventManager::EventManager(QObject *parent) : QObject(parent)
+#include <model/header/eventmanager.h>
+
+EventManager::EventManager()
 {
 
 }
 
 void EventManager::launchEvent(int hour, int minute)
 {
-    
+    if (listEvent.front()->getHour()==hour &&
+            listEvent.front()->getMinutes()==minute){
+
+        listEvent.front()->launch();
+        listEvent.front() = new EventLauncher(999, 999, RandomEventFactory::createEvent(event::NOTHING));
+        sortList();
+    }
 }
 
-void EventManager::fillList()
+EventLauncher* EventManager::getRandomEvent()
 {
     int rand1 = rand() % 100 + 1;
     Event* event;
@@ -57,9 +65,38 @@ void EventManager::fillList()
         break;
             
     }
+    int hour = rand() % 24 + 8;
+    int minutes = rand() % 60;
+    EventLauncher* eventLauncher = new EventLauncher(hour, minutes, event);
+    return eventLauncher;
 }
 
 void EventManager::clearList()
 {
-    listEvent = array<Event *, 50>();
+    listEvent = array<EventLauncher *, NBEVENT>();
 }
+
+void EventManager::fillList()
+{
+    for (int i = 0; i <= NBEVENT; ++i) {
+        listEvent[i] = getRandomEvent();
+    }
+}
+
+void EventManager::sortList()
+{
+    EventLauncher* min = listEvent[0];
+    EventLauncher* tmp;
+    for (int i = 0; i <= NBEVENT; ++i) {
+        for (int j = 0; j < NBEVENT; ++j) {
+            if(listEvent[j]->isSmaller(min)) {
+                min =listEvent[j];
+            }
+        }
+        tmp = listEvent[i];
+        listEvent[i] = min;
+        min = tmp;
+    }
+}
+
+
