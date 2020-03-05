@@ -17,7 +17,7 @@ private:
 
 public:
 
-    Ingredient(QString ingredientName, QString ingredientType);
+    Ingredient(QString ingredientName = "name", QString ingredientType = "type");
 
     QString name() const;
     QString type() const;

@@ -16,6 +16,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 QMAKE_CXXFLAGS += -Wno-unused-function
 
 SOURCES += \
+    beerbuilder/beerbuilder.cpp \
     game/game.cpp \
         main.cpp \
     metier/bar.cpp \
@@ -62,6 +63,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
+    beerbuilder/header/beerbuilder.h \
     game/header/game.h \
     metier/header/bar.h \
     metier/header/beer.h \
