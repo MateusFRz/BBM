@@ -17,6 +17,7 @@ private:
     int color;
     BeerType type;
 
+
 public:
 
     Beer(QString beerName, int beerAlcoholLevels, int beerIBU, int beerDensity, int beerColor);
@@ -35,6 +36,8 @@ public:
     void setBeerTypeQString(QString stringBeerType);
     BeerType getBeerType();
 
+    virtual ~Beer(){}
+public slots:
 };
 
 #endif // BEER_H

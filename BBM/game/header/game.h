@@ -2,8 +2,6 @@
 #define GAME_H
 
 #include <QObject>
-#include <QGuiApplication>
-#include <QQmlApplicationEngine>
 
 class Game : public QObject
 {

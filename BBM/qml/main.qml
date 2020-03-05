@@ -7,8 +7,6 @@ Window {
     height: 720
     title: qsTr("Hello World")
 
-
-
     Rectangle {
         id: tap
         anchors.top: parent.top

@@ -14,14 +14,17 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    APM/drink.cpp \
+    fas/drink.cpp \
+    fas/fasgame.cpp \
+    fas/liquid.cpp \
+    fas/ordermodel.cpp \
     game/game.cpp \
         main.cpp \
     metier/bar.cpp \
     metier/beer.cpp \
     metier/ingredient.cpp \
-    metier/order.cpp \
-    metier/ordergenerator.cpp \
+    fas/order.cpp \
+    fas/ordergenerator.cpp \
     metier/recipe.cpp \
 
 
@@ -40,14 +43,17 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
-    APM/header/drink.h \
+    fas/header/drink.h \
+    fas/header/fasgame.h \
+    fas/header/liquid.h \
+    fas/header/ordermodel.h \
     game/header/game.h \
     metier/header/bar.h \
     metier/header/beer.h \
     metier/header/beertype.h \
     metier/header/ingredient.h \
-    metier/header/order.h \
-    metier/header/ordergenerator.h \
+    fas/header/order.h \
+    fas/header/ordergenerator.h \
     metier/header/recipe.h \
     metier/header/type.h \
 

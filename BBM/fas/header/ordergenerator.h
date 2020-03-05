@@ -5,8 +5,8 @@
 
 class OrderGenerator
 {
-public:
-    Order generateOrder();
+public :
+    static Order *generateOrder();
 };
 
 #endif // ORDERGENERATOR_H
