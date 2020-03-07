@@ -7,6 +7,6 @@ DeliveryProblem::DeliveryProblem(QString name): Event(name)
 
 void DeliveryProblem::applyEvent()
 {
-
+    //TODO Faire le systéme de stock
 }
 

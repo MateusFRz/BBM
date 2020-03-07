@@ -5,6 +5,9 @@
 
 class Weather : public Event
 {
+
+private:
+    int weatherBonus;
 public:
     Weather(QString name, int time);
     void applyEvent(int time) override;

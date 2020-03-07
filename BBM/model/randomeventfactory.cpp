@@ -11,7 +11,7 @@ Event *RandomEventFactory::createEvent(int noEvent)
             event = new BrokenEquipement("Broken Equipement");
         break;
         case 3 :
-            event = new Competition("Competition", RandomEventFactory::randTime(1));
+            event = new Competition("Competition");
         break;
         case 4 :
             event = new Customer("Customer", RandomEventFactory::randTime(1));

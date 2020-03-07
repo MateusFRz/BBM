@@ -1,12 +1,13 @@
 #include "header/competition.h"
 
-Competition::Competition(QString name, int time): Event(name, time)
+Competition::Competition(QString name): Event(name)
 {
 
 }
 
-void Competition::applyEvent(int time)
+void Competition::applyEvent()
 {
-
+    //TODO Message a l'utilisateur
+    bar->setPopularity((bar->popularity()-10));
 }
 

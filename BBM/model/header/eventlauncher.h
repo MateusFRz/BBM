@@ -14,6 +14,7 @@ public:
     int getMinutes();
     void launch();
     bool isSmaller(EventLauncher* biggerEventLauncher);
+    Event* getEvent();
 
 signals:
 

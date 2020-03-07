@@ -28,3 +28,8 @@ bool EventLauncher::isSmaller(EventLauncher *biggerEventLauncher)
     else return false;
 }
 
+Event *EventLauncher::getEvent()
+{
+    return event;
+}
+

@@ -1,5 +1,4 @@
 #include "header/eventmanager.h"
-
 #include <model/header/eventmanager.h>
 
 EventManager::EventManager()
@@ -76,11 +75,13 @@ void EventManager::clearList()
     listEvent = array<EventLauncher *, NBEVENT>();
 }
 
-void EventManager::fillList()
+void EventManager::fillList(Bar* bar)
 {
     for (int i = 0; i <= NBEVENT; ++i) {
         listEvent[i] = getRandomEvent();
+        listEvent[i]->getEvent()->setBar(bar);
     }
+    sortList();
 }
 
 void EventManager::sortList()
@@ -90,7 +91,7 @@ void EventManager::sortList()
     for (int i = 0; i <= NBEVENT; ++i) {
         for (int j = 0; j < NBEVENT; ++j) {
             if(listEvent[j]->isSmaller(min)) {
-                min =listEvent[j];
+                min=listEvent[j];
             }
         }
         tmp = listEvent[i];

@@ -37,7 +37,7 @@ public:
     void launchEvent(int hour, int minute);
     EventLauncher* getRandomEvent();
     void clearList();
-    void fillList();
+    void fillList(Bar* bar);
     void sortList();
 
 signals:

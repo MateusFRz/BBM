@@ -6,8 +6,8 @@
 class Competition : public Event
 {
 public:
-    Competition(QString name, int time);
-    void applyEvent(int time) override;
+    Competition(QString name);
+    void applyEvent() override;
 };
 
 #endif // COMPETITION_H

@@ -2,8 +2,10 @@
 #define EVENT_H
 
 #include <QObject>
+#include <QTimer>
+#include <metier/header/bar.h>
 
-class Event : public QObject
+class Event : public QTimer
 {
     Q_OBJECT
     Q_PROPERTY(QString name READ name WRITE setName NOTIFY nameChanged)
@@ -13,6 +15,9 @@ private:
     int m_runtime;
 
 public:
+    Bar* bar;
+    QTimer* timer;
+
     explicit Event(QString name);
     explicit Event(QString name, int time);
 
@@ -22,7 +27,8 @@ public:
     virtual void applyEvent(){}
     virtual void applyEvent(int /*time*/){}
     virtual void reverse(){}
-
+    void setBar(Bar* barGame);
+    void setTime();
 
 signals:
 
