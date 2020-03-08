@@ -3,8 +3,7 @@
 #include <QRandomGenerator>
 
 Order *OrderGenerator::generateOrder() {
-    int time = QRandomGenerator(0, 10).generate();
-    Beer *beer = new Beer("lofle", 5, 10, 5, 2);
-
-    return new Order(beer, time);
+    int time = QRandomGenerator::global()->bounded(8, 16);
+    Beer *beer = new Beer("lofle", 0, 0, 0, "", "", new Recipe());
+    return new Order(beer, time * 60);
 }

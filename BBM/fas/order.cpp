@@ -1,6 +1,10 @@
 #include "header/order.h"
 
+#include <QDebug>
+
 Order::Order(Beer *beer, int time) {
+    setBeer(beer);
+    setTime(time);
 }
 
 int Order::time() const
@@ -20,6 +24,10 @@ void Order::setTime(int time)
         return;
 
     m_time = time;
+
+    if (m_time <= 0)
+        emit failed();
+
     emit timeChanged(m_time);
 }
 
@@ -29,4 +37,9 @@ void Order::setBeer(Beer *beer)
         return;
 
     m_beer = beer;
+}
+
+void Order::oneSecond()
+{
+    setTime(time() - 1);
 }

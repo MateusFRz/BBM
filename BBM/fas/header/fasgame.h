@@ -4,35 +4,66 @@
 #include "order.h"
 #include "ordergenerator.h"
 #include "drink.h"
-#include "ordermodel.h"
+#include "player.h"
+#include "tap.h"
 
 #include <QObject>
+#include <QQmlContext>
+#include <QTimer>
+
+#define NBTAP 4
 
 class FASGame : public QObject
 {
+
+    /*
+    * 80% beer
+    * 15% foam
+    * 5% nothing
+    */
     Q_OBJECT
     Q_PROPERTY(int time READ time WRITE setTime NOTIFY timeChanged)
+    Q_PROPERTY(int tapSelected READ tapSelected WRITE setTapSelected NOTIFY tapSelectedChanged)
 public:
-    explicit FASGame(QObject *parent = nullptr);
+    explicit FASGame(QQmlContext *context);
 
     int time() const;
     bool isFinish();
-    void start();
-    void end();
+    void start(unsigned duration = 2000);
+    int tapSelected() const;
+
+
+    ~FASGame();
 
 public slots:
+    void end();
     void setTime(int time);
-    void serveDrink(int key);
+    void keyEventListener(int key);
+    void oneSecond();
+    void setTapSelected(int tapSelected);
 
 signals:
     void timeChanged(int time);
+    void tapSelectedChanged(int tapSelected);
 
 private:
-    void addOrder();
+    void serverOrder();
+    void failOrder();
+    void newOrder();
 
-    bool finish;
+    bool m_finish;
     int m_time;
-    OrderModel *orderModel;
+    int m_delay;
+    int m_tapSelected;
+
+
+    Drink *m_drink;
+    Tap *m_tap[NBTAP];
+    Player *m_player;
+
+    Order *m_order;
+    QQmlContext *m_context;
+    QTimer m_perSecond;
 };
 
 #endif // FASGAME_H

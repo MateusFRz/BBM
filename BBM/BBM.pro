@@ -17,7 +17,8 @@ SOURCES += \
     fas/drink.cpp \
     fas/fasgame.cpp \
     fas/liquid.cpp \
-    fas/ordermodel.cpp \
+    fas/player.cpp \
+    fas/tap.cpp \
     game/game.cpp \
         main.cpp \
     metier/bar.cpp \
@@ -46,7 +47,8 @@ HEADERS += \
     fas/header/drink.h \
     fas/header/fasgame.h \
     fas/header/liquid.h \
-    fas/header/ordermodel.h \
+    fas/header/player.h \
+    fas/header/tap.h \
     game/header/game.h \
     metier/header/bar.h \
     metier/header/beer.h \

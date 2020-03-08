@@ -6,27 +6,31 @@
 class Liquid : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(int quantity READ quantity NOTIFY quantityChanged)
-    Q_PROPERTY(int quotient READ quotient WRITE setQuotient NOTIFY quotientChanged)
+    Q_PROPERTY(double quantity READ quantity NOTIFY quantityChanged)
+    Q_PROPERTY(QString color READ color WRITE setColor NOTIFY colorChanged)
 
 public:
     explicit Liquid(QObject *parent = nullptr);
 
-    int quantity() const;
-    int quotient() const;
+    double quantity() const;
+    double quotient() const;
     void updateQuantity();
+    void setQte(double qte);
+
+    QString color() const;
 
 public slots:
-
-    void setQuotient(int quotient);
+    void setQuotient(double quotient);
+    void setColor(QString color);
 
 signals:
-    void quantityChanged(int quantity);
-    void quotientChanged(int quotient);
+    void quantityChanged(double quantity);
+    void colorChanged(QString color);
 
 private:
-    int m_quantity;
-    int m_quotient;
+    double m_quantity;
+    double m_quotient;
+    QString m_color;
 };
 
 #endif // LIQUID_H

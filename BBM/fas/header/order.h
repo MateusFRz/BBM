@@ -14,14 +14,16 @@ public:
 
 
     int time() const;
-    Beer *beer() const;
+    Q_INVOKABLE Beer *beer() const;
     void setBeer(Beer *beer);
+    void oneSecond();
 
 public slots:
     void setTime(int time);
 
 signals:
     void timeChanged(int time);
+    void failed();
 
 private:
     int m_time;

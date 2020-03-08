@@ -5,12 +5,12 @@ Liquid::Liquid(QObject *parent) : QObject(parent)
 
 }
 
-int Liquid::quantity() const
+double Liquid::quantity() const
 {
     return m_quantity;
 }
 
-int Liquid::quotient() const
+double Liquid::quotient() const
 {
     return m_quotient;
 }
@@ -18,11 +18,31 @@ int Liquid::quotient() const
 void Liquid::updateQuantity()
 {
     m_quantity += m_quotient;
+
     emit quantityChanged(m_quantity);
 }
 
-void Liquid::setQuotient(int quotient)
+void Liquid::setQte(double qte)
+{
+    m_quantity = qte;
+    emit quantityChanged(m_quantity);
+}
+
+QString Liquid::color() const
+{
+    return m_color;
+}
+
+void Liquid::setQuotient(double quotient)
 {
     m_quotient = quotient;
-    emit quotientChanged(m_quotient);
+}
+
+void Liquid::setColor(QString color)
+{
+    if (m_color == color)
+        return;
+
+    m_color = color;
+    emit colorChanged(m_color);
 }
