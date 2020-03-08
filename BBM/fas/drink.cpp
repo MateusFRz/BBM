@@ -6,10 +6,8 @@ Drink::Drink(int delay)
 {
     m_beer = new Liquid();
     m_beer->setQuotient(19.*m_delay/1000.);
-    m_beer->setColor("green");
 
     m_foam = new Liquid();
-    m_foam->setColor("red");
 
     reset();
 }
@@ -94,19 +92,19 @@ void Drink::moveDrink(int key)
         setAngle(angle() + 5);
         break;
     case Qt::Key_Left:
-            setAngle(angle() - 5);
+        setAngle(angle() - 5);
         break;
     case Qt::Key_Z:
-            setY(y() - 5);
+        setY(y() - 5);
         break;
     case Qt::Key_Q:
-            setX(x() - 5);
+        setX(x() - 5);
         break;
     case Qt::Key_S:
         setY(y() + 5);
         break;
     case Qt::Key_D:
-            setX(x() + 5);
+        setX(x() + 5);
         break;
     }
 }

@@ -20,7 +20,7 @@ Rectangle {
         width: parent.width
         z: 1
 
-        y: parent.height * 0.05
+        y: parent.height * 0.08
     }
 
 
@@ -35,24 +35,49 @@ Rectangle {
     }
 
     // Foam
-    Rectangle {
+    Image {
+
         antialiasing: true
+        smooth: true
+
         anchors.bottom: beer.top
         height: drink.foam().quantity * parent.height / 100
+        width: parent.width - (parent.border.width*2)
+        x: parent.border.width
 
-        width: parent.width
-        color: drink.foam().color
+        source: "ressources/foam-texture.png"
     }
 
     // Beer
-    Rectangle {
-        antialiasing: true
+    Image {
         id: beer
+
+        antialiasing: true
+        smooth: true
+
         anchors.bottom: parent.bottom
         height: drink.beer().quantity * parent.height / 100
+        width: parent.width - (parent.border.width*2)
+        x: parent.border.width
 
-        width: parent.width
-        color: drink.beer().color
+        anchors.bottomMargin: parent.border.width
+
+        source: {
+            switch (fas.tapSelected) {
+                case 0:
+                    "ressources/beer-texture.jpg"
+                    break;
+                case 1:
+                    "ressources/beer-amber-texture.jpg"
+                    break;
+                case 2:
+                    "ressources/beer-stout-texture.png"
+                    break;
+                case 3:
+                    "ressources/beer-white-texture.png"
+                    break;
+            }
+        }
     }
 }
 

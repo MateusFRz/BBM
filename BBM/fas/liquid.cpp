@@ -28,21 +28,7 @@ void Liquid::setQte(double qte)
     emit quantityChanged(m_quantity);
 }
 
-QString Liquid::color() const
-{
-    return m_color;
-}
-
 void Liquid::setQuotient(double quotient)
 {
     m_quotient = quotient;
-}
-
-void Liquid::setColor(QString color)
-{
-    if (m_color == color)
-        return;
-
-    m_color = color;
-    emit colorChanged(m_color);
 }

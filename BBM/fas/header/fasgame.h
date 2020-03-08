@@ -16,11 +16,6 @@
 class FASGame : public QObject
 {
 
-    /*
-    * 80% beer
-    * 15% foam
-    * 5% nothing
-    */
     Q_OBJECT
     Q_PROPERTY(int time READ time WRITE setTime NOTIFY timeChanged)
     Q_PROPERTY(int tapSelected READ tapSelected WRITE setTapSelected NOTIFY tapSelectedChanged)
@@ -42,6 +37,7 @@ public slots:
 signals:
     void timeChanged(int time);
     void tapSelectedChanged(int tapSelected);
+    void noSwitch();
 
 private:
     void serverOrder();
@@ -49,6 +45,7 @@ private:
     void newOrder();
 
     bool m_finish;
+    bool m_start_serv;
     int m_time;
     int m_delay;
     int m_tapSelected;

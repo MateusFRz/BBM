@@ -2,19 +2,14 @@
 
 #include <QQmlApplicationEngine>
 #include <QDebug>
-#include <string>
 
-//TODO
-/*
+/* TODO
 * Detecter si le verre est en dessous du robinet
-* Empercher l'usitilisation de plusieurs robinet
-* Une bière par robinet
 * Fix BUGS
 */
 
 FASGame::FASGame(QQmlContext *context)
     : m_delay(1000/60),
-      m_drink(new Drink(m_delay)),
       m_player(new Player()),
       m_order(OrderGenerator::generateOrder()),
       m_context(context),
@@ -22,6 +17,7 @@ FASGame::FASGame(QQmlContext *context)
 {
     setTapSelected(0);
     m_time = 120 * 60;
+    m_drink = new Drink(m_delay);
 
     for (int i=0; i<NBTAP; i++)
         m_tap[i] = new Tap();
@@ -53,6 +49,7 @@ bool FASGame::isFinish()
 void FASGame::start(unsigned duration)
 {
     m_finish = false;
+    m_start_serv = false;
 
     m_context->setContextProperty("order", m_order);
     m_context->setContextProperty("drink", m_drink);
@@ -77,14 +74,19 @@ void FASGame::keyEventListener(int key)
         break;
     case Qt::Key_R:
         m_tap[tapSelected()]->setActif(!m_tap[tapSelected()]->actif());
+        m_start_serv = true;
         break;
     case Qt::Key_A:
-        m_tap[tapSelected()]->setActif(false);
-        if (tapSelected() == NBTAP-1) {
-            setTapSelected(0);
-            return;
+        if (!m_start_serv) {
+            m_tap[tapSelected()]->setActif(false);
+            if (tapSelected() == NBTAP-1) {
+                setTapSelected(0);
+                return;
+            }
+            setTapSelected(tapSelected()+1);
+        } else {
+            emit noSwitch();
         }
-        setTapSelected(tapSelected()+1);
         break;
     }
 }
@@ -137,6 +139,7 @@ void FASGame::newOrder()
 void FASGame::serverOrder()
 {
     m_tap[tapSelected()]->setActif(false);
+    m_start_serv = false;
 
     double foam = m_drink->foam()->quantity();
     double beer = m_drink->beer()->quantity();

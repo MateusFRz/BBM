@@ -8,5 +8,10 @@
         <file>Order.qml</file>
         <file>Head.qml</file>
         <file>ressources/wood-texture.jpg</file>
+        <file>ressources/beer-texture.jpg</file>
+        <file>ressources/foam-texture.png</file>
+        <file>ressources/beer-amber-texture.jpg</file>
+        <file>ressources/beer-stout-texture.png</file>
+        <file>ressources/beer-white-texture.png</file>
     </qresource>
 </RCC>

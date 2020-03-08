@@ -5,7 +5,7 @@ Window {
     visible: true
     width: 1024
     height: 720
-    title: qsTr("Hello World")
+    title: qsTr("Fast And Service")
 
     Rectangle {
         id: eventCatcher
@@ -46,6 +46,7 @@ Window {
                 }
                 Liquid {
                     visible: tapObject0.actif
+                    source: "ressources/beer-texture.jpg"
                 }
             }
             Tap {
@@ -58,6 +59,7 @@ Window {
                 }
                 Liquid {
                     visible: tapObject1.actif
+                    source: "ressources/beer-amber-texture.jpg"
                 }
             }
             Tap {
@@ -70,6 +72,7 @@ Window {
                 }
                 Liquid {
                     visible: tapObject2.actif
+                    source: "ressources/beer-stout-texture.png"
                 }
             }
             Tap {
@@ -82,6 +85,7 @@ Window {
                 }
                 Liquid {
                     visible: tapObject3.actif
+                    source: "ressources/beer-white-texture.png"
                 }
             }
         }
