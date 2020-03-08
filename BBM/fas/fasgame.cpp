@@ -4,10 +4,18 @@
 #include <QDebug>
 #include <string>
 
+//TODO
+/*
+* Detecter si le verre est en dessous du robinet
+* Empercher l'usitilisation de plusieurs robinet
+* Une bière par robinet
+* Fix BUGS
+*/
+
 FASGame::FASGame(QQmlContext *context)
     : m_delay(1000/60),
       m_drink(new Drink(m_delay)),
-      m_player(new Player(0)),
+      m_player(new Player()),
       m_order(OrderGenerator::generateOrder()),
       m_context(context),
       m_perSecond(this)
@@ -102,11 +110,6 @@ void FASGame::end()
 {
     m_finish = true;
     m_perSecond.stop();
-}
-
-FASGame::~FASGame() {
-    delete m_drink;
-
 }
 
 int FASGame::tapSelected() const

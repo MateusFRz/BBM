@@ -6,5 +6,7 @@
         <file>Liquid.qml</file>
         <file>ressources/robinet.png</file>
         <file>Order.qml</file>
+        <file>Head.qml</file>
+        <file>ressources/wood-texture.jpg</file>
     </qresource>
 </RCC>

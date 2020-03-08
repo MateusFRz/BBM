@@ -1,9 +1,7 @@
 #include "header\player.h"
 
-Player::Player(int point) : m_point(point)
-{
-
-}
+Player::Player()
+{}
 
 int Player::point() const
 {

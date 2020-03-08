@@ -16,47 +16,27 @@ Window {
         }
     }
 
-    Text {
-        z: 10
-        x: 500
-        text: "Time: " + Qt.formatTime(new Date(0, 0, 0, 0, 0, fas.time/60), "mm:ss")
-    }
-
-    Text {
-        id: p
-        z: 10
-        x: 700
-        text: "Points: " + player.point
-        color: "black"
-
-        Connections {
-            target: player
-            onSuccess:  {
-                p.color = "green";
-
-            }
-
-            onFailed: {
-                p.color = "red";
-            }
-        }
-    }
-
-    Order {
-        z: 10
-        x: 800
+    Head {
+        id: head
+        anchors.top: parent.top
+        z: 2
     }
 
     Rectangle {
         id: tap
         z: 2
-        anchors.top: parent.top
+        anchors.top: head.bottom
         height: tap1.height
         width: parent.width
 
+        color: "#ffb59b"
+
         Row {
+            leftPadding: parent.width / 10
+            spacing: (parent.width - (leftPadding*2)) / 4
 
             Tap {
+
                 id: tap1
                 border.color: "red"
                 border.width: {
@@ -107,13 +87,15 @@ Window {
         }
     }
 
-    Rectangle {
+    Image {
         id: workSpace
         z: 1
+
         anchors.top: tap.bottom
         anchors.bottom: parent.bottom
         width: parent.width
-        color: "blue"
+
+        source: "ressources/wood-texture.jpg"
 
         Glass {
             z: 1

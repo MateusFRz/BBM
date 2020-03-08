@@ -32,9 +32,6 @@ public:
     void start(unsigned duration = 2000);
     int tapSelected() const;
 
-
-    ~FASGame();
-
 public slots:
     void end();
     void setTime(int time);

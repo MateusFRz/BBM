@@ -9,7 +9,7 @@ class Player : public QObject
     Q_PROPERTY(int point READ point NOTIFY pointChanged)
 
 public:
-    Player(int point);
+    Player();
 
     int point() const;
     void addPoint(int point);
