@@ -2,7 +2,9 @@ import QtQuick 2.13
 import QtQuick.Window 2.13
 import QtQuick.Controls 2.5
 
-Window {
+
+Window{
+
     id : wido
     width: maximumWidth
     height: maximumHeight
@@ -23,13 +25,13 @@ Window {
             spacing: parent.height/6
 
             Button {
-                id: play
-                text: qsTr("Jouer")
-                font.pointSize: play.width/10
+                id: newGame
+                text: qsTr("Nouvelle Partie")
+                font.pointSize: newGame.width/10
                 width: parent.width
-                height: play.width/4
+                height: newGame.width/4
                 onClicked: {
-                    var component = Qt.createComponent("gameMenu.qml")
+                    var component = Qt.createComponent("game/bbm/gameGui.qml")
                     var window    = component.createObject(wido)
                     wido.close()
                     window.show()
@@ -39,29 +41,26 @@ Window {
             }
 
             Button {
-                id: apm
-                text: qsTr("Fast & Service")
-                font.pointSize: apm.width/10
+                id: loadGame
+                text: qsTr("Charger Partie")
+                font.pointSize: loadGame.width/10
                 width: parent.width
-                height: apm.width/4
+                height: loadGame.width/4
+                onClicked: {
+                    var component = Qt.createComponent("menu/gameLoader.qml")
+                    var window    = component.createObject(wido)
+                    wido.close()
+                    window.show()
+
+                }
 
 
 
             }
 
-            Button {
-                id: notebook
-                text: qsTr("NoteBook")
-                font.pointSize: notebook.width/10
-                width: parent.width
-                height: notebook.width/4
 
-            }
         }
     }
-
-
-
 }
 
 

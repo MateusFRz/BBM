@@ -1,6 +1,6 @@
 import QtQuick 2.13
 import QtQuick.Window 2.13
-import QtQuick.Controls 2.5
+import QtQuick.Controls 2.13
 
 Window {
     id : wido
@@ -55,7 +55,7 @@ Window {
                 id: dollarImg
                 width: 100
                 height: 100
-                source: "dollard.png"
+                source: "ressources/dollard.png"
 
             }
 
@@ -110,7 +110,7 @@ Window {
                 id: barImg
                 width: stackBar.width
                 height: stackBar.height
-                source: "bar.jpg"
+                source: "ressources/bar.jpg"
             }
             Rectangle{
                 id: recBar
@@ -196,7 +196,7 @@ Window {
                 id: popularImg
                 width: 100
                 height: 100
-                source: "coonten.png"
+                source: "ressources/coonten.png"
             }
             Text {
                 id: popularity
@@ -248,7 +248,7 @@ Window {
                 id: imageBrass
                 width: stackBrass.width
                 height: stackBrass.height
-                source: "brasserie.jpg"
+                source: "ressources/brasserie.jpg"
             }
             Rectangle{
                 id: recBrass

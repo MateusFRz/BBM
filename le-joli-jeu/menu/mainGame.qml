@@ -23,13 +23,13 @@ Window {
             spacing: parent.height/6
 
             Button {
-                id: game1
-                text: qsTr("Partie 1")
-                font.pointSize: game1.width/10
+                id: play
+                text: qsTr("Jouer")
+                font.pointSize: play.width/10
                 width: parent.width
-                height: game1.width/4
+                height: play.width/4
                 onClicked: {
-                    var component = Qt.createComponent("gameGui.qml")
+                    var component = Qt.createComponent("menu/gameMenu.qml")
                     var window    = component.createObject(wido)
                     wido.close()
                     window.show()
@@ -39,35 +39,29 @@ Window {
             }
 
             Button {
-                id: game2
-                text: qsTr("Partie 2")
-                font.pointSize: game2.width/10
+                id: apm
+                text: qsTr("Fast & Service")
+                font.pointSize: apm.width/10
                 width: parent.width
-                height: game2.width/4
+                height: apm.width/4
 
 
 
             }
 
             Button {
-                id: game3
-                text: qsTr("Partie 3")
-                font.pointSize: game3.width/10
+                id: notebook
+                text: qsTr("NoteBook")
+                font.pointSize: notebook.width/10
                 width: parent.width
-                height: game3.width/4
-
-
+                height: notebook.width/4
 
             }
-
-
-
         }
     }
 
 
 
 }
-
 
 
