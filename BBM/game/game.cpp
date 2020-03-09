@@ -44,7 +44,7 @@ int Game::launchViewApp(int argc, char *argv[])
 
     engine.rootContext()->setContextProperty("beer",beer);
     engine.rootContext()->setContextProperty("beerBuild",beerBuild);
-    const QUrl url(QStringLiteral("qrc:/main.qml"));
+    const QUrl url(QStringLiteral("qrc:game/bbm/beerCration.qml"));
 
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
                      &app, [url](QObject *obj, const QUrl &objUrl) {

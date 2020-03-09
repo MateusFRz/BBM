@@ -11,7 +11,6 @@ BeerBuilder::BeerBuilder(QObject *parent) : QObject(parent)
 
 Beer * BeerBuilder::creatBeer( QString hopIng,  QString maltyIng, int preparationTime, QString name)
 {
-    qDebug() << "Ca m appelle!!!!!!!!!!!!!!!!!!!!!!!!!!";
     QString color;
     QString type;
     int density;

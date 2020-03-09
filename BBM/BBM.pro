@@ -18,7 +18,7 @@ QMAKE_CXXFLAGS += -Wno-unused-function
 SOURCES += \
     beerbuilder/beerbuilder.cpp \
     game/game.cpp \
-        main.cpp \
+    main.cpp \
     metier/bar.cpp \
     metier/beer.cpp \
     metier/ingredient.cpp \
