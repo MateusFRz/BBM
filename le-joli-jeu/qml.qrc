@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/">
+        <file>ressources/bar.jpg</file>
+        <file>ressources/dollard.png</file>
+        <file>ressources/brasserie.jpg</file>
+        <file>ressources/coonten.png</file>
+        <file>menu/gameLoader.qml</file>
+        <file>menu/gameMenu.qml</file>
+        <file>menu/mainGame.qml</file>
+        <file>game/bbm/gameGui.qml</file>
+    </qresource>
+</RCC>
