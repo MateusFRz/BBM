@@ -94,4 +94,3 @@ HEADERS += \
     model/header/eventlauncher.h
 
 DISTFILES += \
-    ../qml/main.qml
