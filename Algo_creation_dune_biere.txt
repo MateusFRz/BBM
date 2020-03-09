@@ -1,0 +1,22 @@
+Algo création d'une bière :
+
+Selection des ingrédient (return nbIngredient, listIngredient) 
+//Il y a déjà eu vérification des stocks
+
+for i tant que i <= nbIngredient, i++
+	
+	utiliserIngredient(listIngredient[i])
+	//mise a jour du stock
+
+	"utilisationMachine"(listIngredient)
+	//Gere le temps en fonction de l'amélioration des machines
+
+end for
+
+new Biere 
+
+if Biere n'existe pas dans le catalogue
+	ajouterBiereCatalogue(Biere)	 
+
+
+return Biere

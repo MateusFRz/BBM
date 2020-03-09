@@ -1,0 +1,16 @@
+- Catalogue(Alban) 
+	-Brasserie 
+	-Biere de base
+
+- Boucle de temps dans le bar
+
+- Coder l'algo de création de bière
+	- Classe createBeer
+	- Classes en amont  
+
+
+- Attendre le notebook :
+		- enum a transformer PLUS TARD en QString ou QPROPERTY
+		- Voir avec alban -> faire toutes les Q_PROPERTY utiles
+
+- Finir GameModel
