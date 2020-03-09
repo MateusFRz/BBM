@@ -55,7 +55,7 @@ Window {
                 id: dollarImg
                 width: 100
                 height: 100
-                source: "ressources/dollard.png"
+                source: "qrc:ressources/dollard.png"
 
             }
 
@@ -110,7 +110,7 @@ Window {
                 id: barImg
                 width: stackBar.width
                 height: stackBar.height
-                source: "ressources/bar.jpg"
+                source: "qrc:ressources/bar.jpg"
             }
             Rectangle{
                 id: recBar
@@ -196,7 +196,7 @@ Window {
                 id: popularImg
                 width: 100
                 height: 100
-                source: "ressources/coonten.png"
+                source: "qrc:ressources/coonten.png"
             }
             Text {
                 id: popularity
@@ -248,7 +248,7 @@ Window {
                 id: imageBrass
                 width: stackBrass.width
                 height: stackBrass.height
-                source: "ressources/brasserie.jpg"
+                source: "qrc:ressources/brasserie.jpg"
             }
             Rectangle{
                 id: recBrass

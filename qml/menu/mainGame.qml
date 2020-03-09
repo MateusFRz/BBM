@@ -9,13 +9,11 @@ Window {
     visible: true
 
     Column {
-        id: column
         width: parent.width
         height: parent.height
         spacing : 20
 
         Column {
-            id: column1
             width: parent.width/2
             height: button.height
             anchors.horizontalCenter: parent.horizontalCenter
@@ -29,8 +27,9 @@ Window {
                 width: parent.width
                 height: play.width/4
                 onClicked: {
-                    var component = Qt.createComponent("menu/gameMenu.qml")
-                    var window    = component.createObject(wido)
+                    let component = Qt.createComponent("qrc:menu/gameMenu.qml")
+                    let window    = component.createObject(wido)
+                    console.log(window)
                     wido.close()
                     window.show()
 

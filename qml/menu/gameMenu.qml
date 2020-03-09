@@ -14,12 +14,12 @@ Window{
         id: column
         width: parent.width
         height: parent.height
-        spacing : 20
+
 
         Column {
             id: column1
             width: parent.width/2
-            height: button.height
+            height: parent.height/2
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.verticalCenter: parent.verticalCenter
             spacing: parent.height/6
@@ -31,10 +31,12 @@ Window{
                 width: parent.width
                 height: newGame.width/4
                 onClicked: {
-                    var component = Qt.createComponent("game/bbm/gameGui.qml")
+                    var component = Qt.createComponent("qrc:game/bbm/gameGui.qml")
                     var window    = component.createObject(wido)
+                    console.log(window)
                     wido.close()
                     window.show()
+
 
                 }
 
@@ -47,7 +49,7 @@ Window{
                 width: parent.width
                 height: loadGame.width/4
                 onClicked: {
-                    var component = Qt.createComponent("menu/gameLoader.qml")
+                    var component = Qt.createComponent("qrc:menu/gameLoader.qml")
                     var window    = component.createObject(wido)
                     wido.close()
                     window.show()
