@@ -1,6 +1,6 @@
 <RCC>
     <qresource prefix="/">
-        <file>main.qml</file>
+        <file>mainFAS.qml</file>
         <file>Glass.qml</file>
         <file>Tap.qml</file>
         <file>Liquid.qml</file>

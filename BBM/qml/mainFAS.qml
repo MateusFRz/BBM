@@ -9,7 +9,7 @@ Window {
     height: 720
     title: qsTr("Fast And Service")
 
-    Audio {
+    /*Audio {
         source: "ressources/background.mp3"
         autoPlay: true
         loops: Audio.Infinite
@@ -33,7 +33,7 @@ Window {
                 notifSound.play()
             }
         }
-    }
+    }*/
 
 
     Rectangle {
