@@ -13,5 +13,8 @@
         <file>ressources/beer-amber-texture.jpg</file>
         <file>ressources/beer-stout-texture.png</file>
         <file>ressources/beer-white-texture.png</file>
+        <file>ressources/background.mp3</file>
+        <file>ressources/bad.mp3</file>
+        <file>ressources/good.mp3</file>
     </qresource>
 </RCC>

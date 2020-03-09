@@ -5,8 +5,6 @@ Drink::Drink(int delay)
     : m_delay(delay)
 {
     m_beer = new Liquid();
-    m_beer->setQuotient(19.*m_delay/1000.);
-
     m_foam = new Liquid();
 
     reset();
@@ -58,11 +56,27 @@ void Drink::setAngle(int angle)
 {
     m_angle = angle;
 
-    if (m_angle >= 0 && m_angle <= 5)
+    if (m_angle == 360 || m_angle == -360)
+        m_angle = 0;
+
+
+    m_beer->setQuotient(19.*m_delay/1000.);
+    if (m_angle <= 5 && m_angle >= -5)
+    {
         m_foam->setQuotient(7.*m_delay/1000);
-    else if (m_angle == 45)
+
+    } else if ((m_angle <= 30 && m_angle >= 40) || (m_angle <= 320 && m_angle >= 310)
+             || (m_angle <= -30 && m_angle >= -40) || (m_angle <= -320 && m_angle >= -310))
+    {
         m_foam->setQuotient(1.*m_delay/1000);
-    else m_foam->setQuotient(2.5*m_delay/1000);
+
+    } else if ((m_angle > 80 && m_angle < 280) || (m_angle > -80 && m_angle < -280))
+    {
+        m_foam->setQuotient(-20.*m_delay/1000);
+        m_beer->setQuotient(-20.*m_delay/1000);
+    } else  {
+        m_foam->setQuotient(2.5*m_delay/1000);
+    }
 
     emit angleChanged(m_angle);
 }

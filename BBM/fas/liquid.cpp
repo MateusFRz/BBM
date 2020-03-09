@@ -18,6 +18,8 @@ double Liquid::quotient() const
 void Liquid::updateQuantity()
 {
     m_quantity += m_quotient;
+    if (m_quantity < 0)
+        m_quantity = 0;
 
     emit quantityChanged(m_quantity);
 }

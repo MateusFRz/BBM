@@ -1,11 +1,40 @@
 import QtQuick 2.12
 import QtQuick.Window 2.12
 import QtQuick.Controls 2.12
+import QtMultimedia 5.12
+
 Window {
     visible: true
     width: 1024
     height: 720
     title: qsTr("Fast And Service")
+
+    Audio {
+        source: "ressources/background.mp3"
+        autoPlay: true
+        loops: Audio.Infinite
+        audioRole: Audio.GameRole
+        volume: 0.5
+    }
+
+    Audio {
+        id: notifSound
+        volume: 0.6
+        audioRole: Audio.SonificationRole
+
+        Connections {
+            taget: player
+            onFailed: {
+                notifSound.source = "ressources/bad.mp3"
+                notifSound.play()
+            }
+            onSuccess: {
+                notifSound.source = "ressources/good.mp3"
+                notifSound.play()
+            }
+        }
+    }
+
 
     Rectangle {
         id: eventCatcher
