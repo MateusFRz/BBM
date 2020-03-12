@@ -19,6 +19,7 @@ SOURCES += \
         main.cpp \
     stub.cpp \
     game/game.cpp \
+    metier/beerbuilder.cpp \
     metier/bar.cpp \
     metier/beer.cpp \
     metier/ingredient.cpp \
@@ -78,6 +79,7 @@ HEADERS += \
     metier/header/recipe.h \
     metier/header/brewery.h \
     metier/header/modelBeer.h \
+    metier/header/beerbuilder.h \
     model/header/gamemodel.h \
     model/header/eventmanager.h \
     model/header/time.h \

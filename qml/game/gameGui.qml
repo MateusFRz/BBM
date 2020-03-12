@@ -31,7 +31,7 @@ Window {
             }
 
             MenuItem{
-                text: "Parametre du bar"
+                text: "Paramètre du bar"
             }
 
             MenuItem{
@@ -39,7 +39,7 @@ Window {
             }
 
             MenuItem{
-                text: "Ctalogue des bières"
+                text: "Catalogue des bières"
             }
         }
 
@@ -212,6 +212,11 @@ Window {
 
             MenuItem{
                 text: "Créer une Bière"
+                onClicked: {
+                    var component = Qt.createComponent("qrc:game/beerForm.qml")
+                    var window    = component.createObject(wido)
+                    window.show()
+                }
             }
 
             MenuItem{

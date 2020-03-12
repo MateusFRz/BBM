@@ -25,6 +25,7 @@ public:
     QString name() const;
     Q_INVOKABLE void startFAS();
     Q_INVOKABLE void startNotebook();
+    Q_INVOKABLE void createBeer(QString hopIng, QString maltyIng, int preparationTime, QString name);
 
 signals:
     void switchToFAS();

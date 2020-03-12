@@ -32,9 +32,8 @@ Window{
                 width: parent.width
                 height: newGame.width/4
                 onClicked: {
-                    var component = Qt.createComponent("qrc:game/bbm/gameGui.qml")
+                    var component = Qt.createComponent("qrc:game/gameGui.qml")
                     var window    = component.createObject(wido)
-                    console.log(window)
                     wido.close()
                     window.show()
 

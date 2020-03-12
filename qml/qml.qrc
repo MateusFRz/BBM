@@ -7,7 +7,6 @@
         <file>menu/gameLoader.qml</file>
         <file>menu/gameMenu.qml</file>
         <file>menu/mainGame.qml</file>
-        <file>game/bbm/gameGui.qml</file>
         <file>fas/mainFAS.qml</file>
         <file>fas/Glass.qml</file>
         <file>fas/Tap.qml</file>
@@ -29,5 +28,7 @@
         <file>notebook/Detail_home.qml</file>
         <file>notebook/mainNotebook.qml</file>
         <file>notebook/Master.qml</file>
+        <file>game/beerForm.qml</file>
+        <file>game/gameGui.qml</file>
     </qresource>
 </RCC>

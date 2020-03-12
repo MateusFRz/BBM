@@ -1,5 +1,6 @@
 #include "header/game.h"
 #include "metier/header/bar.h"
+#include "metier/header/beerbuilder.h"
 #include "fas/header/fasgame.h"
 #include "../stub.h"
 
@@ -95,5 +96,10 @@ void Game::startFAS() {
 void Game::startNotebook() {
     Stub::stubModel(m_modelBeer);
     emit switchToNotebook();
+}
+
+void Game::createBeer(QString hopIng, QString maltyIng, int preparationTime, QString name) {
+    Beer *beer = BeerBuilder::createBeer(hopIng, maltyIng, preparationTime, name);
+    m_modelBeer->addBeer(beer);
 }
 
