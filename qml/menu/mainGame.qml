@@ -15,7 +15,6 @@ Window {
 
         Column {
             width: parent.width/2
-            height: button.height
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.verticalCenter: parent.verticalCenter
             spacing: parent.height/6
@@ -29,10 +28,8 @@ Window {
                 onClicked: {
                     let component = Qt.createComponent("qrc:menu/gameMenu.qml")
                     let window    = component.createObject(wido)
-                    console.log(window)
                     wido.close()
                     window.show()
-
                 }
 
             }
@@ -44,7 +41,10 @@ Window {
                 width: parent.width
                 height: apm.width/4
 
-
+                onClicked:  {
+                    wido.close()
+                    game.startFAS()
+                }
 
             }
 
@@ -54,6 +54,11 @@ Window {
                 font.pointSize: notebook.width/10
                 width: parent.width
                 height: notebook.width/4
+
+                onClicked: {
+                    wido.close()
+
+                }
 
             }
         }

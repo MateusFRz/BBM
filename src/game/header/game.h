@@ -4,8 +4,11 @@
 #include <QObject>
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
+#include <QCloseEvent>
+
 #include "metier/header/bar.h"
 #include "metier/header/brewery.h"
+#include "fas/header/fasgame.h"
 
 class Game : public QObject
 {
@@ -15,23 +18,19 @@ public:
     Game();
     ~Game();
     Game(QString gameName, QString barAddress);
-
     void init(int argc, char *argv[]);
-
     int launchViewApp(int argc, char *argv[]);
 
-    //void test();
-
-
     QString name() const;
+    Q_INVOKABLE void startFAS();
 
 signals:
-
+    void switchToFAS();
     void nameChanged(QString name);
+    void closeEvent(QCloseEvent *event);
 
 public slots:
-
-void setName(QString name);
+    void setName(QString name);
 
 private:
 
@@ -39,6 +38,7 @@ private:
     QString m_name;
     Bar gameBar;
     Brewery gameBrewery;
+    FASGame *m_fas;
 };
 
 #endif // GAME_H

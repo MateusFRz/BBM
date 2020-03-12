@@ -16,12 +16,11 @@ DEFINES += QT_DEPRECATED_WARNINGS
 QMAKE_CXXFLAGS += -Wno-unused-function
 
 SOURCES += \
-    game/game.cpp \
         main.cpp \
+    game/game.cpp \
     metier/bar.cpp \
     metier/beer.cpp \
     metier/ingredient.cpp \
-    metier/order.cpp \
     metier/recipe.cpp \
     model/gamemodel.cpp \
     metier/brewery.cpp \
@@ -45,8 +44,14 @@ SOURCES += \
     model/time.cpp \
     event/nothing.cpp \
     model/randomeventfactory.cpp \
-    model/eventlauncher.cpp
-
+    model/eventlauncher.cpp \
+    fas/drink.cpp \
+    fas/fasgame.cpp \
+    fas/liquid.cpp \
+    fas/player.cpp \
+    fas/tap.cpp \
+    fas/order.cpp \
+    fas/ordergenerator.cpp \
 
 RESOURCES += \
     ../qml/qml.qrc
@@ -67,7 +72,6 @@ HEADERS += \
     metier/header/bar.h \
     metier/header/beer.h \
     metier/header/ingredient.h \
-    metier/header/order.h \
     metier/header/recipe.h \
     model/header/gamemodel.h \
     metier/header/brewery.h \
@@ -91,6 +95,14 @@ HEADERS += \
     model/header/time.h \
     event/header/nothing.h \
     model/header/randomeventfactory.h \
-    model/header/eventlauncher.h
+    model/header/eventlauncher.h \
+    fas/header/drink.h \
+    fas/header/fasgame.h \
+    fas/header/liquid.h \
+    fas/header/player.h \
+    fas/header/tap.h \
+    fas/header/order.h \
+    fas/header/ordergenerator.h \
+
 
 DISTFILES += \

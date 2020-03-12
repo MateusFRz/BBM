@@ -1,4 +1,5 @@
 import QtQuick 2.13
+import QtQuick.Dialogs 1.2
 import QtQuick.Window 2.13
 import QtQuick.Controls 2.5
 
@@ -42,6 +43,15 @@ Window{
 
             }
 
+
+            /*MessageDialog {
+                id: dialog
+                title: "WIP"
+                text: "This feature is not avaible yet !"
+                standardButtons: StandardButton.OK
+                Component.onCompleted: visible = true
+            }*/
+
             Button {
                 id: loadGame
                 text: qsTr("Charger Partie")
@@ -49,10 +59,10 @@ Window{
                 width: parent.width
                 height: loadGame.width/4
                 onClicked: {
-                    var component = Qt.createComponent("qrc:menu/gameLoader.qml")
-                    var window    = component.createObject(wido)
-                    wido.close()
-                    window.show()
+                    //var component = Qt.createComponent("qrc:menu/gameLoader.qml")
+                    //var window    = component.createObject(wido)
+                    //wido.close()
+                    //window.show()
 
                 }
 
