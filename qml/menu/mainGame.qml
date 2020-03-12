@@ -57,7 +57,7 @@ Window {
 
                 onClicked: {
                     wido.close()
-
+                    game.startNotebook()
                 }
 
             }

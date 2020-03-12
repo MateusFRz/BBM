@@ -17,14 +17,19 @@ QMAKE_CXXFLAGS += -Wno-unused-function
 
 SOURCES += \
         main.cpp \
+    stub.cpp \
     game/game.cpp \
     metier/bar.cpp \
     metier/beer.cpp \
     metier/ingredient.cpp \
     metier/recipe.cpp \
-    model/gamemodel.cpp \
     metier/brewery.cpp \
+    metier/modelBeer.cpp \
+    model/gamemodel.cpp \
     model/eventmanager.cpp \
+    model/time.cpp \
+    model/randomeventfactory.cpp \
+    model/eventlauncher.cpp \
     event/event.cpp \
     event/customer.cpp \
     event/unveilling.cpp \
@@ -41,17 +46,14 @@ SOURCES += \
     event/tax.cpp \
     event/brokenequipement.cpp \
     event/deliveryproblem.cpp \
-    model/time.cpp \
     event/nothing.cpp \
-    model/randomeventfactory.cpp \
-    model/eventlauncher.cpp \
     fas/drink.cpp \
     fas/fasgame.cpp \
     fas/liquid.cpp \
     fas/player.cpp \
     fas/tap.cpp \
     fas/order.cpp \
-    fas/ordergenerator.cpp \
+    fas/ordergenerator.cpp
 
 RESOURCES += \
     ../qml/qml.qrc
@@ -68,14 +70,19 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
+    stub.h \
     game/header/game.h \
     metier/header/bar.h \
     metier/header/beer.h \
     metier/header/ingredient.h \
     metier/header/recipe.h \
-    model/header/gamemodel.h \
     metier/header/brewery.h \
+    metier/header/modelBeer.h \
+    model/header/gamemodel.h \
     model/header/eventmanager.h \
+    model/header/time.h \
+    model/header/randomeventfactory.h \
+    model/header/eventlauncher.h \
     event/header/event.h \
     event/header/customer.h \
     event/header/unveilling.h \
@@ -92,17 +99,13 @@ HEADERS += \
     event/header/tax.h \
     event/header/brokenequipement.h \
     event/header/deliveryproblem.h \
-    model/header/time.h \
     event/header/nothing.h \
-    model/header/randomeventfactory.h \
-    model/header/eventlauncher.h \
     fas/header/drink.h \
     fas/header/fasgame.h \
     fas/header/liquid.h \
     fas/header/player.h \
     fas/header/tap.h \
     fas/header/order.h \
-    fas/header/ordergenerator.h \
-
+    fas/header/ordergenerator.h
 
 DISTFILES += \

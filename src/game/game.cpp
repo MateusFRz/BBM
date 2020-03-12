@@ -1,6 +1,7 @@
 #include "header/game.h"
 #include "metier/header/bar.h"
 #include "fas/header/fasgame.h"
+#include "../stub.h"
 
 #include <QDebug>
 
@@ -37,8 +38,10 @@ int Game::launchViewApp(int argc, char *argv[])
     QQmlApplicationEngine engine;
 
     m_fas = new FASGame(engine.rootContext());
+    m_modelBeer = new ModelBeer();
 
     engine.rootContext()->setContextProperty("game", this);
+    engine.rootContext()->setContextProperty("modelBeer", m_modelBeer);
 
     const QUrl url(QStringLiteral("qrc:menu/mainGame.qml"));
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
@@ -52,6 +55,12 @@ int Game::launchViewApp(int argc, char *argv[])
                      [&engine]() {
                          engine.load("qrc:/fas/mainFAS.qml");
 
+                     }
+    );
+
+    QObject::connect(this, &Game::switchToNotebook,
+                     [&engine]() {
+                         engine.load("qrc:/notebook/mainNotebook.qml");
                      }
     );
 
@@ -81,5 +90,10 @@ void Game::setName(QString name)
 void Game::startFAS() {
     m_fas->start();
     emit switchToFAS();
+}
+
+void Game::startNotebook() {
+    Stub::stubModel(m_modelBeer);
+    emit switchToNotebook();
 }
 

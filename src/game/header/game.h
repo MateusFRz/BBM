@@ -8,6 +8,7 @@
 
 #include "metier/header/bar.h"
 #include "metier/header/brewery.h"
+#include "metier/header/modelBeer.h"
 #include "fas/header/fasgame.h"
 
 class Game : public QObject
@@ -23,9 +24,11 @@ public:
 
     QString name() const;
     Q_INVOKABLE void startFAS();
+    Q_INVOKABLE void startNotebook();
 
 signals:
     void switchToFAS();
+    void switchToNotebook();
     void nameChanged(QString name);
     void closeEvent(QCloseEvent *event);
 
@@ -39,6 +42,7 @@ private:
     Bar gameBar;
     Brewery gameBrewery;
     FASGame *m_fas;
+    ModelBeer *m_modelBeer;
 };
 
 #endif // GAME_H
