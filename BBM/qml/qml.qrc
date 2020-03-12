@@ -1,5 +1,0 @@
-<RCC>
-    <qresource prefix="/">
-        <file>game/bbm/beerCration.qml</file>
-    </qresource>
-</RCC>
