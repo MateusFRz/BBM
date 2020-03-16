@@ -6,6 +6,7 @@ Window {
     id : wido
     width: maximumWidth
     height: maximumHeight
+    visibility: "FullScreen"
     visible: true
 
         Column {

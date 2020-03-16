@@ -7,6 +7,7 @@ Window {
     width: maximumWidth
     height: maximumHeight
     visible: true
+    visibility: "FullScreen"
 
     Column {
         id: column
