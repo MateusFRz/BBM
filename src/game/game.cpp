@@ -16,8 +16,8 @@ Game::~Game()
 
 }
 
-Game::Game(QQmlContext *m_context)
-    : m_context(m_context)
+Game::Game(QQmlContext *context)
+    : m_context(context)
 {
 }
 
@@ -25,11 +25,11 @@ void Game::init()
 {
 
     m_bar = Stub::stubBar();
-    m_fas = new FASGame(m_context.rootContext());
+    m_fas = new FASGame(m_context);
     m_modelBeer = new ModelBeer();
 
-    m_context.rootContext()->setContextProperty("modelBeer", m_modelBeer);
-    m_context.rootContext()->setContextProperty("bar", m_bar);
+    m_context->setContextProperty("modelBeer", m_modelBeer);
+    m_context->setContextProperty("bar", m_bar);
 }
 
 void Game::startFAS() {

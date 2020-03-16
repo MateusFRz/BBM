@@ -34,7 +34,7 @@ signals:
 private:
 
     bool isRunning;
-    QQmlApplicationEngine m_context;
+    QQmlContext * m_context;
     Bar *m_bar;
     FASGame *m_fas;
     ModelBeer *m_modelBeer;
