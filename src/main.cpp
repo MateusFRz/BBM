@@ -13,7 +13,9 @@ int main(int argc, char *argv[])
 
     QQmlApplicationEngine engine;
 
-    Game *game = new Game("", "",  engine.rootContext());
+    Game *game = new Game(engine.rootContext());
+    game->init();
+    engine.rootContext()->setContextProperty("game", game);
 
     const QUrl url(QStringLiteral("qrc:menu/mainGame.qml"));
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
@@ -26,7 +28,6 @@ int main(int argc, char *argv[])
                      &Game::switchToFAS,
                      [&engine]() {
                          engine.load("qrc:/fas/mainFAS.qml");
-
                      }
     );
 

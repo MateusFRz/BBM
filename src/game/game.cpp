@@ -6,45 +6,34 @@
 
 #include <QDebug>
 
+Game::Game()
+{
+
+}
+
 Game::~Game()
 {
 
 }
 
-Game::Game(QString gameName, QString barAddress, QQmlContext *m_context)
-    : m_context(m_context),
-      m_name(gameName)
+Game::Game(QQmlContext *m_context)
+    : m_context(m_context)
 {
-    gameBar.setName(gameName);
-    gameBar.setAddress(barAddress);
 }
 
 void Game::init()
 {
 
+    Stub::stubBar(m_bar);
     m_fas = new FASGame(m_context.rootContext());
     m_modelBeer = new ModelBeer();
 
-    m_context.rootContext()->setContextProperty("game", this);
     m_context.rootContext()->setContextProperty("modelBeer", m_modelBeer);
-}
-
-QString Game::name() const
-{
-    return m_name;
-}
-
-void Game::setName(QString name)
-{
-    if (m_name == name)
-        return;
-
-    m_name = name;
-    emit nameChanged(m_name);
+    m_context.rootContext()->setContextProperty("bar", m_bar);
 }
 
 void Game::startFAS() {
-    m_fas->start();
+    m_fas->start(120);
     emit switchToFAS();
 }
 

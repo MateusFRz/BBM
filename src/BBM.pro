@@ -24,7 +24,6 @@ SOURCES += \
     metier/beer.cpp \
     metier/ingredient.cpp \
     metier/recipe.cpp \
-    metier/brewery.cpp \
     metier/modelBeer.cpp \
     model/eventmanager.cpp \
     model/time.cpp \
@@ -76,7 +75,6 @@ HEADERS += \
     metier/header/beer.h \
     metier/header/ingredient.h \
     metier/header/recipe.h \
-    metier/header/brewery.h \
     metier/header/modelBeer.h \
     metier/header/beerbuilder.h \
     model/header/eventmanager.h \

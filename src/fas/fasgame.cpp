@@ -20,7 +20,6 @@ FASGame::FASGame(QQmlContext *context)
     connect(&m_perSecond, &QTimer::timeout, this, &FASGame::oneSecond);
     connect(m_drink, &Drink::full, this, &FASGame::failOrder);
     connect(m_order, &Order::failed, this, &FASGame::failOrder);
-
 }
 
 int FASGame::time() const
@@ -47,9 +46,9 @@ void FASGame::start(unsigned duration)
     m_finish = false;
     m_start_serv = false;
 
+    m_context->setContextProperty("fas", this);
     m_context->setContextProperty("order", m_order);
     m_context->setContextProperty("drink", m_drink);
-    m_context->setContextProperty("fas", this);
     m_context->setContextProperty("player", m_player);
     for (int i=0; i<NBTAP; i++) {
         std::string s = "tapObject" + std::to_string(i);

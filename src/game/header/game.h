@@ -7,21 +7,18 @@
 #include <QCloseEvent>
 
 #include "metier/header/bar.h"
-#include "metier/header/brewery.h"
 #include "metier/header/modelBeer.h"
 #include "fas/header/fasgame.h"
 
 class Game : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(QString name READ name WRITE setName NOTIFY nameChanged)
 public:
     Game();
     ~Game();
-    Game(QString gameName, QString barAddress, QQmlContext *m_context);
+    Game(QQmlContext *m_context);
     void init();
 
-    QString name() const;
     Q_INVOKABLE void startFAS();
     Q_INVOKABLE void startNotebook();
     Q_INVOKABLE void startGame();
@@ -34,16 +31,11 @@ signals:
     void nameChanged(QString name);
     void closeEvent(QCloseEvent *event);
 
-public slots:
-    void setName(QString name);
-
 private:
 
     bool isRunning;
     QQmlApplicationEngine m_context;
-    QString m_name;
-    Bar gameBar;
-    Brewery gameBrewery;
+    Bar *m_bar;
     FASGame *m_fas;
     ModelBeer *m_modelBeer;
 };
