@@ -26,7 +26,6 @@ SOURCES += \
     metier/recipe.cpp \
     metier/brewery.cpp \
     metier/modelBeer.cpp \
-    model/gamemodel.cpp \
     model/eventmanager.cpp \
     model/time.cpp \
     model/randomeventfactory.cpp \
@@ -80,7 +79,6 @@ HEADERS += \
     metier/header/brewery.h \
     metier/header/modelBeer.h \
     metier/header/beerbuilder.h \
-    model/header/gamemodel.h \
     model/header/eventmanager.h \
     model/header/time.h \
     model/header/randomeventfactory.h \

@@ -2,11 +2,6 @@
 
 #include <QDebug>
 
-/* TODO
-* Detecter si le verre est en dessous du robinet
-* Fix BUGS
-*/
-
 FASGame::FASGame(QQmlContext *context)
     :
       m_time(120 * 60),
