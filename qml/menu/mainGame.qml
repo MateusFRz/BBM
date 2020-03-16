@@ -15,7 +15,7 @@ Window {
 
         Column {
             width: parent.width/2
-            anchors.horizontalCenter: parent.horizontalCenter
+            //anchors.horizontalCenter: parent.horizontalCenter
             anchors.verticalCenter: parent.verticalCenter
             spacing: parent.height/6
 
