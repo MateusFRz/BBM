@@ -14,6 +14,7 @@ class Drink : public QObject
 
 public:
     Drink(int delay);
+    ~Drink();
 
     int angle() const;
     Q_INVOKABLE Liquid *foam();

@@ -13,6 +13,10 @@ Drink::Drink(int delay)
     reset();
 }
 
+Drink::~Drink()
+{
+}
+
 int Drink::angle() const
 {
     return m_angle;

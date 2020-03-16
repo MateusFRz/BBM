@@ -117,6 +117,12 @@ int FASGame::tapSelected() const
     return m_tapSelected;
 }
 
+FASGame::~FASGame()
+{
+    delete m_player;
+    delete m_order;
+}
+
 void FASGame::failOrder()
 {
     m_tap[tapSelected()]->setActif(false);

@@ -27,6 +27,8 @@ public:
     bool isFinish();
     int tapSelected() const;
 
+    ~FASGame();
+
 public slots:
     void end();
     void setTime(int time);

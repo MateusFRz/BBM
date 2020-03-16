@@ -9,6 +9,11 @@ Order::Order(Beer* beer, int time)
     //setTime(time);
 }
 
+Order::~Order()
+{
+    delete m_beer;
+}
+
 int Order::time() const
 {
     return m_time;

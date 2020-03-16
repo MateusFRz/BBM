@@ -4,7 +4,7 @@
 #include <QDebug>
 #include <vector>
 
-Beer * BeerBuilder::createBeer( QString hopIng,  QString maltyIng, int preparationTime, QString name)
+Beer *buildBeer( QString hopIng,  QString maltyIng, int preparationTime, QString name)
 {
     QString color = "";
     QString type = "";

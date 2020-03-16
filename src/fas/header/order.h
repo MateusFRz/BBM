@@ -11,7 +11,7 @@ class Order : public QObject
 
 public:
     Order(Beer* beer, int time);
-
+    ~Order();
 
     int time() const;
     Q_INVOKABLE Beer *beer() const;

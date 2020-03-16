@@ -13,7 +13,9 @@ Game::Game()
 
 Game::~Game()
 {
-
+    delete m_bar;
+    delete m_fas;
+    delete m_modelBeer;
 }
 
 Game::Game(QQmlContext *context)
@@ -47,7 +49,7 @@ void Game::startGame() {
 }
 
 void Game::createBeer(QString hopIng, QString maltyIng, int preparationTime, QString name) {
-    Beer *beer = BeerBuilder::createBeer(hopIng, maltyIng, preparationTime, name);
+    Beer *beer = buildBeer(hopIng, maltyIng, preparationTime, name);
     m_modelBeer->addBeer(beer);
 }
 
