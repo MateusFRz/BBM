@@ -1,4 +1,4 @@
-#include "header\beerbuilder.h"
+#include "header/beerbuilder.h"
 #include <QString>
 #include <QRandomGenerator>
 #include <QDebug>
