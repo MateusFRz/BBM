@@ -8,15 +8,9 @@ Window {
     height: maximumHeight
     visible: true
 
-    Column {
-        width: parent.width
-        height: parent.height
-        spacing : 20
-
         Column {
             width: parent.width/2
-            //anchors.horizontalCenter: parent.horizontalCenter
-            anchors.verticalCenter: parent.verticalCenter
+            anchors.horizontalCenter: parent.horizontalCenter
             spacing: parent.height/6
 
             Button {
@@ -62,10 +56,6 @@ Window {
 
             }
         }
-    }
-
-
-
 }
 
 

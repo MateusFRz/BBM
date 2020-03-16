@@ -44,7 +44,7 @@ int main(int argc, char *argv[])
             //Fermer le fas
     });
 
-    QObject::connect(&game, &Game::startGame,
+    QObject::connect(&game, &Game::switchToGame,
                      [&engine](){
                             engine.load("qrc:game/gameGui.qml");
             //Lance la game
