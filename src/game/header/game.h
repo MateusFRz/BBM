@@ -16,7 +16,7 @@ class Game : public QObject
 public:
     Game();
     ~Game();
-    Game(QQmlContext *m_context);
+    Game(QQmlContext *context);
     void init();
 
     Q_INVOKABLE void startFAS();

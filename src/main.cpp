@@ -14,7 +14,10 @@ int main(int argc, char *argv[])
     QQmlApplicationEngine engine;
 
     Game game(engine.rootContext());
+
+    // Build all components of the game
     game.init();
+
     engine.rootContext()->setContextProperty("game", &game);
 
     const QUrl url(QStringLiteral("qrc:menu/mainGame.qml"));
