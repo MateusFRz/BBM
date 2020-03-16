@@ -1,8 +1,10 @@
 #include "header/liquid.h"
 
-Liquid::Liquid(QObject *parent) : QObject(parent)
+Liquid::Liquid(QObject *parent)
+    : QObject(parent),
+      m_quantity(-1),
+      m_quotient(1)
 {
-
 }
 
 double Liquid::quantity() const

@@ -2,9 +2,11 @@
 
 #include <QDebug>
 
-Order::Order(Beer *beer, int time) {
-    setBeer(beer);
-    setTime(time);
+Order::Order(Beer* beer, int time)
+    : m_time(time),
+      m_beer(beer)
+{
+    //setTime(time);
 }
 
 int Order::time() const

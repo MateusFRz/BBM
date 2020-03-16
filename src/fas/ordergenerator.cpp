@@ -1,9 +1,12 @@
 #include "header/ordergenerator.h"
 #include <iostream>
 #include <QRandomGenerator>
+#include "header/order.h"
 
-Order *OrderGenerator::generateOrder() {
+void generateOrder(Order & order) {
     int time = QRandomGenerator::global()->bounded(8, 16);
+
     Beer *beer = new Beer("lofle", 0, 0, 0, "", "", new Recipe(5));
-    return new Order(beer, time * 60);
+    order.setBeer(beer);
+    order.setTime(time * 60);
 }

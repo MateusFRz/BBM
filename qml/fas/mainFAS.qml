@@ -129,7 +129,7 @@ Window {
         source: "qrc:ressources/wood-texture.jpg"
 
         Glass {
-            z: 1
+            z: 11
         }
     }
 

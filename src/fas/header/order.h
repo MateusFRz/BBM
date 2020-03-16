@@ -10,7 +10,7 @@ class Order : public QObject
     Q_PROPERTY(int time READ time WRITE setTime NOTIFY timeChanged)
 
 public:
-    Order(Beer *beer, int time);
+    Order(Beer* beer, int time);
 
 
     int time() const;

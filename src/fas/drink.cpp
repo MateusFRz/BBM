@@ -2,9 +2,13 @@
 #include <QDebug>
 
 Drink::Drink(int delay)
-    : m_delay(delay),
+    :
+        m_angle(1),
+        m_delay(delay),
         m_foam(),
-        m_beer()
+        m_beer(),
+        m_x(0),
+        m_y(0)
 {
     reset();
 }

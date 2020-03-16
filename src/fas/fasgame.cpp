@@ -1,4 +1,5 @@
 #include "header/fasgame.h"
+#include "header/ordergenerator.h"
 
 #include <QDebug>
 
@@ -8,7 +9,7 @@ FASGame::FASGame(QQmlContext *context)
       m_delay(1000/60),
       m_drink(m_delay),
       m_player(new Player()),
-      m_order(OrderGenerator::generateOrder()),
+      m_order(new Order(nullptr, 0)),
       m_context(context),
       m_perSecond(this)
 {
@@ -18,8 +19,8 @@ FASGame::FASGame(QQmlContext *context)
         m_tap[i] = new Tap();
 
     connect(&m_perSecond, &QTimer::timeout, this, &FASGame::oneSecond);
-    connect(&m_drink, &Drink::full, this, &FASGame::failOrder);
-    connect(m_order, &Order::failed, this, &FASGame::failOrder);
+    connect(&m_drink, &Drink::full, this,  &FASGame::failOrder);
+    connect(m_order,  &Order::failed, this,&FASGame::failOrder);
 }
 
 int FASGame::time() const
@@ -43,6 +44,8 @@ bool FASGame::isFinish()
 
 void FASGame::start(unsigned duration)
 {
+    generateOrder(*m_order);
+
     m_finish = false;
     m_start_serv = false;
 
@@ -125,10 +128,7 @@ void FASGame::failOrder()
 
 void FASGame::newOrder()
 {
-    Order *temp_order = OrderGenerator::generateOrder();
-    m_order->setBeer(temp_order->beer());
-    m_order->setTime(temp_order->time());
-    delete temp_order;
+    generateOrder(*m_order);
 }
 
 void FASGame::serverOrder()
