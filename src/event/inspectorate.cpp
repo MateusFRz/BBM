@@ -7,7 +7,7 @@ Inspectorate::Inspectorate(QString name, int time): Event(name,time)
 
 }
 
-void Inspectorate::applyEvent(int time)
+void Inspectorate::applyEvent(int )
 {
     int random = rand() % 4 + 1;
     //TODO Message a l'utilisateur

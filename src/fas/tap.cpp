@@ -1,6 +1,6 @@
 #include "header/tap.h"
 
-Tap::Tap(QObject *parent)
+Tap::Tap(QObject *)
 {
 
 }

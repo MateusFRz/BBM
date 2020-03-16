@@ -5,7 +5,7 @@ Weather::Weather(QString name, int time): Event(name, time)
 
 }
 
-void Weather::applyEvent(int time)
+void Weather::applyEvent(int )
 {
     int random = rand() % 2 +1;
     if (random == 1) {

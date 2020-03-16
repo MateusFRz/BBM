@@ -6,7 +6,7 @@ Customer::Customer(QString name, int time): Event(name, time)
     connect(timer, SIGNAL(reverse()), this, SLOT(timeout()));
 }
 
-void Customer::applyEvent(int time)
+void Customer::applyEvent(int )
 {
 
 }

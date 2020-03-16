@@ -5,7 +5,7 @@ Unveilling::Unveilling(QString name, int time): Event(name, time)
 
 }
 
-void Unveilling::applyEvent(int time)
+void Unveilling::applyEvent(int )
 {
     //TODO lancer APM
 }
