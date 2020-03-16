@@ -9,7 +9,7 @@ class Stub {
 
 public:
     static void stubModel(ModelBeer *model);
-    static void stubBar(Bar *bar);
+    static Bar * stubBar();
 };
 
 #endif // STUB_H

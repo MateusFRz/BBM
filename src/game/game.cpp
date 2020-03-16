@@ -24,7 +24,7 @@ Game::Game(QQmlContext *m_context)
 void Game::init()
 {
 
-    Stub::stubBar(m_bar);
+    m_bar = Stub::stubBar();
     m_fas = new FASGame(m_context.rootContext());
     m_modelBeer = new ModelBeer();
 

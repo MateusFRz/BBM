@@ -15,6 +15,6 @@ void Stub::stubModel(ModelBeer *model) {
     model->addBeer(new Beer("Guinness Special Export",20,80,1060,"noire","stout",new Recipe(3)));
 }
 
-void Stub::stubBar(Bar *bar) {
-    bar = new Bar("Le bon bar", 5, 1000, "7 Rue des clodos");
+Bar * Stub::stubBar() {
+    return new Bar("Le bon bar", 5, 1000, "7 Rue des clodos");
 }
