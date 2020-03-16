@@ -12,6 +12,7 @@ RowLayout{
         text: "Suprimer"
 
         onClicked: {
+            notebook.deleteBeer(aleModel.beer)
         }
     }
 
@@ -22,6 +23,7 @@ RowLayout{
         text: "Valider"
 
         onClicked: {
+            notebook.updateBeer(name.text,vol.text,ibu.text,densite.text,color.text,type.text,hops.text,malts.text,aleModel.beer)
         }
     }
 }

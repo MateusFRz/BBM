@@ -17,6 +17,7 @@ QMAKE_CXXFLAGS += -Wno-unused-function
 
 SOURCES += \
         main.cpp \
+    notebook/notebook.cpp \
     stub.cpp \
     game/game.cpp \
     metier/beerbuilder.cpp \
@@ -70,6 +71,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
+    notebook/header/notebook.h \
     stub.h \
     game/header/game.h \
     metier/header/bar.h \

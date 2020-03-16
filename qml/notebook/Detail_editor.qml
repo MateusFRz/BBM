@@ -39,7 +39,7 @@ Column{
             border.color: "black"
 
             TextInput{
-                id: nameD
+                id: name
                 anchors.centerIn: parent
                 objectName: "name"
                 text: aleModel.beer?aleModel.beer.name:"null"
@@ -63,7 +63,7 @@ Column{
             width: wdRect
 
             TextInput{
-                id: typeD
+                id: type
                 objectName: "type"
                 anchors.centerIn: parent
                 text:aleModel.beer?aleModel.beer.type:"null"
@@ -129,6 +129,61 @@ Column{
     }
 
     Row{
+        spacing: rowSpacing
+        height: ht
+        width: wd
+
+        Text {
+            width: wdLabel
+            id: labelHops
+            objectName: "labelHops"
+            text: "<b>Houblon</b>"
+        }
+
+        Rectangle{
+            border.width: 2
+            border.color: "black"
+            color: bkgd
+            height: htRect
+            width: wdRect
+
+            TextInput{
+                id: hops
+                anchors.centerIn: parent
+                objectName: "name"
+                text: aleModel.beer?aleModel.beer.recipe.getListIngredient()[0]:"null"
+                maximumLength: txtInLgt
+                inputMask: "999"
+            }
+        }
+
+
+        Text {
+            width: wdLabel
+            id: labelMalts
+            objectName: "labelColor"
+            text: "<b>Malt</b>"
+        }
+
+        Rectangle{
+            border.width: 2
+            border.color: "black"
+            color: bkgd
+            height: htRect
+            width: wdRect
+
+            TextInput{
+                id: malts
+                objectName: "malts"
+                anchors.centerIn: parent
+                text:aleModel.beer?aleModel.beer.recipe.getListIngredient()[1]:"null"
+                maximumLength: txtInLgt
+
+            }
+        }
+    }
+
+    Row{
         spacing: parent.spacing
         height: ht
         width: wd
@@ -149,7 +204,7 @@ Column{
 
                 TextInput{
 
-                    id: volD
+                    id: vol
                     objectName: "vol"
                     anchors.centerIn: parent
                     text: aleModel.beer?aleModel.beer.alcoholeLevels/10:"0"
@@ -186,7 +241,7 @@ Column{
             width: wdRect
 
             TextInput{
-                id: densiteD
+                id: densite
                 objectName: "densite"
                 anchors.centerIn: parent
                 text: aleModel.beer?aleModel.beer.density:"null"

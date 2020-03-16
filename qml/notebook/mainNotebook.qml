@@ -35,12 +35,7 @@ Window {
                     text: "Ajouter"
 
                     onClicked: {
-                        //console.debug("Add Beer")
-                        //  Beer(QString beerName, int beerAlcoholLevels, int beerIBU, int beerDensity, QString beerColor, QString beerType, Recipe* recipe);
-
-                        // aleModel.addBeer(new aleModel.Beer("name",0,0,1000,"color","type",new aleModel.Recipe(0)))
-                       // Qt.binding( function() { model.addBeer(new Beer("name",0,0,1000,"color","type",new aleModel.Recipe(0))) } )
-                        model.addBeer(new Beer("name",0,0,1000,"color","type",new aleModel.Recipe(0)))
+                        notebook.createBeer()
                     }
                 }
             }
