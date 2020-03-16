@@ -52,7 +52,7 @@ private:
     int m_tapSelected;
 
 
-    Drink *m_drink;
+    Drink m_drink;
     Tap *m_tap[NBTAP];
     Player *m_player;
 

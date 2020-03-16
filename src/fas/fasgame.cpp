@@ -6,7 +6,7 @@ FASGame::FASGame(QQmlContext *context)
     :
       m_time(120 * 60),
       m_delay(1000/60),
-      m_drink(new Drink(m_delay)),
+      m_drink(m_delay),
       m_player(new Player()),
       m_order(OrderGenerator::generateOrder()),
       m_context(context),
@@ -18,7 +18,7 @@ FASGame::FASGame(QQmlContext *context)
         m_tap[i] = new Tap();
 
     connect(&m_perSecond, &QTimer::timeout, this, &FASGame::oneSecond);
-    connect(m_drink, &Drink::full, this, &FASGame::failOrder);
+    connect(&m_drink, &Drink::full, this, &FASGame::failOrder);
     connect(m_order, &Order::failed, this, &FASGame::failOrder);
 }
 
@@ -48,7 +48,7 @@ void FASGame::start(unsigned duration)
 
     m_context->setContextProperty("fas", this);
     m_context->setContextProperty("order", m_order);
-    m_context->setContextProperty("drink", m_drink);
+    m_context->setContextProperty("drink", &m_drink);
     m_context->setContextProperty("player", m_player);
     for (int i=0; i<NBTAP; i++) {
         std::string s = "tapObject" + std::to_string(i);
@@ -90,7 +90,7 @@ void FASGame::oneSecond()
    setTime(time() - 1);
    m_order->oneSecond();
    if (m_tap[tapSelected()]->actif())
-       m_drink->oneSecond();
+       m_drink.oneSecond();
 }
 
 void FASGame::setTapSelected(int tapSelected)
@@ -117,7 +117,7 @@ int FASGame::tapSelected() const
 void FASGame::failOrder()
 {
     m_tap[tapSelected()]->setActif(false);
-    m_drink->reset();
+    m_drink.reset();
     m_player->removePoint(100);
 
     newOrder();
@@ -136,8 +136,8 @@ void FASGame::serverOrder()
     m_tap[tapSelected()]->setActif(false);
     m_start_serv = false;
 
-    double foam = m_drink->foam()->quantity();
-    double beer = m_drink->beer()->quantity();
+    double foam = m_drink.foam()->quantity();
+    double beer = m_drink.beer()->quantity();
     double totalDrink = foam + beer;
 
     if (totalDrink >= 100 || totalDrink <= 85) m_player->removePoint(50);
@@ -146,7 +146,7 @@ void FASGame::serverOrder()
     else if ((foam >= 10 && foam <= 20) && (beer >= 70 && beer <= 91)) m_player->addPoint(50);
     else m_player->removePoint(25);
 
-    m_drink->reset();
+    m_drink.reset();
     newOrder();
 }
 
