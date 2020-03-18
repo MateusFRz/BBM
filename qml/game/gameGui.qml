@@ -61,7 +61,7 @@ Window {
 
             Text {
                 id: pognon
-                text: qsTr("10000")
+                text: bar.wallet
                 font.pixelSize: 30
                 anchors.verticalCenter: dollarImg.verticalCenter
             }
@@ -82,7 +82,7 @@ Window {
 
 
                 Text {
-                    text: qsTr("Commande à servir : ")
+                    text: qsTr("Evènement : ")
                     font.pixelSize: 20
                 }
 
@@ -121,16 +121,9 @@ Window {
                 color: "transparent"
             }
         }
-
-
-
-
-
-
-
-
-
     }
+
+
 
     Column {
         id: columnBrass
@@ -200,7 +193,7 @@ Window {
             }
             Text {
                 id: popularity
-                text: qsTr("10000")
+                text: bar.popularity
                 font.pixelSize: 30
                 anchors.verticalCenter: popularImg.verticalCenter
             }
@@ -264,27 +257,6 @@ Window {
                 color: "transparent"
             }
 
-
-
-
-
-
-
         }
-
-
-
-
-
-
-
     }
-
-
-
-
-
-
 }
-
-

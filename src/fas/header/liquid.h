@@ -10,6 +10,7 @@ class Liquid : public QObject
 
 public:
     explicit Liquid(QObject *parent = nullptr);
+    ~Liquid();
 
     double quantity() const;
     double quotient() const;

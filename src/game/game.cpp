@@ -6,41 +6,44 @@
 
 #include <QDebug>
 
-Game::~Game()
+#define FASTIME 120
+
+Game::Game()
 {
 
 }
 
-Game::Game(QString gameName, QString barAddress, QQmlContext *m_context)
-    : m_context(m_context),
-      m_name(gameName)
+Game::~Game()
 {
-    gameBar.setName(gameName);
-    gameBar.setAddress(barAddress);
+    delete m_bar;
+    delete m_fas;
+    delete m_modelBeer;
+}
+
+Game::Game(QQmlContext *context)
+    : m_context(context)
+{
 }
 
 void Game::init()
 {
 
-    m_fas = new FASGame(m_context.rootContext());
+    m_bar = stubBar();
+    m_fas = new FASGame(m_context, FASTIME);
     m_modelBeer = new ModelBeer();
 
-    m_context.rootContext()->setContextProperty("game", this);
-    m_context.rootContext()->setContextProperty("modelBeer", m_modelBeer);
+    m_context->setContextProperty("modelBeer", m_modelBeer);
+    m_context->setContextProperty("bar", m_bar);
 }
 
-QString Game::name() const
+FASGame *Game::fasgame()
 {
-    return m_name;
+    return m_fas;
 }
 
-void Game::setName(QString name)
+void Game::start()
 {
-    if (m_name == name)
-        return;
 
-    m_name = name;
-    emit nameChanged(m_name);
 }
 
 void Game::startFAS() {
@@ -49,7 +52,7 @@ void Game::startFAS() {
 }
 
 void Game::startNotebook() {
-    Stub::stubModel(m_modelBeer);
+    stubModel(m_modelBeer);
     emit switchToNotebook();
 }
 
@@ -58,7 +61,12 @@ void Game::startGame() {
 }
 
 void Game::createBeer(QString hopIng, QString maltyIng, int preparationTime, QString name) {
-    Beer *beer = BeerBuilder::createBeer(hopIng, maltyIng, preparationTime, name);
+    Beer *beer = buildBeer(hopIng, maltyIng, preparationTime, name);
     m_modelBeer->addBeer(beer);
+}
+
+void Game::fasGameEnd(int point)
+{
+    qDebug() << point;
 }
 

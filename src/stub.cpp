@@ -1,6 +1,6 @@
 #include "stub.h"
 
-void Stub::stubModel(ModelBeer *model) {
+void stubModel(ModelBeer *model) {
     model->addBeer(new Beer("Duff",20,34,1060,"dorée","pils",new Recipe(1)));
     model->addBeer(new Beer("Heineken",25,21,1060,"transparente","blonde",new Recipe(1)));
     model->addBeer(new Beer("Guinness Draught",15,42,1060,"noie","stout",new Recipe(3)));
@@ -13,4 +13,8 @@ void Stub::stubModel(ModelBeer *model) {
     model->addBeer(new Beer("Guinness Blonde American Lager",45,50,1060,"blanche","american lager",new Recipe(1)));
     model->addBeer(new Beer("Guinness Nitro IPA",70,58,1060,"blanche","ipa",new Recipe(2)));
     model->addBeer(new Beer("Guinness Special Export",20,80,1060,"noire","stout",new Recipe(3)));
+}
+
+Bar *stubBar() {
+    return new Bar("Le bon bar", 5, 1000, "7 Rue des clodos");
 }

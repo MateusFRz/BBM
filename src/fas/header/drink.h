@@ -14,10 +14,11 @@ class Drink : public QObject
 
 public:
     Drink(int delay);
+    ~Drink();
 
     int angle() const;
-    Q_INVOKABLE Liquid *foam() const;
-    Q_INVOKABLE Liquid *beer() const;
+    Q_INVOKABLE Liquid *foam();
+    Q_INVOKABLE Liquid *beer();
     void oneSecond();
 
     int x() const;
@@ -43,9 +44,9 @@ signals:
 
 private:
     int m_angle;
-    Liquid *m_foam;
-    Liquid *m_beer;
     int m_delay;
+    Liquid m_foam;
+    Liquid m_beer;
     int m_x;
     int m_y;
 };

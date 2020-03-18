@@ -1,10 +1,10 @@
-#include "header\beerbuilder.h"
+#include "header/beerbuilder.h"
 #include <QString>
 #include <QRandomGenerator>
 #include <QDebug>
 #include <vector>
 
-Beer * BeerBuilder::createBeer( QString hopIng,  QString maltyIng, int preparationTime, QString name)
+Beer *buildBeer( QString hopIng,  QString maltyIng, int preparationTime, QString name)
 {
     QString color = "";
     QString type = "";

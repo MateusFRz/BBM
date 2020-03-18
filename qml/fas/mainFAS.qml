@@ -5,8 +5,9 @@ import QtMultimedia 5.12
 
 Window {
     visible: true
-    width: 1024
-    height: 720
+    width: maximumWidth
+    height: maximumHeight
+    visibility: "FullScreen"
     title: qsTr("Fast And Service")
 
 
@@ -129,7 +130,7 @@ Window {
         source: "qrc:ressources/wood-texture.jpg"
 
         Glass {
-            z: 1
+            z: 11
         }
     }
 

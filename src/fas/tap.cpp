@@ -1,8 +1,8 @@
 #include "header/tap.h"
 
-Tap::Tap(QObject *parent)
+Tap::Tap(QObject *)
+    :m_actif(false)
 {
-
 }
 
 bool Tap::actif() const

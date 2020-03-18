@@ -1,12 +1,8 @@
 #ifndef ORDERGENERATOR_H
 #define ORDERGENERATOR_H
 
-#include "order.h"
+class Order;
+void generateOrder(Order & order);
 
-class OrderGenerator
-{
-public :
-    static Order *generateOrder();
-};
 
 #endif // ORDERGENERATOR_H

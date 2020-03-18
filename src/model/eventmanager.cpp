@@ -23,13 +23,19 @@ EventLauncher* EventManager::getRandomEvent()
     Event* event;
     
     switch (rand1) {
-        case 1 ... 2 :
+        case 1 :
+        case 2 :
             event = RandomEventFactory::createEvent(event::BLAZE);
             break;
-        case 3 ... 4 :
+        case 3 :
+        case 4 :
             event = RandomEventFactory::createEvent(event::COMPETITION);
             break;
-        case 5 ... 9 :
+        case 5 :
+        case 6 :
+        case 7 :
+        case 8 :
+        case 9 :
             event = RandomEventFactory::createEvent(event::BROKENEQUIPEMENT);
         break;
         case 10 ... 14 :

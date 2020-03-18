@@ -13,7 +13,7 @@ Beer* ModelBeer::getBeer(int row) {
 }
 
 
-int ModelBeer::rowCount(const QModelIndex &parent) const
+int ModelBeer::rowCount(const QModelIndex &) const
 {
     return m_beers.count();
 }

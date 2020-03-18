@@ -2,12 +2,20 @@
 #include <QDebug>
 
 Drink::Drink(int delay)
-    : m_delay(delay)
+    :
+        m_angle(1),
+        m_delay(delay),
+        m_foam(),
+        m_beer(),
+        m_x(0),
+        m_y(0)
 {
-    m_beer = new Liquid();
-    m_foam = new Liquid();
-
     reset();
+}
+
+Drink::~Drink()
+{
+    qDebug() << "here drink";
 }
 
 int Drink::angle() const
@@ -15,24 +23,26 @@ int Drink::angle() const
     return m_angle;
 }
 
-Liquid *Drink::beer() const
+ Liquid *Drink::beer()
 {
-    return m_beer;
+    return &m_beer;
 }
 
-Liquid *Drink::foam() const
+ Liquid *Drink::foam()
 {
-    return m_foam;
+    return &m_foam;
 }
 
 void Drink::oneSecond()
 {
-    m_foam->updateQuantity();
-    m_beer->updateQuantity();
+
+    m_foam.updateQuantity();
+    m_beer.updateQuantity();
 
 
-    if (m_foam->quantity() + m_beer->quantity() >= 100)
+    if (m_foam.quantity() + m_beer.quantity() >= 100) {
         emit full();
+    }
 }
 
 int Drink::x() const
@@ -47,8 +57,8 @@ int Drink::y() const
 
 void Drink::reset()
 {
-    m_beer->setQte(0);
-    m_foam->setQte(0);
+    m_beer.setQte(0);
+    m_foam.setQte(0);
     setAngle(0);
 }
 
@@ -60,22 +70,22 @@ void Drink::setAngle(int angle)
         m_angle = 0;
 
 
-    m_beer->setQuotient(19.*m_delay/1000.);
+    m_beer.setQuotient(19.*m_delay/1000.);
     if (m_angle <= 5 && m_angle >= -5)
     {
-        m_foam->setQuotient(7.*m_delay/1000);
+        m_foam.setQuotient(7.*m_delay/1000);
 
     } else if ((m_angle <= 30 && m_angle >= 40) || (m_angle <= 320 && m_angle >= 310)
              || (m_angle <= -30 && m_angle >= -40) || (m_angle <= -320 && m_angle >= -310))
     {
-        m_foam->setQuotient(1.*m_delay/1000);
+        m_foam.setQuotient(1.*m_delay/1000);
 
     } else if ((m_angle > 80 && m_angle < 280) || (m_angle > -80 && m_angle < -280))
     {
-        m_foam->setQuotient(-20.*m_delay/1000);
-        m_beer->setQuotient(-20.*m_delay/1000);
+        m_foam.setQuotient(-20.*m_delay/1000);
+        m_beer.setQuotient(-20.*m_delay/1000);
     } else  {
-        m_foam->setQuotient(2.5*m_delay/1000);
+        m_foam.setQuotient(2.5*m_delay/1000);
     }
 
     emit angleChanged(m_angle);

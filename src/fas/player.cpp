@@ -1,6 +1,7 @@
-#include "header\player.h"
+#include "header/player.h"
 
 Player::Player()
+    : m_point(0)
 {}
 
 int Player::point() const

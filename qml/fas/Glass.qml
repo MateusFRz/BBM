@@ -42,6 +42,7 @@ Rectangle {
 
         anchors.bottom: beer.top
         height: drink.foam().quantity * parent.height / 100
+
         width: parent.width - (parent.border.width*2)
         x: parent.border.width
 
