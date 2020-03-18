@@ -41,6 +41,7 @@ signals:
     void timeChanged(int time);
     void tapSelectedChanged(int tapSelected);
     void noSwitch();
+    void endGame(int point);
 
 private:
     void serverOrder();
@@ -55,8 +56,8 @@ private:
 
 
     Drink m_drink;
-    Tap * m_tap[NBTAP];
-    Player *m_player;
+    Tap * m_taps[NBTAP];
+    Player m_player;
 
     Order m_order;
     QQmlContext *m_context;

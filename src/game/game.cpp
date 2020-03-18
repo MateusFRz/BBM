@@ -34,6 +34,11 @@ void Game::init()
     m_context->setContextProperty("bar", m_bar);
 }
 
+void Game::start()
+{
+
+}
+
 void Game::startFAS() {
     m_fas->start(120);
     emit switchToFAS();

@@ -19,6 +19,7 @@ public:
     Game(QQmlContext *context);
     void init();
 
+    Q_INVOKABLE void start();
     Q_INVOKABLE void startFAS();
     Q_INVOKABLE void startNotebook();
     Q_INVOKABLE void startGame();
