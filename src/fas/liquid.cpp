@@ -1,10 +1,16 @@
 #include "header/liquid.h"
 
+#include <QDebug>
+
 Liquid::Liquid(QObject *parent)
     : QObject(parent),
       m_quantity(-1),
       m_quotient(1)
 {
+}
+
+Liquid::~Liquid() {
+    qDebug() << "here liquid";
 }
 
 double Liquid::quantity() const

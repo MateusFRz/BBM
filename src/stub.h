@@ -4,12 +4,7 @@
 #include "metier/header/modelBeer.h"
 #include "metier/header/bar.h"
 
-class Stub {
-
-
-public:
-    static void stubModel(ModelBeer *model);
-    static Bar * stubBar();
-};
+void stubModel(ModelBeer *model);
+Bar * stubBar();
 
 #endif // STUB_H

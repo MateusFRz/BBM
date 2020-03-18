@@ -26,7 +26,7 @@ Game::Game(QQmlContext *context)
 void Game::init()
 {
 
-    m_bar = Stub::stubBar();
+    m_bar = stubBar();
     m_fas = new FASGame(m_context);
     m_modelBeer = new ModelBeer();
 
@@ -40,7 +40,7 @@ void Game::startFAS() {
 }
 
 void Game::startNotebook() {
-    Stub::stubModel(m_modelBeer);
+    stubModel(m_modelBeer);
     emit switchToNotebook();
 }
 

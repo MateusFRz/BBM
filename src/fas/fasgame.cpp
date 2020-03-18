@@ -92,9 +92,11 @@ void FASGame::keyEventListener(int key)
 void FASGame::oneSecond()
 {
    setTime(time() - 1);
+
    m_order.oneSecond();
    if (m_tap[tapSelected()]->actif())
        m_drink.oneSecond();
+
 }
 
 void FASGame::setTapSelected(int tapSelected)
@@ -108,6 +110,8 @@ void FASGame::setTapSelected(int tapSelected)
 
 void FASGame::end()
 {
+    qDebug() << "Fin du jeu";
+
     m_finish = true;
     m_perSecond.stop();
     //emit un signal find du game et retour menu/jeu

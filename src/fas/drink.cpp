@@ -15,6 +15,7 @@ Drink::Drink(int delay)
 
 Drink::~Drink()
 {
+    qDebug() << "here drink";
 }
 
 int Drink::angle() const
@@ -34,12 +35,14 @@ int Drink::angle() const
 
 void Drink::oneSecond()
 {
+
     m_foam.updateQuantity();
     m_beer.updateQuantity();
 
 
-    if (m_foam.quantity() + m_beer.quantity() >= 100)
+    if (m_foam.quantity() + m_beer.quantity() >= 100) {
         emit full();
+    }
 }
 
 int Drink::x() const
