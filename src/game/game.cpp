@@ -6,6 +6,8 @@
 
 #include <QDebug>
 
+#define FASTIME 120
+
 Game::Game()
 {
 
@@ -27,11 +29,16 @@ void Game::init()
 {
 
     m_bar = stubBar();
-    m_fas = new FASGame(m_context);
+    m_fas = new FASGame(m_context, FASTIME);
     m_modelBeer = new ModelBeer();
 
     m_context->setContextProperty("modelBeer", m_modelBeer);
     m_context->setContextProperty("bar", m_bar);
+}
+
+FASGame *Game::fasgame()
+{
+    return m_fas;
 }
 
 void Game::start()
@@ -40,7 +47,7 @@ void Game::start()
 }
 
 void Game::startFAS() {
-    m_fas->start(120);
+    m_fas->start();
     emit switchToFAS();
 }
 
@@ -56,5 +63,10 @@ void Game::startGame() {
 void Game::createBeer(QString hopIng, QString maltyIng, int preparationTime, QString name) {
     Beer *beer = buildBeer(hopIng, maltyIng, preparationTime, name);
     m_modelBeer->addBeer(beer);
+}
+
+void Game::fasGameEnd(int point)
+{
+    qDebug() << point;
 }
 

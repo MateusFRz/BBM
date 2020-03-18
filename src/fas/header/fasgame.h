@@ -21,7 +21,7 @@ class FASGame : public QObject
     Q_PROPERTY(int time READ time WRITE setTime NOTIFY timeChanged)
     Q_PROPERTY(int tapSelected READ tapSelected WRITE setTapSelected NOTIFY tapSelectedChanged)
 public:
-    explicit FASGame(QQmlContext *context);
+    explicit FASGame(QQmlContext *context, int time);
 
     int time() const;
     bool isFinish();
@@ -35,7 +35,7 @@ public slots:
     void keyEventListener(int key);
     void oneSecond();
     void setTapSelected(int tapSelected);
-    void start(unsigned duration = 120);
+    void start();
 
 signals:
     void timeChanged(int time);

@@ -3,9 +3,9 @@
 
 #include <QDebug>
 
-FASGame::FASGame(QQmlContext *context)
+FASGame::FASGame(QQmlContext *context, int time)
     :
-      m_time(120 * 60),
+      m_time(time * 60),
       m_delay(1000/60),
       m_tapSelected(0),
       m_drink(m_delay),
@@ -43,7 +43,7 @@ bool FASGame::isFinish()
     return m_finish;
 }
 
-void FASGame::start(unsigned duration)
+void FASGame::start()
 {
     generateOrder(m_order);
 
@@ -59,7 +59,7 @@ void FASGame::start(unsigned duration)
         m_context->setContextProperty(s.c_str(), m_taps[i]);
     }
 
-    QTimer::singleShot(duration*1000, this, &FASGame::end);
+    QTimer::singleShot((m_time/60)*1000, this, &FASGame::end);
 
     m_perSecond.start(m_delay);
 }

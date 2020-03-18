@@ -50,6 +50,8 @@ int main(int argc, char *argv[])
             //Lance la game
     });
 
+    QObject::connect(game.fasgame(), &FASGame::endGame, &game, &Game::fasGameEnd);
+
     engine.load(url);
 
     return app.exec();

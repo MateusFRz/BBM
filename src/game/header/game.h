@@ -19,11 +19,14 @@ public:
     Game(QQmlContext *context);
     void init();
 
+    FASGame *fasgame();
+
     Q_INVOKABLE void start();
     Q_INVOKABLE void startFAS();
     Q_INVOKABLE void startNotebook();
     Q_INVOKABLE void startGame();
     Q_INVOKABLE void createBeer(QString hopIng, QString maltyIng, int preparationTime, QString name);
+    Q_INVOKABLE void fasGameEnd(int point);
 
 signals:
     void switchToFAS();
