@@ -64,7 +64,7 @@ void addIngredient(Ingredient *i){
 
 void addRecipe(Recipe *r){
     QSqlQuery basesql;
-    QString ask ="SELECT COUNT(*) FROM Beer WHERE IDbeer="+ QString::number(r->beerID())+";";
+    QString ask;// ="SELECT COUNT(*) FROM Beer WHERE IDbeer="+ QString::number(r->beerID())+";";
     basesql.exec(ask);
     int beer = 0;
     if(basesql.next() == true){
@@ -72,10 +72,10 @@ void addRecipe(Recipe *r){
         if(beer ==0){
              QTextStream(stdout) <<"Biere associe inexistante" << endl;
         }else{
-            QString query ="INSERT INTO Recipe (beerID, preperationTime) VALUES( '"+ QString::number(r->beerID()) +"' , '" + QString::number(r->preparationTime()) +"');";
+            QString query;// ="INSERT INTO Recipe (beerID, preperationTime) VALUES( '"+ QString::number(r->beerID()) +"' , '" + QString::number(r->preparationTime()) +"');";
             basesql.exec(query);
 
-            QString find ="SELECT IDrecipe FROM Recipe WHERE beerID ="+ QString::number(r->beerID())+";";
+            QString find ;//="SELECT IDrecipe FROM Recipe WHERE beerID ="+ QString::number(r->beerID())+";";
             basesql.exec(find);
             if(basesql.next() == true){
                 beer = basesql.value(0).toInt();
@@ -127,7 +127,7 @@ int loadbeer(Register *reg){
         QTextStream(stdout) << "ERROR : beer load fail " << endl;
     }
     while( basesql.next() ){
-        Beer * b= new Beer( basesql.value(1).toString(),basesql.value(3).toInt(),basesql.value(4).toInt(),basesql.value(5).toInt(),basesql.value(6).toString(),basesql.value(2).toString());
+        Beer * b;//= new Beer( basesql.value(1).toString(),basesql.value(3).toInt(),basesql.value(4).toInt(),basesql.value(5).toInt(),basesql.value(6).toString(),basesql.value(2).toString());
         reg->addBeer(b);
         lastBeer++;
     }
@@ -157,7 +157,7 @@ int loadrecipe(Register *reg){
         QTextStream(stdout) << "ERROR : recipe load fail " << endl;
     }
     while( basesql.next() ){
-         Recipe * r = new Recipe( basesql.value(1).toInt(), basesql.value(2).toInt());
+         Recipe * r ;//= new Recipe( basesql.value(1).toInt(), basesql.value(2).toInt());
          QString idrecipe = basesql.value(0).toString();
          QSqlQuery chercheingredient;
          QString query ="SELECT * FROM IngredientRecipe WHERE IDrecipe = "+idrecipe+";";
@@ -188,7 +188,7 @@ vector<int> load(Register *reg){
     fin.push_back(lIngredient);
     fin.push_back(lRecipe);
 
-    reg->show();
+    //reg->show();
     return fin;
 }
 

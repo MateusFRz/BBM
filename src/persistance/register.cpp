@@ -61,4 +61,4 @@ void Register::addRecipe(Recipe *recipe){
     for (int i = 0; i < listRecipe.size(); ++i) {
         QTextStream(stdout) << "\t"+ QString::number(i)+ " "+ listRecipe[i]->toString() << endl;
     }*/
-}
+
