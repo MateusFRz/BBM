@@ -43,7 +43,7 @@ QVariant ModelBeer::data(const QModelIndex &index, int role) const{
     case Qt::DisplayRole:
         return QVariant::fromValue(beer);
     }
-    throw "bug";
+    throw "ModelBeer::data  error";
 }
 
 bool ModelBeer::setData(const QModelIndex &index, const QVariant &value, int role)
