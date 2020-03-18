@@ -153,7 +153,6 @@ Column{
                 objectName: "name"
                 text: aleModel.beer?aleModel.beer.recipe.getListIngredient()[0]:"null"
                 maximumLength: txtInLgt
-                inputMask: "999"
             }
         }
 
