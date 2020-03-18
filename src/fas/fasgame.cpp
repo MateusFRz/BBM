@@ -10,7 +10,7 @@ FASGame::FASGame(QQmlContext *context)
       m_tapSelected(0),
       m_drink(m_delay),
       m_player(new Player()),
-      m_order(new Order(nullptr, 0)),
+      m_order(nullptr, 0),
       m_context(context),
       m_perSecond(this)
 {
@@ -21,7 +21,7 @@ FASGame::FASGame(QQmlContext *context)
 
     connect(&m_perSecond, &QTimer::timeout, this, &FASGame::oneSecond);
     connect(&m_drink, &Drink::full, this,  &FASGame::failOrder);
-    connect(m_order,  &Order::failed, this,&FASGame::failOrder);
+    connect(&m_order,  &Order::failed, this,&FASGame::failOrder);
 }
 
 int FASGame::time() const
@@ -45,13 +45,13 @@ bool FASGame::isFinish()
 
 void FASGame::start(unsigned duration)
 {
-    generateOrder(*m_order);
+    generateOrder(m_order);
 
     m_finish = false;
     m_start_serv = false;
 
     m_context->setContextProperty("fas", this);
-    m_context->setContextProperty("order", m_order);
+    m_context->setContextProperty("order", &m_order);
     m_context->setContextProperty("drink", &m_drink);
     m_context->setContextProperty("player", m_player);
     for (int i=0; i<NBTAP; i++) {
@@ -92,7 +92,7 @@ void FASGame::keyEventListener(int key)
 void FASGame::oneSecond()
 {
    setTime(time() - 1);
-   m_order->oneSecond();
+   m_order.oneSecond();
    if (m_tap[tapSelected()]->actif())
        m_drink.oneSecond();
 }
@@ -121,7 +121,6 @@ int FASGame::tapSelected() const
 FASGame::~FASGame()
 {
     delete m_player;
-    delete m_order;
 }
 
 void FASGame::failOrder()
@@ -135,7 +134,7 @@ void FASGame::failOrder()
 
 void FASGame::newOrder()
 {
-    generateOrder(*m_order);
+    generateOrder(m_order);
 }
 
 void FASGame::serverOrder()

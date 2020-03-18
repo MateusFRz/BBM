@@ -58,7 +58,7 @@ private:
     Tap * m_tap[NBTAP];
     Player *m_player;
 
-    Order *m_order;
+    Order m_order;
     QQmlContext *m_context;
     QTimer m_perSecond;
 };
