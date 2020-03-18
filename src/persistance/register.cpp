@@ -1,7 +1,4 @@
-#include "register.h"
-
-#include <iostream>
-#include <QTextStream>
+#include "header/register.h"
 
 Register::Register()
 {
@@ -51,7 +48,7 @@ void Register::addRecipe(Recipe *recipe){
 }
 
 
-void Register::show(){
+/*void Register::show(){
     QTextStream(stdout) << "liste ingredient : " << endl;
     for (int i = 0; i < listIngredient.size(); ++i) {
         QTextStream(stdout) <<  "\t"+ QString::number(i)+ " "+ listIngredient[i]->toString() << endl;
@@ -63,5 +60,5 @@ void Register::show(){
     QTextStream(stdout) << "liste recipe : " << endl;
     for (int i = 0; i < listRecipe.size(); ++i) {
         QTextStream(stdout) << "\t"+ QString::number(i)+ " "+ listRecipe[i]->toString() << endl;
-    }
+    }*/
 }

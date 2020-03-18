@@ -1,4 +1,5 @@
 QT += quick
+QT += sql
 
 CONFIG += c++11
 
@@ -17,6 +18,8 @@ QMAKE_CXXFLAGS += -Wno-unused-function
 
 SOURCES += \
         main.cpp \
+    persistance/persistance.cpp \
+    persistance/register.cpp \
     stub.cpp \
     game/game.cpp \
     metier/beerbuilder.cpp \
@@ -70,6 +73,8 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
+    persistance/header/persistance.h \
+    persistance/header/register.h \
     stub.h \
     game/header/game.h \
     metier/header/bar.h \

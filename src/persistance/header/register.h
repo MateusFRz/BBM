@@ -1,12 +1,11 @@
 #ifndef REGISTER_H
 #define REGISTER_H
 
-#include <QObject>
-#include "vector"
 
-#include"beer.h"
-#include"ingredient.h"
-#include"recipe.h"
+#include <QObject>
+#include <vector>
+
+#include "../../metier/header/beer.h"
 
 class Register : public QObject
 {
