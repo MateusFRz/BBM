@@ -47,15 +47,15 @@ private:
     void failOrder();
     void newOrder();
 
-    bool m_finish;
-    bool m_start_serv;
+    bool m_finish = false;
+    bool m_start_serv = false;
     int m_time;
     int m_delay;
     int m_tapSelected;
 
 
     Drink m_drink;
-    Tap *m_tap[NBTAP];
+    Tap * m_tap[NBTAP];
     Player *m_player;
 
     Order *m_order;

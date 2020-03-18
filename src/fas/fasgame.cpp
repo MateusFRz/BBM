@@ -7,6 +7,7 @@ FASGame::FASGame(QQmlContext *context)
     :
       m_time(120 * 60),
       m_delay(1000/60),
+      m_tapSelected(0),
       m_drink(m_delay),
       m_player(new Player()),
       m_order(new Order(nullptr, 0)),

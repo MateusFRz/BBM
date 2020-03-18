@@ -15,10 +15,7 @@ Rectangle {
             target: order
 
             onTimeChanged: {
-                let w = container.width
-                let r = w / (order.time/60 > 1 ? order.time/60 : 1)
-
-                wait.width = r
+                wait.width = container.width * ( (order.maxtime- order.time )/ order.maxtime )
             }
         }
 

@@ -9,4 +9,5 @@ void generateOrder(Order & order) {
     Beer *beer = new Beer("lofle", 0, 0, 0, "", "", new Recipe(5));
     order.setBeer(beer);
     order.setTime(time * 60);
+    order.setMaxtime(time * 60);
 }
