@@ -33,7 +33,7 @@ Rectangle {
         id: timeReaming
         anchors.top: title.bottom
 
-        text: "Time: " + Qt.formatTime(new Date(0, 0, 0, 0, 0, order.time/60), "ss") + " sec"
+        text: (order.time/60).toFixed(1) + " sec"
         color: "white"
         font.pointSize: 15
     }
